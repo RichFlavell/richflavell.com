@@ -29,6 +29,6 @@ declare module "styled-components" {
       }
     }
     spacing: ThemeSpatialOption
-    size: ThemeSpatialOption
+    size: ThemeSpatialOption & { logo: string }
   }
 }
