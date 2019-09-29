@@ -1,10 +1,20 @@
 import React from "react"
-import { Container } from "./style"
+import { Container, Inner, Logo, SubscribeButton } from "./style"
+import { Link } from "gatsby"
 
-const Header = () => (
-  <Container>
-    <h1>Hello world!</h1>
-  </Container>
-)
+const Header: React.FC = ({}) => {
+  return (
+    <Container>
+      <Inner>
+        <Logo>
+          <Link to="/">Rich Flavell</Link>
+        </Logo>
+        <SubscribeButton onClick={() => alert("Test")}>
+          {"Testing"}
+        </SubscribeButton>
+      </Inner>
+    </Container>
+  )
+}
 
 export default Header
