@@ -9,7 +9,7 @@ export const Container = styled.button<IContainerProps>`
   padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.lg};
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};
-  border: 2px solid ${props => props.theme.palette.border.primary};
+  border: 1px solid ${props => props.theme.palette.border.primary};
   border-radius: ${props => props.theme.spacing.sm};
   text-transform: uppercase;
   font-size: ${props => props.theme.size.md};

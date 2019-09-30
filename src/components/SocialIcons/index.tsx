@@ -1,25 +1,49 @@
 import React from "react"
-import { Container, IconContainer } from "./style"
+import { Container, IconContainer, IconLink } from "./style"
 
-const Facebook = require("../../icons/facebook.svg")
-const Twitter = require("../../icons/twitter.svg")
-const Instagram = require("../../icons/instagram.svg")
-const YouTube = require("../../icons/youtube.svg")
+const FacebookIcon = require("../../icons/facebook.svg")
+const TwitterIcon = require("../../icons/twitter.svg")
+const InstagramIcon = require("../../icons/instagram.svg")
+const YouTubeIcon = require("../../icons/youtube.svg")
 
 const SocialIcons: React.FC = ({}) => {
   return (
     <Container>
       <IconContainer>
-        <Facebook />
+        <IconLink
+          href="https://facebook.com/Rich.Flavell.9"
+          rel="me"
+          target="_blank"
+        >
+          <FacebookIcon />
+        </IconLink>
       </IconContainer>
       <IconContainer>
-        <Twitter />
+        <IconLink
+          href="https://twitter.com/RichFlavell"
+          rel="me"
+          target="_blank"
+        >
+          <TwitterIcon />
+        </IconLink>
       </IconContainer>
       <IconContainer>
-        <Instagram />
+        <IconLink
+          href="https://instagram.com/RichFlavell"
+          rel="me"
+          target="_blank"
+        >
+          <InstagramIcon />
+        </IconLink>
       </IconContainer>
       <IconContainer>
-        <YouTube />
+        <IconLink
+          href="https://youtube.com/c/RichFlavell"
+          rel="me"
+          target="_blank"
+        >
+          <YouTubeIcon />
+        </IconLink>
       </IconContainer>
     </Container>
   )

@@ -93,6 +93,7 @@ const Reset = css`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    stroke: inherit;
   }
 
   /* make sure to set some focus styles for accessibility */

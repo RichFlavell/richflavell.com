@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import MaterialIcon from "@material/react-material-icon"
+import Button from "../Button"
+import media from "styled-media-query"
 
 export const Container = styled.div`
   display: flex;
@@ -18,11 +20,26 @@ export const Inner = styled.div`
   align-items: center;
 `
 
-export const HeaderSection = styled.div`
+export const HeaderOuterSection = styled.div`
   width: 12.5%;
   display: flex;
   margin: auto;
   align-items: center;
+`
+
+export const HeaderInnerSection = styled.div`
+  width: 33%;
+  display: flex;
+  margin: auto;
+  align-items: center;
+
+  ${media.lessThan("medium")`
+    display: none;
+  `}
+`
+
+export const SubscribeButton = styled(Button)`
+  margin-left: auto;
 `
 
 export const Logo = styled.div`

@@ -2,9 +2,11 @@ import React from "react"
 import {
   Container,
   Inner,
-  HeaderSection,
+  HeaderOuterSection,
+  HeaderInnerSection,
   Logo,
   StyledIcon,
+  SubscribeButton,
   MenuIcon,
 } from "./style"
 import { Link } from "gatsby"
@@ -14,22 +16,26 @@ import SocialIcons from "../SocialIcons"
 const Header: React.FC = ({}) => {
   return (
     <Container>
-      <HeaderSection>
+      <HeaderOuterSection>
         <Button onClick={() => alert("Open sidebar")} borderless>
           <MenuIcon icon="menu" />
         </Button>
-      </HeaderSection>
+      </HeaderOuterSection>
       <Inner>
-        <SocialIcons />
+        <HeaderInnerSection>
+          <SocialIcons />
+        </HeaderInnerSection>
         <Logo>
           <Link to="/">Rich Flavell</Link>
         </Logo>
-        <Button onClick={() => alert("Subscribe")}>
-          <StyledIcon icon="mail_outline" />
-          &nbsp; {"Subscribe"}
-        </Button>
+        <HeaderInnerSection>
+          <SubscribeButton onClick={() => alert("Subscribe")}>
+            <StyledIcon icon="mail_outline" />
+            &nbsp; {"Subscribe"}
+          </SubscribeButton>
+        </HeaderInnerSection>
       </Inner>
-      <HeaderSection></HeaderSection>
+      <HeaderOuterSection></HeaderOuterSection>
     </Container>
   )
 }
