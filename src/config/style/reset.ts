@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components"
+import { css } from "styled-components"
 
-const Reset = createGlobalStyle`
+const Reset = css`
   /* http://meyerweb.com/eric/tools/css/reset/
     v2.0-modified | 20110126
     License: none (public domain)
@@ -93,6 +93,7 @@ const Reset = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    stroke: inherit;
   }
 
   /* make sure to set some focus styles for accessibility */
@@ -165,8 +166,8 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * Correct 'inline-block' display not defined in IE 6/7/8/9 and Firefox 3.
-  */
+   * Correct 'inline-block' display not defined in IE 6/7/8/9 and Firefox 3.
+   */
 
   audio,
   canvas,
@@ -178,9 +179,9 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * Prevent modern browsers from displaying 'audio' without controls.
-  * Remove excess height in iOS 5 devices.
-  */
+   * Prevent modern browsers from displaying 'audio' without controls.
+   * Remove excess height in iOS 5 devices.
+   */
 
   audio:not([controls]) {
     display: none;
@@ -188,38 +189,41 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
-  * Known issue: no IE 6 support.
-  */
+   * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+   * Known issue: no IE 6 support.
+   */
 
   [hidden] {
     display: none;
   }
 
   /**
-  * 1. Correct text resizing oddly in IE 6/7 when body 'font-size' is set using
-  *    'em' units.
-  * 2. Prevent iOS text size adjust after orientation change, without disabling
-  *    user zoom.
-  */
+   * 1. Correct text resizing oddly in IE 6/7 when body 'font-size' is set using
+   *    'em' units.
+   * 2. Prevent iOS text size adjust after orientation change, without disabling
+   *    user zoom.
+   */
 
   html {
-    font-size: 100%; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-    -ms-text-size-adjust: 100%; /* 2 */
+    font-size: 100%;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+    -ms-text-size-adjust: 100%;
+    /* 2 */
   }
 
   /**
-  * Address 'outline' inconsistency between Chrome and other browsers.
-  */
+   * Address 'outline' inconsistency between Chrome and other browsers.
+   */
 
   a:focus {
     outline: thin dotted;
   }
 
   /**
-  * Improve readability when focused and also mouse hovered in all browsers.
-  */
+   * Improve readability when focused and also mouse hovered in all browsers.
+   */
 
   a:active,
   a:hover {
@@ -227,34 +231,36 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * 1. Remove border when inside 'a' element in IE 6/7/8/9 and Firefox 3.
-  * 2. Improve image quality when scaled in IE 7.
-  */
+   * 1. Remove border when inside 'a' element in IE 6/7/8/9 and Firefox 3.
+   * 2. Improve image quality when scaled in IE 7.
+   */
 
   img {
-    border: 0; /* 1 */
-    -ms-interpolation-mode: bicubic; /* 2 */
+    border: 0;
+    /* 1 */
+    -ms-interpolation-mode: bicubic;
+    /* 2 */
   }
 
   /**
-  * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
-  */
+   * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+   */
 
   figure {
     margin: 0;
   }
 
   /**
-  * Correct margin displayed oddly in IE 6/7.
-  */
+   * Correct margin displayed oddly in IE 6/7.
+   */
 
   form {
     margin: 0;
   }
 
   /**
-  * Define consistent border, margin, and padding.
-  */
+   * Define consistent border, margin, and padding.
+   */
 
   fieldset {
     border: 1px solid #c0c0c0;
@@ -263,39 +269,46 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * 1. Correct color not being inherited in IE 6/7/8/9.
-  * 2. Correct text not wrapping in Firefox 3.
-  * 3. Correct alignment displayed oddly in IE 6/7.
-  */
+   * 1. Correct color not being inherited in IE 6/7/8/9.
+   * 2. Correct text not wrapping in Firefox 3.
+   * 3. Correct alignment displayed oddly in IE 6/7.
+   */
 
   legend {
-    border: 0; /* 1 */
+    border: 0;
+    /* 1 */
     padding: 0;
-    white-space: normal; /* 2 */
-    *margin-left: -7px; /* 3 */
+    white-space: normal;
+    /* 2 */
+    *margin-left: -7px;
+    /* 3 */
   }
 
   /**
-  * 1. Correct font size not being inherited in all browsers.
-  * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
-  *    and Chrome.
-  * 3. Improve appearance and consistency in all browsers.
-  */
+   * 1. Correct font size not being inherited in all browsers.
+   * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+   *    and Chrome.
+   * 3. Improve appearance and consistency in all browsers.
+   */
 
   button,
   input,
   select,
   textarea {
-    font-size: 100%; /* 1 */
-    margin: 0; /* 2 */
-    vertical-align: baseline; /* 3 */
-    *vertical-align: middle; /* 3 */
+    font-size: 100%;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+    vertical-align: baseline;
+    /* 3 */
+    *vertical-align: middle;
+    /* 3 */
   }
 
   /**
-  * Address Firefox 3+ setting 'line-height' on 'input' using '!important' in
-  * the UA stylesheet.
-  */
+   * Address Firefox 3+ setting 'line-height' on 'input' using '!important' in
+   * the UA stylesheet.
+   */
 
   button,
   input {
@@ -303,11 +316,11 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * Address inconsistent 'text-transform' inheritance for 'button' and 'select'.
-  * All other form control elements do not inherit 'text-transform' values.
-  * Correct 'button' style inheritance in Chrome, Safari 5+, and IE 6+.
-  * Correct 'select' style inheritance in Firefox 4+ and Opera.
-  */
+   * Address inconsistent 'text-transform' inheritance for 'button' and 'select'.
+   * All other form control elements do not inherit 'text-transform' values.
+   * Correct 'button' style inheritance in Chrome, Safari 5+, and IE 6+.
+   * Correct 'select' style inheritance in Firefox 4+ and Opera.
+   */
 
   button,
   select {
@@ -315,27 +328,31 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native 'audio'
-  *    and 'video' controls.
-  * 2. Correct inability to style clickable 'input' types in iOS.
-  * 3. Improve usability and consistency of cursor style between image-type
-  *    'input' and others.
-  * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
-  *    Known issue: inner spacing remains in IE 6.
-  */
+   * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native 'audio'
+   *    and 'video' controls.
+   * 2. Correct inability to style clickable 'input' types in iOS.
+   * 3. Improve usability and consistency of cursor style between image-type
+   *    'input' and others.
+   * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+   *    Known issue: inner spacing remains in IE 6.
+   */
 
   button,
-  html input[type="button"], /* 1 */
-  input[type="reset"],
-  input[type="submit"] {
-    -webkit-appearance: button; /* 2 */
-    cursor: pointer; /* 3 */
-    *overflow: visible; /* 4 */
+html input[type="button"],
+/* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    /* 2 */
+    cursor: pointer;
+    /* 3 */
+    *overflow: visible;
+    /* 4 */
   }
 
   /**
-  * Re-set default cursor for disabled elements.
-  */
+   * Re-set default cursor for disabled elements.
+   */
 
   button[disabled],
   html input[disabled] {
@@ -343,37 +360,43 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * 1. Address box sizing set to content-box in IE 8/9.
-  * 2. Remove excess padding in IE 8/9.
-  * 3. Remove excess padding in IE 7.
-  *    Known issue: excess padding remains in IE 6.
-  */
+   * 1. Address box sizing set to content-box in IE 8/9.
+   * 2. Remove excess padding in IE 8/9.
+   * 3. Remove excess padding in IE 7.
+   *    Known issue: excess padding remains in IE 6.
+   */
 
   input[type="checkbox"],
   input[type="radio"] {
-    box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */
+    *height: 13px;
+    /* 3 */
+    *width: 13px;
+    /* 3 */
   }
 
   /**
-  * 1. Address 'appearance' set to 'searchfield' in Safari 5 and Chrome.
-  * 2. Address 'box-sizing' set to 'border-box' in Safari 5 and Chrome
-  *    (include '-moz' to future-proof).
-  */
+   * 1. Address 'appearance' set to 'searchfield' in Safari 5 and Chrome.
+   * 2. Address 'box-sizing' set to 'border-box' in Safari 5 and Chrome
+   *    (include '-moz' to future-proof).
+   */
 
   input[type="search"] {
-    -webkit-appearance: textfield; /* 1 */
+    -webkit-appearance: textfield;
+    /* 1 */
     -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; /* 2 */
+    -webkit-box-sizing: content-box;
+    /* 2 */
     box-sizing: content-box;
   }
 
   /**
-  * Remove inner padding and search cancel button in Safari 5 and Chrome
-  * on OS X.
-  */
+   * Remove inner padding and search cancel button in Safari 5 and Chrome
+   * on OS X.
+   */
 
   input[type="search"]::-webkit-search-cancel-button,
   input[type="search"]::-webkit-search-decoration {
@@ -381,8 +404,8 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * Remove inner padding and border in Firefox 3+.
-  */
+   * Remove inner padding and border in Firefox 3+.
+   */
 
   button::-moz-focus-inner,
   input::-moz-focus-inner {
@@ -391,18 +414,20 @@ const Reset = createGlobalStyle`
   }
 
   /**
-  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
-  * 2. Improve readability and alignment in all browsers.
-  */
+   * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+   * 2. Improve readability and alignment in all browsers.
+   */
 
   textarea {
-    overflow: auto; /* 1 */
-    vertical-align: top; /* 2 */
+    overflow: auto;
+    /* 1 */
+    vertical-align: top;
+    /* 2 */
   }
 
   /**
-  * Remove most spacing between table cells.
-  */
+   * Remove most spacing between table cells.
+   */
 
   table {
     border-collapse: collapse;
