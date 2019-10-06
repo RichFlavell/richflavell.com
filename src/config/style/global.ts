@@ -7,6 +7,12 @@ const Global = createGlobalStyle`
   ${Reset}
   ${MaterialIcon}
 
+  html {
+    width: 100%;
+    height: 100%;
+    background-color: ${props => props.theme.palette.text.primary};
+  }
+
   * {
     @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
     @import url("https://fonts.googleapis.com/css?family=Romanesco&display=swap");
@@ -25,7 +31,13 @@ const Global = createGlobalStyle`
   }
 
   body {
-    background-color: ${props => props.theme.palette.background.secondary};
+    width: 100%;
+    height: 100%;
+  }
+
+  #___gatsby, #gatsby-focus-wrapper {
+    width: 100%; 
+    height: 100%;
   }
 `
 

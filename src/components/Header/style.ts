@@ -6,7 +6,7 @@ import media from "styled-media-query"
 export const Container = styled.div`
   display: flex;
   margin: auto;
-  padding: ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.md};
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};
   border-bottom: 2px solid ${props => props.theme.palette.border.secondary};

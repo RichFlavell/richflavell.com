@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import {
   Container,
   Inner,
@@ -12,12 +12,17 @@ import {
 import { Link } from "gatsby"
 import Button from "../Button"
 import SocialIcons from "../SocialIcons"
+import { SidebarContext } from "../../context/SidebarContext"
 
 const Header: React.FC = ({}) => {
+  const sidebarContext = useContext(SidebarContext)
   return (
     <Container>
       <HeaderOuterSection>
-        <Button onClick={() => alert("Open sidebar")} borderless>
+        <Button
+          onClick={() => sidebarContext.dispatch({ type: "TOGGLE_SIDEBAR" })}
+          borderless
+        >
           <MenuIcon icon="menu" />
         </Button>
       </HeaderOuterSection>
