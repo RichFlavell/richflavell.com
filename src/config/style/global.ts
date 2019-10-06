@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
+import MaterialIcon from "@material/react-material-icon"
 import Reset from "./reset"
-import MaterialIcon from "@material/react-material-icon/dist/material-icon.css"
 
 const Global = createGlobalStyle`
   ${Reset}

@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
-import { Container } from "./style"
-import { MenuIcon } from "../Header/style"
 import Button from "../Button"
+import { MenuIcon } from "../Header/style"
+import { Container } from "./style"
 
 const Sidebar: React.FC = ({}) => {
   const sidebarContext = useContext(SidebarContext)
@@ -13,7 +13,7 @@ const Sidebar: React.FC = ({}) => {
     >
       <Button
         onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-        borderless
+        borderless={true}
       >
         <MenuIcon icon="menu" />
       </Button>

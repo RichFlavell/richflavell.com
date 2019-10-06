@@ -1,6 +1,6 @@
-import React, { useReducer, createContext, Dispatch } from "react"
+import React, { createContext, Dispatch, useReducer } from "react"
 
-type Action = {
+interface IAction {
   type: "OPEN_SIDERBAR" | "CLOSE_SIDEBAR" | "TOGGLE_SIDEBAR"
 }
 
@@ -14,12 +14,12 @@ const initialState: IState = {
 
 interface ISidebarContextProps {
   state: IState
-  dispatch: Dispatch<Action>
+  dispatch: Dispatch<IAction>
 }
 
 export const SidebarContext = createContext({} as ISidebarContextProps)
 
-function reducer(state: IState, action: Action) {
+function reducer(state: IState, action: IAction) {
   switch (action.type) {
     case "OPEN_SIDERBAR":
       return { isOpen: true }
@@ -30,7 +30,7 @@ function reducer(state: IState, action: Action) {
   }
 }
 
-const SidebarContextProvider = ({ children }) => {
+const SidebarContextProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <SidebarContext.Provider value={{ state, dispatch }}>
