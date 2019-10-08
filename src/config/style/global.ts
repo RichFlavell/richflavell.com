@@ -1,11 +1,17 @@
 import { createGlobalStyle } from "styled-components"
 
+import MaterialIcon from "@material/react-material-icon"
 import Reset from "./reset"
-import MaterialIcon from "@material/react-material-icon/dist/material-icon.css"
 
 const Global = createGlobalStyle`
   ${Reset}
-  ${MaterialIcon}
+  ${MaterialIcon.toString()}
+
+  html {
+    width: 100%;
+    height: 100%;
+    background-color: ${props => props.theme.palette.text.primary};
+  }
 
   * {
     @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
@@ -25,7 +31,13 @@ const Global = createGlobalStyle`
   }
 
   body {
-    background-color: ${props => props.theme.palette.background.secondary};
+    width: 100%;
+    height: 100%;
+  }
+
+  #___gatsby, #gatsby-focus-wrapper {
+    width: 100%; 
+    height: 100%;
   }
 `
 

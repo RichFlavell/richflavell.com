@@ -1,7 +1,7 @@
 import React from "react"
 
 const Index: React.FC = ({}) => {
-  return <>Hello world!</>
+  return <></>
 }
 
 export default Index

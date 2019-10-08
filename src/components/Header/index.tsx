@@ -1,23 +1,28 @@
-import React from "react"
-import {
-  Container,
-  Inner,
-  HeaderOuterSection,
-  HeaderInnerSection,
-  Logo,
-  StyledIcon,
-  SubscribeButton,
-  MenuIcon,
-} from "./style"
 import { Link } from "gatsby"
+import React, { useContext } from "react"
+import { SidebarContext } from "../../context/SidebarContext"
 import Button from "../Button"
 import SocialIcons from "../SocialIcons"
+import {
+  Container,
+  HeaderInnerSection,
+  HeaderOuterSection,
+  Inner,
+  Logo,
+  MenuIcon,
+  StyledIcon,
+  SubscribeButton,
+} from "./style"
 
 const Header: React.FC = ({}) => {
+  const sidebarContext = useContext(SidebarContext)
   return (
     <Container>
       <HeaderOuterSection>
-        <Button onClick={() => alert("Open sidebar")} borderless>
+        <Button
+          onClick={() => sidebarContext.dispatch({ type: "TOGGLE_SIDEBAR" })}
+          borderless={true}
+        >
           <MenuIcon icon="menu" />
         </Button>
       </HeaderOuterSection>
@@ -35,7 +40,7 @@ const Header: React.FC = ({}) => {
           </SubscribeButton>
         </HeaderInnerSection>
       </Inner>
-      <HeaderOuterSection></HeaderOuterSection>
+      <HeaderOuterSection />
     </Container>
   )
 }
