@@ -50,12 +50,11 @@
   ],
   "scripts": {
     "build": "tsc -b",
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project ."
+    "lint": "tslint --project . --fix"
   }
 }

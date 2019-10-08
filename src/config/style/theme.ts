@@ -13,8 +13,8 @@ const Theme: DefaultTheme = {
       primary: "#9487B7",
     },
     border: {
-      primary: "#757575",
-      secondary: "F4F5F9",
+      primary: "#F6F7FB",
+      secondary: "#F4F5F9",
     },
     brand: {
       facebook: "#3B5998",
@@ -31,9 +31,9 @@ const Theme: DefaultTheme = {
     xl: "32px",
   },
   size: {
-    xs: "8px",
-    sm: "10px",
-    md: "12px",
+    xs: "10px",
+    sm: "12px",
+    md: "14px",
     lg: "18px",
     xl: "24px",
     logo: "64px",

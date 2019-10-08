@@ -5,7 +5,7 @@ import Reset from "./reset"
 
 const Global = createGlobalStyle`
   ${Reset}
-  ${MaterialIcon}
+  ${MaterialIcon.toString()}
 
   html {
     width: 100%;
