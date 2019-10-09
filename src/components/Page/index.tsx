@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import { Container } from "./style"
 
-const Root: React.FC = ({ children }) => {
+const Page: React.FC = ({ children }) => {
   const sidebarContext = useContext(SidebarContext)
   return (
     <Container isSidebarOpen={sidebarContext.state.isOpen}>
@@ -11,4 +11,4 @@ const Root: React.FC = ({ children }) => {
   )
 }
 
-export default Root
+export default Page
