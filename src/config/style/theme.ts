@@ -7,8 +7,8 @@ export const Default: DefaultTheme = {
       secondary: "#F6F7FB",
     },
     text: {
-      primary: "#404040",
-      secondary: "#747576",
+      primary: "#757575",
+      secondary: "#404040",
     },
     link: {
       primary: "#9487B7",
@@ -50,6 +50,7 @@ export const Dark: DefaultTheme = {
     },
     text: {
       primary: "#F1F1EF",
+      secondary: "#F1F1EF",
     },
     link: {
       primary: "#DEC79B",
