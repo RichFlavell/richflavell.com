@@ -12,7 +12,7 @@ export const Container = styled.button<IContainerProps>`
   border: 1px solid ${props => props.theme.palette.text.primary};
   border-radius: ${props => props.theme.spacing.sm};
   text-transform: uppercase;
-  font-size: ${props => props.theme.size.sm};
+  font-size: ${props => props.theme.size.xs};
   transition: color 0.1s linear;
   display: flex;
   align-items: center;

@@ -17,7 +17,6 @@ const Global = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
     @import url("https://fonts.googleapis.com/css?family=Romanesco&display=swap");
     @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-    font-family: 'Lato', sans-serif;
   }
 
   a { 
@@ -33,6 +32,7 @@ const Global = createGlobalStyle`
   body {
     width: 100%;
     height: 100%;
+    font-family: 'Lato', sans-serif;
   }
 
   #___gatsby, #gatsby-focus-wrapper {

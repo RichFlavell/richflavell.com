@@ -50,9 +50,9 @@ export const Logo = styled.div`
 `
 
 export const StyledIcon = styled(MaterialIcon)`
-  font-size: ${props => props.theme.size.lg};
+  font-size: ${props => props.theme.size.md};
 `
 
 export const MenuIcon = styled(MaterialIcon)`
-  font-size: ${props => props.theme.size.xl};
+  font-size: ${props => props.theme.size.lg};
 `

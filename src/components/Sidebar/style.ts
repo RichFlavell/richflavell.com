@@ -12,7 +12,7 @@ export const Container = styled.div<IContainerProps>`
   width: 300px;
   height: 100%;
   background-color: ${props => props.theme.palette.background.primary};
-  transition: all 0.1s linear;
+  transition: all 0.2s linear;
   padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.lg};
   color: ${props => props.theme.palette.text.primary};
   ${props =>
@@ -43,7 +43,7 @@ export const Items = styled.ul`
 `
 
 export const Item = styled.li`
-  font-size: ${props => props.theme.size.md};
+  font-size: ${props => props.theme.size.sm};
 
   border-bottom: 1px solid ${props => props.theme.palette.background.secondary};
   font-family: "Lato", sans-serif;

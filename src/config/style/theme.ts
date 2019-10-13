@@ -1,13 +1,14 @@
 import { DefaultTheme } from "styled-components"
 
-const Theme: DefaultTheme = {
+export const Default: DefaultTheme = {
   palette: {
     background: {
       primary: "#FFFFFF",
       secondary: "#F6F7FB",
     },
     text: {
-      primary: "#757575",
+      primary: "#404040",
+      secondary: "#747576",
     },
     link: {
       primary: "#9487B7",
@@ -31,13 +32,34 @@ const Theme: DefaultTheme = {
     xl: "32px",
   },
   size: {
-    xs: "10px",
-    sm: "12px",
-    md: "14px",
-    lg: "18px",
-    xl: "24px",
+    xs: "12px",
+    sm: "14px",
+    md: "18px",
+    lg: "24px",
+    xl: "38px",
     logo: "64px",
   },
 }
 
-export default Theme
+export const Dark: DefaultTheme = {
+  ...Default,
+  palette: {
+    background: {
+      primary: "#202121",
+      secondary: "#252626",
+    },
+    text: {
+      primary: "#F1F1EF",
+    },
+    link: {
+      primary: "#DEC79B",
+    },
+    border: {
+      primary: "#F1F1EF",
+      secondary: "#F1F1EF",
+    },
+    brand: Default.palette.brand,
+  },
+}
+
+export default Default
