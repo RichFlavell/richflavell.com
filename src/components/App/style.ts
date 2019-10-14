@@ -7,7 +7,7 @@ interface ILoadingWrapperProps {
 export const LoadingWrapper = styled.div<ILoadingWrapperProps>`
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;

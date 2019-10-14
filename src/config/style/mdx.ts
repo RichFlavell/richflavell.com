@@ -16,7 +16,18 @@ const SubTitle = styled.h2`
   line-height: ${props => props.theme.size.lg};
 `
 
+const Body = styled.p`
+  font-weight: lighter;
+  line-height: ${props => props.theme.spacing.xl};
+  font-size: ${props => props.theme.size.md};
+  color: ${props => props.theme.palette.text.secondary};
+  max-width: 1024px;
+  margin: auto;
+  margin-top: ${props => props.theme.spacing.lg};
+`
+
 export const components = {
   h1: Title,
   h2: SubTitle,
+  p: Body,
 } as Components
