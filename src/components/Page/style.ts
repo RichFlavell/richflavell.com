@@ -4,6 +4,8 @@ interface IContainerProps {
   isSidebarOpen: boolean
 }
 export const Container = styled.div<IContainerProps>`
+  display: flex;
+  flex-direction: column;
   min-width: 100%;
   min-height: 100%;
   background-color: ${props => props.theme.palette.background.secondary};

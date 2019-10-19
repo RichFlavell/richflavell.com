@@ -3,9 +3,8 @@ import styled from "styled-components"
 import media from "styled-media-query"
 import Button from "../Button"
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
-  margin: auto;
   padding: ${props => props.theme.spacing.md};
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};

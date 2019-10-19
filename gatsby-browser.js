@@ -5,6 +5,7 @@ import App from "./src/components/App"
 import Page from "./src/components/Page"
 
 import Header from "./src/components/Header"
+import Footer from "./src/components/Footer"
 import Sidebar from "./src/components/Sidebar"
 
 export const wrapRootElement = ({ element }) => {
@@ -23,6 +24,8 @@ export const wrapPageElement = ({ element }) => {
       <Page>
         <Header />
         {element}
+        <br />
+        <Footer />
       </Page>
     </>
   )
