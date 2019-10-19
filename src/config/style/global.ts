@@ -10,11 +10,10 @@ const Global = createGlobalStyle`
   html {
     width: 100%;
     height: 100%;
-    background-color: ${props => props.theme.palette.text.primary};
   }
 
   * {
-    @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
     @import url("https://fonts.googleapis.com/css?family=Romanesco&display=swap");
     @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
   }

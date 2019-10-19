@@ -7,7 +7,7 @@ interface ILoadingWrapperProps {
 export const LoadingWrapper = styled.div<ILoadingWrapperProps>`
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -16,6 +16,7 @@ export const LoadingWrapper = styled.div<ILoadingWrapperProps>`
   align-items: center;
   background-color: ${props => props.background};
   transition: all 0.2s linear;
+  z-index: 10;
 
   ${props =>
     props.hidden
