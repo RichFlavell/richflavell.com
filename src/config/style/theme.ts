@@ -14,7 +14,7 @@ export const Default: DefaultTheme = {
       primary: "#9487B7",
     },
     border: {
-      primary: "#F6F7FB",
+      primary: "#757575",
       secondary: "#F4F5F9",
     },
     brand: {

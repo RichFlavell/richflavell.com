@@ -6,7 +6,7 @@ import Button from "../Button"
 interface IContainerProps {
   isOpen: boolean
 }
-export const Container = styled.div<IContainerProps>`
+export const Container = styled.section<IContainerProps>`
   position: fixed;
   z-index: 2;
   width: 300px;
@@ -56,7 +56,7 @@ export const MenuLink = styled(Link)`
   padding: ${props => props.theme.spacing.lg} 0px;
 `
 
-export const ActionsTitle = styled.span`
+export const ActionsTitle = styled.h1`
   font-family: "Lato", sans-serif;
   letter-spacing: 2px;
 `

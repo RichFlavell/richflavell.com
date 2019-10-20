@@ -5,7 +5,7 @@ const Title = styled.h1`
   font-size: ${props => props.theme.size.xl};
   color: ${props => props.theme.palette.text.secondary};
   margin: auto;
-  margin-bottom: ${props => props.theme.spacing.lg};
+  margin-bottom: ${props => props.theme.spacing.md};
 `
 
 const SubTitle = styled.h2`
@@ -21,7 +21,7 @@ const Body = styled.p`
   line-height: ${props => props.theme.spacing.xl};
   font-size: ${props => props.theme.size.md};
   color: ${props => props.theme.palette.text.secondary};
-  max-width: 1024px;
+  max-width: 980px;
   margin: auto;
   margin-top: ${props => props.theme.spacing.lg};
 `
