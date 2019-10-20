@@ -1,8 +1,15 @@
 import React from "react"
-import { Container } from "./style"
+import { Container, Holder, Right } from "./style"
 
 const Footer: React.FC = ({}) => {
-  return <Container>Rich Flavell © 2019. All rights reserved</Container>
+  return (
+    <Holder>
+      <Container>
+        Rich Flavell © {new Date().getFullYear()}. All rights reserved
+        <Right>English &nbsp;//&nbsp; 日本語</Right>
+      </Container>
+    </Holder>
+  )
 }
 
 export default Footer

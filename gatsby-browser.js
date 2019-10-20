@@ -24,7 +24,6 @@ export const wrapPageElement = ({ element }) => {
       <Page>
         <Header />
         {element}
-        <br />
         <Footer />
       </Page>
     </>

@@ -15,7 +15,7 @@ const SocialIcons: React.FC = ({}) => {
           rel="me"
           target="_blank"
         >
-          <FacebookIcon />
+          <FacebookIcon width="34" height="34" />
         </IconLink>
       </IconContainer>
       <IconContainer>
@@ -24,7 +24,7 @@ const SocialIcons: React.FC = ({}) => {
           rel="me"
           target="_blank"
         >
-          <TwitterIcon />
+          <TwitterIcon width="34" height="34" />
         </IconLink>
       </IconContainer>
       <IconContainer>
@@ -33,7 +33,7 @@ const SocialIcons: React.FC = ({}) => {
           rel="me"
           target="_blank"
         >
-          <InstagramIcon />
+          <InstagramIcon width="34" height="34" />
         </IconLink>
       </IconContainer>
       <IconContainer>
@@ -42,7 +42,7 @@ const SocialIcons: React.FC = ({}) => {
           rel="me"
           target="_blank"
         >
-          <YouTubeIcon />
+          <YouTubeIcon width="34" height="34" />
         </IconLink>
       </IconContainer>
     </Container>
