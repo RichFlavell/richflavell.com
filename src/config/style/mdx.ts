@@ -1,14 +1,14 @@
 import { Components } from "@mdx-js/react"
 import styled from "styled-components"
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: ${props => props.theme.size.xl};
   color: ${props => props.theme.palette.text.secondary};
   margin: auto;
   margin-bottom: ${props => props.theme.spacing.md};
 `
 
-const SubTitle = styled.h2`
+export const SubTitle = styled.h2`
   font-size: ${props => props.theme.size.md};
   font-weight: lighter;
   color: ${props => props.theme.palette.text.primary};
@@ -16,7 +16,7 @@ const SubTitle = styled.h2`
   line-height: ${props => props.theme.size.lg};
 `
 
-const Body = styled.p`
+export const Body = styled.p`
   font-weight: lighter;
   line-height: ${props => props.theme.spacing.xl};
   font-size: ${props => props.theme.size.md};
