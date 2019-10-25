@@ -38,6 +38,14 @@ const Global = createGlobalStyle`
     width: 100%; 
     height: 100%;
   }
+
+  .gatsby-resp-image-background-image {
+    position: absolute !important;
+  }
+
+  .gatsby-resp-image-image {
+    position: static;
+  }
 `
 
 export default Global

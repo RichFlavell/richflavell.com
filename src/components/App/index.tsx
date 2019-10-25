@@ -1,6 +1,6 @@
 import { MDXProvider } from "@mdx-js/react"
 import React, { useState } from "react"
-import { PacmanLoader } from "react-spinners"
+import { CircleLoader } from "react-spinners"
 import { ThemeProvider } from "styled-components"
 import { components } from "../../config/style/mdx"
 import { Dark, Default } from "../../config/style/theme"
@@ -15,13 +15,19 @@ const App: React.FC = ({ children }) => {
   const themeVariant =
     theme === "light" || process.env.NODE_ENV === "development" ? Default : Dark
 
-  setTimeout(() => {
-    setIsLoading(false)
-  }, 2500)
+  setTimeout(
+    () => {
+      setIsLoading(false)
+    },
+    process.env.NODE_ENV === "development" ? 0 : 2500
+  )
 
-  setTimeout(() => {
-    setIsWrapperVisible(false)
-  }, 2000)
+  setTimeout(
+    () => {
+      setIsWrapperVisible(false)
+    },
+    process.env.NODE_ENV === "development" ? 0 : 2500
+  )
 
   if (!componentMounted) {
     return (
@@ -29,7 +35,7 @@ const App: React.FC = ({ children }) => {
         background={themeVariant.palette.background.primary}
         hidden={!isWrapperVisible}
       >
-        <PacmanLoader
+        <CircleLoader
           color={themeVariant.palette.text.primary}
           loading={true}
         />
@@ -45,7 +51,7 @@ const App: React.FC = ({ children }) => {
             background={themeVariant.palette.background.primary}
             hidden={!isWrapperVisible}
           >
-            <PacmanLoader
+            <CircleLoader
               color={themeVariant.palette.text.primary}
               loading={true}
             />
