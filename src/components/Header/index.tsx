@@ -36,7 +36,7 @@ const Header: React.FC = ({}) => {
         <HeaderInnerSection>
           <SubscribeButton onClick={() => alert("Subscribe")}>
             <StyledIcon icon="mail_outline" />
-            &nbsp; {"Subscribe"}
+            {"Subscribe"}
           </SubscribeButton>
         </HeaderInnerSection>
       </Inner>

@@ -2,49 +2,35 @@ import React from "react"
 
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { Title } from "../../config/style/mdx"
 import { ArticleQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
-import { IImageProps, MDXSharpImg, MDXSrcImg, safeFluid } from "../Images"
-import { Container } from "./style"
+import { parseImage } from "../Images"
+import { Container, FeaturedImageContainer } from "./style"
 
 interface IArticleProps {
   data: ArticleQuery
 }
 const Article: React.FC<IArticleProps> = ({ data }) => {
   const { frontmatter, body } = safe(data.mdx)
-  const { images } = safe(frontmatter)
+  const { customHeading, title, images, featuredImage } = safe(frontmatter)
 
-  const imgs: { [k: string]: React.ReactNode } = {}
+  const parsedImages: { [key: string]: React.ReactNode } = {}
   if (images) {
     images.forEach((image, i) => {
-      const { childImageSharp: c, publicURL } = safe(image)
-      const { fluid: f } = safe(c)
-      imgs[`image${i + 1}`] = ({
-        width,
-        round,
-        align = "center",
-      }: IImageProps) =>
-        f ? (
-          <MDXSharpImg
-            width={width}
-            round={round}
-            align={align}
-            fluid={safeFluid(f)}
-          />
-        ) : (
-          <MDXSrcImg
-            width={width}
-            round={round}
-            align={align}
-            src={publicURL || undefined}
-          />
-        )
+      parsedImages[`image${i + 1}`] = parseImage(image)
     })
   }
   return (
     <main>
+      {featuredImage && (
+        <FeaturedImageContainer>
+          {parseImage(featuredImage)()}
+        </FeaturedImageContainer>
+      )}
       <Container>
-        <MDXRenderer images={imgs}>{body}</MDXRenderer>
+        {!customHeading && title && <Title>{title}</Title>}
+        <MDXRenderer images={parsedImages}>{body}</MDXRenderer>
       </Container>
     </main>
   )
@@ -57,11 +43,20 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        customHeading
         images {
           publicURL
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+        featuredImage {
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 2160, maxHeight: 620, quality: 90) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

@@ -5,7 +5,7 @@ import Button from "../Button"
 
 export const Container = styled.header`
   display: flex;
-  padding: ${props => props.theme.spacing.md};
+  padding: ${props => props.theme.spacing.sm};
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};
   border-bottom: 2px solid ${props => props.theme.palette.border.secondary};
@@ -49,6 +49,7 @@ export const Logo = styled.div`
 `
 
 export const StyledIcon = styled(MaterialIcon)`
+  margin-right: ${props => props.theme.spacing.sm};
   font-size: ${props => props.theme.size.md};
 `
 

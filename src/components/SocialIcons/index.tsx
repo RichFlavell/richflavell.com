@@ -1,7 +1,6 @@
 import React from "react"
 import { Container, IconContainer, IconLink } from "./style"
 
-const FacebookIcon = require("../../icons/facebook.svg")
 const TwitterIcon = require("../../icons/twitter.svg")
 const InstagramIcon = require("../../icons/instagram.svg")
 const YouTubeIcon = require("../../icons/youtube.svg")
@@ -9,15 +8,6 @@ const YouTubeIcon = require("../../icons/youtube.svg")
 const SocialIcons: React.FC = ({}) => {
   return (
     <Container>
-      <IconContainer>
-        <IconLink
-          href="https://facebook.com/Rich.Flavell.9"
-          rel="me"
-          target="_blank"
-        >
-          <FacebookIcon width="34" height="34" />
-        </IconLink>
-      </IconContainer>
       <IconContainer>
         <IconLink
           href="https://twitter.com/RichFlavell"
@@ -38,7 +28,7 @@ const SocialIcons: React.FC = ({}) => {
       </IconContainer>
       <IconContainer>
         <IconLink
-          href="https://youtube.com/c/RichFlavell"
+          href="https://www.youtube.com/channel/UCkn9NAYvOJxHZv1ygEV1tsg"
           rel="me"
           target="_blank"
         >

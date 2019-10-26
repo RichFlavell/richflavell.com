@@ -39,6 +39,9 @@ jspm_packages/
 # Typescript v1 declaration files
 typings/
 
+# Generated typings
+src/generated/
+
 # Optional npm cache directory
 .npm
 
@@ -70,6 +73,3 @@ yarn-error.log
 
 # VSCode
 *.code-workspace
-
-components/*
-pages/*

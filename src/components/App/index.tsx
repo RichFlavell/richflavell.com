@@ -10,24 +10,22 @@ import { LoadingWrapper } from "./style"
 
 const App: React.FC = ({ children }) => {
   const [theme, componentMounted] = useDarkMode()
-  const [isLoading, setIsLoading] = useState(true)
-  const [isWrapperVisible, setIsWrapperVisible] = useState(true)
+  const [isLoading, setIsLoading] = useState(
+    process.env.NODE_ENV !== "development"
+  )
+  const [isWrapperVisible, setIsWrapperVisible] = useState(
+    process.env.NODE_ENV !== "development"
+  )
   const themeVariant =
     theme === "light" || process.env.NODE_ENV === "development" ? Default : Dark
 
-  setTimeout(
-    () => {
-      setIsLoading(false)
-    },
-    process.env.NODE_ENV === "development" ? 0 : 2500
-  )
+  setTimeout(() => {
+    setIsLoading(false)
+  }, 2500)
 
-  setTimeout(
-    () => {
-      setIsWrapperVisible(false)
-    },
-    process.env.NODE_ENV === "development" ? 0 : 2500
-  )
+  setTimeout(() => {
+    setIsWrapperVisible(false)
+  }, 1500)
 
   if (!componentMounted) {
     return (
