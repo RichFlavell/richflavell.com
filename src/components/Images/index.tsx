@@ -34,7 +34,7 @@ export const SharpImg = ({
 }: ISharpImgProps) => {
   return (
     <SharpContainer width={width} height={height} align={align} round={round}>
-      <Img fluid={fluid} />
+      <Img fluid={fluid} draggable={false} />
     </SharpContainer>
   )
 }

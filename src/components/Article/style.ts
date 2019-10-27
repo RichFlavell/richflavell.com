@@ -4,7 +4,7 @@ export const Container = styled.article`
   display: flex;
   flex-direction: column;
   margin: auto;
-  max-width: 1440px;
+  max-width: 980px;
 `
 export const FeaturedImageContainer = styled.div`
   margin-bottom: ${props => props.theme.spacing.xl};

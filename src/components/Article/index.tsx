@@ -29,7 +29,7 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
       <Header>
         <Title>{title}</Title>
         <Meta>
-          <span>{format(date)}</span> <span>{" • "} </span>
+          <span>{format(date!)}</span> <span>{" • "} </span>
           <span>{timeToRead} min read</span>
         </Meta>
       </Header>
@@ -64,8 +64,8 @@ export const pageQuery = graphql`
         images {
           publicURL
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_tracedSVG
+            fluid(maxWidth: 980, maxHeight: 320, quality: 100) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

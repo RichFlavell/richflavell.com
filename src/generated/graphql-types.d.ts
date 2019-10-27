@@ -71,7 +71,7 @@ export type Directory = Node & {
   gid?: Maybe<Scalars['Int']>,
   rdev?: Maybe<Scalars['Int']>,
   blksize?: Maybe<Scalars['Int']>,
-  ino?: Maybe<Scalars['Int']>,
+  ino?: Maybe<Scalars['Float']>,
   blocks?: Maybe<Scalars['Int']>,
   atimeMs?: Maybe<Scalars['Float']>,
   mtimeMs?: Maybe<Scalars['Float']>,
@@ -323,7 +323,7 @@ export type DirectoryFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<IntQueryOperatorInput>,
+  ino?: Maybe<FloatQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -381,7 +381,7 @@ export type File = Node & {
   gid?: Maybe<Scalars['Int']>,
   rdev?: Maybe<Scalars['Int']>,
   blksize?: Maybe<Scalars['Int']>,
-  ino?: Maybe<Scalars['Int']>,
+  ino?: Maybe<Scalars['Float']>,
   blocks?: Maybe<Scalars['Int']>,
   atimeMs?: Maybe<Scalars['Float']>,
   mtimeMs?: Maybe<Scalars['Float']>,
@@ -736,6 +736,7 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___images___publicURL' |
   'childMdx___frontmatter___images___id' |
   'childMdx___frontmatter___images___children' |
+  'childMdx___frontmatter___date' |
   'childMdx___frontmatter___featuredImage___birthtime' |
   'childMdx___frontmatter___featuredImage___birthtimeMs' |
   'childMdx___frontmatter___featuredImage___sourceInstanceName' |
@@ -772,7 +773,6 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___featuredImage___publicURL' |
   'childMdx___frontmatter___featuredImage___id' |
   'childMdx___frontmatter___featuredImage___children' |
-  'childMdx___frontmatter___date' |
   'childMdx___body' |
   'childMdx___excerpt' |
   'childMdx___headings' |
@@ -851,7 +851,7 @@ export type FileFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<IntQueryOperatorInput>,
+  ino?: Maybe<FloatQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -1559,6 +1559,7 @@ export type MdxFieldsEnum =
   'frontmatter___images___childMdx___timeToRead' |
   'frontmatter___images___childMdx___id' |
   'frontmatter___images___childMdx___children' |
+  'frontmatter___date' |
   'frontmatter___featuredImage___birthtime' |
   'frontmatter___featuredImage___birthtimeMs' |
   'frontmatter___featuredImage___sourceInstanceName' |
@@ -1620,7 +1621,6 @@ export type MdxFieldsEnum =
   'frontmatter___featuredImage___childMdx___timeToRead' |
   'frontmatter___featuredImage___childMdx___id' |
   'frontmatter___featuredImage___childMdx___children' |
-  'frontmatter___date' |
   'body' |
   'excerpt' |
   'headings' |
@@ -1749,8 +1749,8 @@ export type MdxFrontmatter = {
   path?: Maybe<Scalars['String']>,
   customHeading?: Maybe<Scalars['Boolean']>,
   images?: Maybe<Array<Maybe<File>>>,
-  featuredImage?: Maybe<File>,
   date?: Maybe<Scalars['String']>,
+  featuredImage?: Maybe<File>,
 };
 
 export type MdxFrontmatterFilterInput = {
@@ -1758,8 +1758,8 @@ export type MdxFrontmatterFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   customHeading?: Maybe<BooleanQueryOperatorInput>,
   images?: Maybe<FileFilterListInput>,
-  featuredImage?: Maybe<FileFilterInput>,
   date?: Maybe<StringQueryOperatorInput>,
+  featuredImage?: Maybe<FileFilterInput>,
 };
 
 export type MdxGroupConnection = {
@@ -1894,7 +1894,7 @@ export type QueryFileArgs = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<IntQueryOperatorInput>,
+  ino?: Maybe<FloatQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -2070,7 +2070,7 @@ export type QueryDirectoryArgs = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<IntQueryOperatorInput>,
+  ino?: Maybe<FloatQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -2898,7 +2898,12 @@ export type ArticleQueryVariables = {
 };
 
 
-export type ArticleQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead'> & { frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date'> & { images: Maybe<Array<Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_TracedSvgFragment> }> })>>>, featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
+export type ArticleQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead'> & { frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date'> & { images: Maybe<Array<Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })>>>, featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
+
+export type IndexQueryVariables = {};
+
+
+export type IndexQuery = { allMdx: { edges: Array<{ node: (Pick<Mdx, 'id'> & { frontmatter: Maybe<Pick<MdxFrontmatter, 'path'>>, fields: Maybe<Pick<MdxFields, 'slug'>> }) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
