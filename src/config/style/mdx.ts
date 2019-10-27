@@ -22,8 +22,7 @@ export const Body = styled.p`
   font-size: ${props => props.theme.size.md};
   color: ${props => props.theme.palette.text.secondary};
   max-width: 980px;
-  margin: auto;
-  margin-top: ${props => props.theme.spacing.lg};
+  margin: ${props => props.theme.spacing.md} auto;
 `
 
 export const components = {

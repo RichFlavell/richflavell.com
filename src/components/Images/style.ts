@@ -11,12 +11,12 @@ export const SharpContainer = styled.span<IContainerProps>`
   height: ${props => (props.height ? `${props.height}px` : "auto")};
   margin-top: ${props => props.theme.spacing.lg};
   margin-bottom: ${props => props.theme.spacing.lg};
+  overflow: hidden;
 
   ${props =>
     props.round &&
     css`
       border-radius: 50%;
-      overflow: hidden;
     `}
 
   ${props =>
@@ -39,12 +39,12 @@ export const SrcContainer = styled.img<IContainerProps>`
   height: ${props => (props.height ? `${props.height}px` : "auto")};
   margin-top: ${props => props.theme.spacing.lg};
   margin-bottom: ${props => props.theme.spacing.lg};
+  overflow: hidden;
 
   ${props =>
     props.round &&
     css`
       border-radius: 50%;
-      overflow: hidden;
     `}
 
   ${props =>
