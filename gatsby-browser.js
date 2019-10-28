@@ -8,6 +8,8 @@ import Header from "./src/components/Header"
 import Footer from "./src/components/Footer"
 import Sidebar from "./src/components/Sidebar"
 
+import { Right } from "./src/config/style/mdx"
+
 export const wrapRootElement = ({ element }) => {
   return (
     <App>
@@ -24,7 +26,10 @@ export const wrapPageElement = ({ element }) => {
       <Page>
         <Header />
         {element}
-        <Footer />
+        <Footer>
+          Rich Flavell © {new Date().getFullYear()}. All rights reserved
+          <Right>English &nbsp;//&nbsp; 日本語</Right>
+        </Footer>
       </Page>
     </>
   )

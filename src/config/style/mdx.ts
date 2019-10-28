@@ -26,6 +26,19 @@ export const Body = styled.p`
   margin: ${props => props.theme.spacing.md} auto;
 `
 
+export const Center = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`
+
+export const Right = styled.div`
+  margin-left: auto;
+`
+
+export const Left = styled.div`
+  margin-right: auto;
+`
+
 export const components = {
   h1: Title,
   h2: SubTitle,

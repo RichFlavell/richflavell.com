@@ -1,9 +1,9 @@
 import React from "react"
 import { Container, IconContainer, IconLink } from "./style"
 
-const TwitterIcon = require("../../icons/twitter.svg")
-const InstagramIcon = require("../../icons/instagram.svg")
-const YouTubeIcon = require("../../icons/youtube.svg")
+import InstagramIcon from "../../icons/instagram.svg"
+import TwitterIcon from "../../icons/twitter.svg"
+import YouTubeIcon from "../../icons/youtube.svg"
 
 const SocialIcons: React.FC = ({}) => {
   return (

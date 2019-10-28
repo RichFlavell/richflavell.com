@@ -736,7 +736,6 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___images___publicURL' |
   'childMdx___frontmatter___images___id' |
   'childMdx___frontmatter___images___children' |
-  'childMdx___frontmatter___date' |
   'childMdx___frontmatter___featuredImage___birthtime' |
   'childMdx___frontmatter___featuredImage___birthtimeMs' |
   'childMdx___frontmatter___featuredImage___sourceInstanceName' |
@@ -773,6 +772,7 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___featuredImage___publicURL' |
   'childMdx___frontmatter___featuredImage___id' |
   'childMdx___frontmatter___featuredImage___children' |
+  'childMdx___frontmatter___date' |
   'childMdx___body' |
   'childMdx___excerpt' |
   'childMdx___headings' |
@@ -1559,7 +1559,6 @@ export type MdxFieldsEnum =
   'frontmatter___images___childMdx___timeToRead' |
   'frontmatter___images___childMdx___id' |
   'frontmatter___images___childMdx___children' |
-  'frontmatter___date' |
   'frontmatter___featuredImage___birthtime' |
   'frontmatter___featuredImage___birthtimeMs' |
   'frontmatter___featuredImage___sourceInstanceName' |
@@ -1621,6 +1620,7 @@ export type MdxFieldsEnum =
   'frontmatter___featuredImage___childMdx___timeToRead' |
   'frontmatter___featuredImage___childMdx___id' |
   'frontmatter___featuredImage___childMdx___children' |
+  'frontmatter___date' |
   'body' |
   'excerpt' |
   'headings' |
@@ -1749,8 +1749,8 @@ export type MdxFrontmatter = {
   path?: Maybe<Scalars['String']>,
   customHeading?: Maybe<Scalars['Boolean']>,
   images?: Maybe<Array<Maybe<File>>>,
-  date?: Maybe<Scalars['String']>,
   featuredImage?: Maybe<File>,
+  date?: Maybe<Scalars['String']>,
 };
 
 export type MdxFrontmatterFilterInput = {
@@ -1758,8 +1758,8 @@ export type MdxFrontmatterFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   customHeading?: Maybe<BooleanQueryOperatorInput>,
   images?: Maybe<FileFilterListInput>,
-  date?: Maybe<StringQueryOperatorInput>,
   featuredImage?: Maybe<FileFilterInput>,
+  date?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MdxGroupConnection = {

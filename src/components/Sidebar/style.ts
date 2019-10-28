@@ -7,9 +7,12 @@ interface IContainerProps {
   isOpen: boolean
 }
 export const Container = styled.section<IContainerProps>`
+  display: flex;
+  flex-direction: column;
   position: fixed;
   z-index: 2;
-  width: 300px;
+  max-width: 300px;
+  width: 75%;
   height: 100%;
   background-color: ${props => props.theme.palette.background.primary};
   transition: all 0.2s linear;
@@ -59,4 +62,23 @@ export const MenuLink = styled(Link)`
 export const ActionsTitle = styled.h1`
   font-family: "Lato", sans-serif;
   letter-spacing: 2px;
+`
+
+export const FooterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: ${props => props.theme.spacing.lg};
+  fill: ${props => props.theme.palette.text.primary};
+
+  a {
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+    cursor: pointer;
+    svg {
+      fill: ${props => props.theme.palette.link.primary};
+    }
+  }
 `

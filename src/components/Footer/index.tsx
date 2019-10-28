@@ -1,13 +1,10 @@
 import React from "react"
-import { Container, Holder, Right } from "./style"
+import { Container, Holder } from "./style"
 
-const Footer: React.FC = ({}) => {
+const Footer: React.FC = ({ children }) => {
   return (
     <Holder>
-      <Container>
-        Rich Flavell © {new Date().getFullYear()}. All rights reserved
-        <Right>English &nbsp;//&nbsp; 日本語</Right>
-      </Container>
+      <Container>{children}</Container>
     </Holder>
   )
 }

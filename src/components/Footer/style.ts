@@ -20,7 +20,3 @@ export const Container = styled.div`
   color: ${props => props.theme.palette.text.primary};
   line-height: ${props => props.theme.size.lg};
 `
-
-export const Right = styled.div`
-  margin-left: auto;
-`
