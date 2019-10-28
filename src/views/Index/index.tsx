@@ -1,8 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-import { Content, Heading, Title } from "../../config/style/mdx"
+import Card from "../../components/Card"
+import { Content } from "../../config/style/mdx"
 import { HomeQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
+import { GridList } from "./style"
 
 interface IHomeProps {
   data?: HomeQuery
@@ -12,7 +14,7 @@ const Home: React.FC<IHomeProps> = () => {
     query Home {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 12
+        limit: 10
         filter: { frontmatter: { path: { eq: null } } }
       ) {
         totalCount
@@ -20,16 +22,25 @@ const Home: React.FC<IHomeProps> = () => {
           node {
             id
             excerpt
+            timeToRead
             fields {
               slug
             }
             frontmatter {
               title
               path
-              featuredImage {
+              largeThumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 2160, maxHeight: 620, quality: 90) {
+                  fluid(maxWidth: 980, quality: 90) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              thumbnail: featuredImage {
+                publicURL
+                childImageSharp {
+                  fluid(maxWidth: 316, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -44,14 +55,14 @@ const Home: React.FC<IHomeProps> = () => {
 
   const articles = safe(data.allMdx.edges)
 
-  console.log(articles)
-
   return (
     <>
       <Content>
-        <Heading>
-          <Title>Home</Title>
-        </Heading>
+        <GridList>
+          {articles.map((article, i) => (
+            <Card first={i === 0} key={article.node.id} data={article} />
+          ))}
+        </GridList>
       </Content>
     </>
   )
