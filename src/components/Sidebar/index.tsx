@@ -44,17 +44,17 @@ const Sidebar: React.FC = ({}) => {
         <Item>
           <MenuLink
             onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/gear"
+            to="/about"
           >
-            Gear
+            About
           </MenuLink>
         </Item>
         <Item>
           <MenuLink
             onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/about"
+            to="/gear"
           >
-            About
+            Gear
           </MenuLink>
         </Item>
       </Items>

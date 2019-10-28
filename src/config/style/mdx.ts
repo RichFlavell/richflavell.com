@@ -1,6 +1,20 @@
 import { Components } from "@mdx-js/react"
 import styled from "styled-components"
 
+export const Content = styled.main`
+  display: flex;
+  margin: auto;
+  width: 100%;
+  max-width: 980px;
+  flex-direction: column;
+`
+
+export const Heading = styled.header`
+  margin-right: auto;
+  width: 100%;
+  border-bottom: 0.5px solid ${props => props.theme.palette.border.primary};
+`
+
 export const Title = styled.h1`
   font-size: ${props => props.theme.size.xl};
   color: ${props => props.theme.palette.text.secondary};

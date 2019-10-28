@@ -2295,10 +2295,18 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   id?: Maybe<Scalars['String']>,
+  limit?: Maybe<Scalars['Int']>,
+  skip?: Maybe<Scalars['Int']>,
+  numPages?: Maybe<Scalars['Int']>,
+  currentPage?: Maybe<Scalars['Int']>,
 };
 
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
+  limit?: Maybe<IntQueryOperatorInput>,
+  skip?: Maybe<IntQueryOperatorInput>,
+  numPages?: Maybe<IntQueryOperatorInput>,
+  currentPage?: Maybe<IntQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2400,6 +2408,10 @@ export type SitePageFieldsEnum =
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
   'context___id' |
+  'context___limit' |
+  'context___skip' |
+  'context___numPages' |
+  'context___currentPage' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -2900,10 +2912,18 @@ export type ArticleQueryVariables = {
 
 export type ArticleQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead'> & { frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date'> & { images: Maybe<Array<Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })>>>, featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
 
-export type IndexQueryVariables = {};
+export type ArticlesQueryVariables = {
+  skip: Scalars['Int'],
+  limit: Scalars['Int']
+};
 
 
-export type IndexQuery = { allMdx: { edges: Array<{ node: (Pick<Mdx, 'id' | 'excerpt'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'path' | 'date'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> }) }> } };
+export type ArticlesQuery = { allMdx: (Pick<MdxConnection, 'totalCount'> & { edges: Array<{ node: (Pick<Mdx, 'id' | 'excerpt'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'path' | 'date'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> }) }> }) };
+
+export type HomeQueryVariables = {};
+
+
+export type HomeQuery = { allMdx: (Pick<MdxConnection, 'totalCount'> & { edges: Array<{ node: (Pick<Mdx, 'id' | 'excerpt'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'path' | 'date'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> }) }> }) };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

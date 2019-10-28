@@ -3,10 +3,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { format } from "timeago.js"
+import { parseImage } from "../../components/Images"
 import { Title } from "../../config/style/mdx"
 import { ArticleQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
-import { parseImage } from "../Images"
 import { Container, FeaturedImageContainer, Header, Meta } from "./style"
 
 interface IArticleProps {
