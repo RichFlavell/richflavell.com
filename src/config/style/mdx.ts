@@ -6,6 +6,7 @@ export const Title = styled.h1`
   color: ${props => props.theme.palette.text.secondary};
   margin: auto;
   margin-bottom: ${props => props.theme.spacing.md};
+  font-weight: lighter;
 `
 
 export const SubTitle = styled.h2`

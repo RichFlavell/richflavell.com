@@ -2903,7 +2903,7 @@ export type ArticleQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead'>
 export type IndexQueryVariables = {};
 
 
-export type IndexQuery = { allMdx: { edges: Array<{ node: (Pick<Mdx, 'id'> & { frontmatter: Maybe<Pick<MdxFrontmatter, 'path'>>, fields: Maybe<Pick<MdxFields, 'slug'>> }) }> } };
+export type IndexQuery = { allMdx: { edges: Array<{ node: (Pick<Mdx, 'id' | 'excerpt'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'path' | 'date'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> }) }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
