@@ -2,19 +2,21 @@ import styled, { css } from "styled-components"
 
 interface IContainerProps {
   width?: number
+  height?: number
   align?: string
   round?: boolean
 }
 export const SharpContainer = styled.span<IContainerProps>`
-  width: ${props => `${props.width}px` || "100%"};
+  width: ${props => (props.width ? `${props.width}px` : "100%")};
+  height: ${props => (props.height ? `${props.height}px` : "100%")};
   margin-top: ${props => props.theme.spacing.lg};
   margin-bottom: ${props => props.theme.spacing.lg};
+  overflow: hidden;
 
   ${props =>
     props.round &&
     css`
       border-radius: 50%;
-      overflow: hidden;
     `}
 
   ${props =>
@@ -33,15 +35,16 @@ export const SharpContainer = styled.span<IContainerProps>`
 `
 
 export const SrcContainer = styled.img<IContainerProps>`
-  width: ${props => `${props.width}px` || "100%"};
+  width: ${props => (props.width ? `${props.width}px` : "100%")};
+  height: ${props => (props.height ? `${props.height}px` : "100%")};
   margin-top: ${props => props.theme.spacing.lg};
   margin-bottom: ${props => props.theme.spacing.lg};
+  overflow: hidden;
 
   ${props =>
     props.round &&
     css`
       border-radius: 50%;
-      overflow: hidden;
     `}
 
   ${props =>

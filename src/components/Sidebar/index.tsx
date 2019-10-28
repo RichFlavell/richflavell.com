@@ -2,15 +2,19 @@ import React, { useContext } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import { MenuIcon } from "../Header/style"
 
+import Footer from "../Footer"
 import {
   ActionButton,
   Actions,
   ActionsTitle,
   Container,
+  FooterContainer,
   Item,
   Items,
   MenuLink,
 } from "./style"
+
+import GatsbyIcon from "../../icons/gatsby.svg"
 
 const Sidebar: React.FC = ({}) => {
   const sidebarContext = useContext(SidebarContext)
@@ -40,20 +44,28 @@ const Sidebar: React.FC = ({}) => {
         <Item>
           <MenuLink
             onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/gear"
-          >
-            Gear
-          </MenuLink>
-        </Item>
-        <Item>
-          <MenuLink
-            onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
             to="/about"
           >
             About
           </MenuLink>
         </Item>
+        <Item>
+          <MenuLink
+            onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
+            to="/gear"
+          >
+            Gear
+          </MenuLink>
+        </Item>
       </Items>
+      <Footer>
+        <FooterContainer>
+          Built with: 💜, lots of ☕ & &nbsp;{" "}
+          <a href="https://www.gatsbyjs.org/" target="_blank">
+            <GatsbyIcon height={24} />
+          </a>
+        </FooterContainer>
+      </Footer>
     </Container>
   )
 }

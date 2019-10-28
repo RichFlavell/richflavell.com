@@ -46,6 +46,11 @@ const Global = createGlobalStyle`
   .gatsby-resp-image-image {
     position: static;
   }
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export default Global
