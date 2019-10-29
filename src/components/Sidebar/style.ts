@@ -39,6 +39,9 @@ export const ActionButton = styled(Button)`
   padding-left: 0px;
   padding-right: 0px;
   margin-left: auto;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
 `
 
 export const Items = styled.ul`

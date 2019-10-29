@@ -1,21 +1,33 @@
 import { graphql } from "gatsby"
 import React from "react"
-import { Content, Heading, Title } from "../../config/style/mdx"
+import Card from "../../components/Card"
+import GridList from "../../components/GridList"
+import { Content, Heading, Right, Title } from "../../config/style/mdx"
 import { ArticlesQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
+import { SeeMoreLink } from "../Index/style"
 
 interface IArticlesProps {
   data: ArticlesQuery
 }
 const Articles: React.FC<IArticlesProps> = ({ data }) => {
   const articles = safe(data.allMdx.edges)
-  console.log(articles)
   return (
     <>
       <Content>
         <Heading>
           <Title>Articles</Title>
         </Heading>
+        <GridList>
+          {articles.map(article => (
+            <Card first={false} key={article.node.id} data={article} />
+          ))}
+        </GridList>
+        {data.allMdx.totalCount > 10 && (
+          <Right>
+            <SeeMoreLink to="/articles">See more &raquo;</SeeMoreLink>
+          </Right>
+        )}
       </Content>
     </>
   )
@@ -34,16 +46,25 @@ export const pageQuery = graphql`
         node {
           id
           excerpt
+          timeToRead
           fields {
             slug
           }
           frontmatter {
             title
             path
-            featuredImage {
+            largeThumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 2160, maxHeight: 620, quality: 90) {
+                fluid(maxWidth: 980, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            thumbnail: featuredImage {
+              publicURL
+              childImageSharp {
+                fluid(maxWidth: 316, quality: 90) {
                   ...GatsbyImageSharpFluid
                 }
               }
