@@ -2,32 +2,57 @@ import { graphql } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
-import { Content, Heading, Right, Title } from "../../config/style/mdx"
+import { Content, Heading, Right, Title, Left } from "../../config/style/mdx"
 import { ArticlesQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
 import { SeeMoreLink } from "../Index/style"
+import { Actions } from "./style"
 
 interface IArticlesProps {
   data: ArticlesQuery
+  pageContext: {
+    currentPage: number
+    numPages: number
+  }
 }
-const Articles: React.FC<IArticlesProps> = ({ data }) => {
+const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
   const articles = safe(data.allMdx.edges)
   return (
     <>
       <Content>
         <Heading>
           <Title>Articles</Title>
+          <Right>
+            Page {pageContext.currentPage} / {pageContext.numPages}
+          </Right>
         </Heading>
         <GridList>
           {articles.map(article => (
             <Card first={false} key={article.node.id} data={article} />
           ))}
         </GridList>
-        {data.allMdx.totalCount > 10 && (
-          <Right>
-            <SeeMoreLink to="/articles">See more &raquo;</SeeMoreLink>
-          </Right>
-        )}
+        <Actions>
+          {pageContext.currentPage > 1 && (
+            <Left>
+              <SeeMoreLink
+                to={
+                  pageContext.currentPage - 1 === 1
+                    ? `/articles`
+                    : `/articles/${pageContext.currentPage - 1}`
+                }
+              >
+                &laquo; Previous
+              </SeeMoreLink>
+            </Left>
+          )}
+          {pageContext.currentPage < pageContext.numPages && (
+            <Right>
+              <SeeMoreLink to={`/articles/${pageContext.currentPage + 1}`}>
+                Next &raquo;
+              </SeeMoreLink>
+            </Right>
+          )}
+        </Actions>
       </Content>
     </>
   )
