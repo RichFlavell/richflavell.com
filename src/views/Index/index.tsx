@@ -1,10 +1,11 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
-import { Content } from "../../config/style/mdx"
+import GridList from "../../components/GridList"
+import { Content, Right } from "../../config/style/mdx"
 import { HomeQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
-import { GridList } from "./style"
+import { SeeMoreLink } from "./style"
 
 interface IHomeProps {
   data?: HomeQuery
@@ -14,7 +15,7 @@ const Home: React.FC<IHomeProps> = () => {
     query Home {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 10
+        limit: 9
         filter: { frontmatter: { path: { eq: null } } }
       ) {
         totalCount
@@ -63,6 +64,11 @@ const Home: React.FC<IHomeProps> = () => {
             <Card first={i === 0} key={article.node.id} data={article} />
           ))}
         </GridList>
+        {data.allMdx.totalCount > 10 && (
+          <Right>
+            <SeeMoreLink to="/articles">See more &raquo;</SeeMoreLink>
+          </Right>
+        )}
       </Content>
     </>
   )

@@ -2918,7 +2918,7 @@ export type ArticlesQueryVariables = {
 };
 
 
-export type ArticlesQuery = { allMdx: (Pick<MdxConnection, 'totalCount'> & { edges: Array<{ node: (Pick<Mdx, 'id' | 'excerpt'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'path' | 'date'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> }) }> }) };
+export type ArticlesQuery = { allMdx: (Pick<MdxConnection, 'totalCount'> & { edges: Array<{ node: (Pick<Mdx, 'id' | 'excerpt' | 'timeToRead'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'path' | 'date'> & { largeThumbnail: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })>, thumbnail: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> }) }> }) };
 
 export type HomeQueryVariables = {};
 

@@ -1,9 +1,12 @@
 import { Link } from "gatsby"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Title } from "../../config/style/mdx"
 import { Meta } from "../../views/Article/style"
 
-export const Container = styled.article`
+interface IContainerProps {
+  first: boolean
+}
+export const Container = styled.article<IContainerProps>`
   text-decoration: none;
   color: ${props => props.theme.palette.text.primary};
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -13,17 +16,17 @@ export const Container = styled.article`
   overflow: hidden;
   position: relative;
   transition: all 0.2s ease;
-  top: 0px;
 
-  &:first-of-type {
-    @media (min-width: 60em) {
-      grid-column: 1 / span 3;
-      grid-row: 1 / span 2;
-    }
-  }
+  ${props =>
+    props.first &&
+    css`
+      @media (min-width: 60em) {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+      }
+    `}
 
   &:hover {
-    top: -1px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     color: ${props => props.theme.palette.text.primary};
   }

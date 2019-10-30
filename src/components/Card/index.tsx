@@ -15,7 +15,7 @@ const Card: React.FC<ICardProps> = ({ first, data }) => {
   const { slug } = safe(article.fields)
 
   return (
-    <Container>
+    <Container first={first}>
       <LinkWrapper to={slug!}>
         {largeThumbnail && thumbnail && first
           ? parseImage(largeThumbnail)()
