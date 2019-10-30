@@ -2,11 +2,11 @@ import { graphql } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
-import { Content, Heading, Right, Title, Left } from "../../config/style/mdx"
+import { Content, Left, Right } from "../../config/style/mdx"
 import { ArticlesQuery } from "../../generated/graphql-types"
 import safe from "../../utils/safe"
 import { SeeMoreLink } from "../Index/style"
-import { Actions } from "./style"
+import { Actions, PageCount, PageHeading, PageTitle } from "./style"
 
 interface IArticlesProps {
   data: ArticlesQuery
@@ -20,12 +20,12 @@ const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
   return (
     <>
       <Content>
-        <Heading>
-          <Title>Articles</Title>
-          <Right>
+        <PageHeading>
+          <PageTitle>Articles</PageTitle>
+          <PageCount>
             Page {pageContext.currentPage} / {pageContext.numPages}
-          </Right>
-        </Heading>
+          </PageCount>
+        </PageHeading>
         <GridList>
           {articles.map(article => (
             <Card first={false} key={article.node.id} data={article} />
