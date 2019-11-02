@@ -14,6 +14,7 @@ import {
   MenuLink,
 } from "./style"
 
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import GatsbyIcon from "../../icons/gatsby.svg"
 
 const Sidebar: React.FC = ({}) => {
@@ -69,9 +70,9 @@ const Sidebar: React.FC = ({}) => {
       <Footer>
         <FooterContainer>
           Built with: 💜, lots of ☕ & &nbsp;{" "}
-          <a href="https://www.gatsbyjs.org/" target="_blank">
+          <OutboundLink href="https://www.gatsbyjs.org/" target="_blank">
             <GatsbyIcon height={24} />
-          </a>
+          </OutboundLink>
         </FooterContainer>
       </Footer>
     </Container>

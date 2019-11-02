@@ -1,3 +1,4 @@
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import styled from "styled-components"
 
 export const Container = styled.div`
@@ -16,4 +17,4 @@ export const IconContainer = styled.div`
   }
 `
 
-export const IconLink = styled.a``
+export const IconLink = styled(OutboundLink)``

@@ -5,8 +5,8 @@ import GridList from "../../components/GridList"
 import { Content, Right } from "../../config/style/mdx"
 import { HomeQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
-import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
 import SEO from "../../utils/SEO"
+import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
 
 interface IHomeProps {
   data?: HomeQuery
