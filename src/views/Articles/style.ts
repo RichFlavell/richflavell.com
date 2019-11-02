@@ -14,6 +14,7 @@ export const PageHeading = styled(Heading)`
 `
 
 export const PageTitle = styled(Title)`
+  color: ${props => props.theme.palette.text.primary};
   margin: 0px;
 `
 
