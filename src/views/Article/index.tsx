@@ -5,7 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { format } from "timeago.js"
 import { parseImage } from "../../components/Images"
 import { Title } from "../../config/style/mdx"
-import { ArticleQuery } from "../../generated/graphql-types"
+import { ArticleQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import { Container, FeaturedImageContainer, Header, Meta } from "./style"
 

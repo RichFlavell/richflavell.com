@@ -27,6 +27,10 @@ declare module "styled-components" {
         youtube: string
         instagram: string
       }
+      shadow: {
+        passive: string
+        active: string
+      }
     }
     spacing: ThemeSpatialOption
     size: ThemeSpatialOption & { logo: string }

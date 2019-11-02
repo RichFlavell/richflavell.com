@@ -3,14 +3,16 @@ import React from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Right } from "../../config/style/mdx"
-import { HomeQuery } from "../../generated/graphql-types"
+import { HomeQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
-import { SeeMoreLink } from "./style"
+import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
 
 interface IHomeProps {
   data?: HomeQuery
 }
 const Home: React.FC<IHomeProps> = () => {
+  const videoId = "QPdWJeybMo8"
+
   const data: HomeQuery = useStaticQuery(graphql`
     query Home {
       allMdx(
@@ -57,7 +59,18 @@ const Home: React.FC<IHomeProps> = () => {
   const articles = safe(data.allMdx.edges)
 
   return (
-    <>
+    <Holder>
+      <VideoWrapper>
+        <Video
+          url={`https://www.youtube.com/watch?v=${videoId}`}
+          playing={true}
+          controls={true}
+          light={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+          width="100%"
+          height="100%"
+        />
+      </VideoWrapper>
+
       <Content>
         <GridList>
           {articles.map((article, i) => (
@@ -70,7 +83,7 @@ const Home: React.FC<IHomeProps> = () => {
           </Right>
         )}
       </Content>
-    </>
+    </Holder>
   )
 }
 

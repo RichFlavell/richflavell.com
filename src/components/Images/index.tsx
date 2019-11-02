@@ -1,6 +1,6 @@
 import Img, { FluidObject, GatsbyImageProps } from "gatsby-image"
 import React from "react"
-import { ImageSharpFluid } from "../../generated/graphql-types"
+import { ImageSharpFluid } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import { SharpContainer, SrcContainer } from "./style"
 

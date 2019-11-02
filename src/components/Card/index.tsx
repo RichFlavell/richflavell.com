@@ -1,6 +1,6 @@
 import React from "react"
 import { format } from "timeago.js"
-import { ArticlesQuery } from "../../generated/graphql-types"
+import { ArticlesQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import { parseImage } from "../Images"
 import { CardMeta, CardTitle, Container, Details, LinkWrapper } from "./style"

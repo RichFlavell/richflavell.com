@@ -3,9 +3,9 @@ import React from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Left, Right } from "../../config/style/mdx"
-import { ArticlesQuery } from "../../generated/graphql-types"
+import { ArticlesQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
-import { SeeMoreLink } from "../Index/style"
+import { SeeMoreLink } from "../Home/style"
 import { Actions, PageCount, PageHeading, PageTitle } from "./style"
 
 interface IArticlesProps {

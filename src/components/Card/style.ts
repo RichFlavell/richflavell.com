@@ -9,7 +9,7 @@ interface IContainerProps {
 export const Container = styled.article<IContainerProps>`
   text-decoration: none;
   color: ${props => props.theme.palette.text.primary};
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: ${props => props.theme.palette.shadow.passive};
   display: flex;
   flex-direction: column;
   border-radius: 2px;
@@ -27,7 +27,7 @@ export const Container = styled.article<IContainerProps>`
     `}
 
   &:hover {
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: ${props => props.theme.palette.shadow.active};
     color: ${props => props.theme.palette.text.primary};
   }
 `
