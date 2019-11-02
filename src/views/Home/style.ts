@@ -21,6 +21,8 @@ export const VideoWrapper = styled.div`
   margin-top: ${props => props.theme.spacing.lg};
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: ${props => props.theme.palette.shadow.passive};
+  transition: all 0.2s ease;
 
   @media (min-width: 30em) {
     height: 720px;
@@ -29,6 +31,10 @@ export const VideoWrapper = styled.div`
   @media (max-width: 60em) {
     height: auto;
     padding-top: 56.25%;
+  }
+
+  &:hover {
+    box-shadow: ${props => props.theme.palette.shadow.active};
   }
 `
 

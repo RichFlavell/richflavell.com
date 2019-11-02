@@ -3,7 +3,7 @@ import React from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Right } from "../../config/style/mdx"
-import { HomeQuery } from "../../generated/graphql-types"
+import { HomeQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
 

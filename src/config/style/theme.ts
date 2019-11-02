@@ -23,6 +23,10 @@ export const Default: DefaultTheme = {
       youtube: "#FF0000",
       instagram: "#C13584",
     },
+    shadow: {
+      passive: "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+      active: "0 4px 5px rgba(0, 0, 0, 0.2)",
+    },
   },
   spacing: {
     xs: "2px",
@@ -59,6 +63,7 @@ export const Dark: DefaultTheme = {
       primary: "#F1F1EF",
       secondary: "#F1F1EF",
     },
+    shadow: Default.palette.shadow,
     brand: Default.palette.brand,
   },
 }
