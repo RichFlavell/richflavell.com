@@ -6,6 +6,7 @@ import { Content, Right } from "../../config/style/mdx"
 import { HomeQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
+import SEO from "../../utils/SEO"
 
 interface IHomeProps {
   data?: HomeQuery
@@ -60,6 +61,7 @@ const Home: React.FC<IHomeProps> = () => {
 
   return (
     <Holder>
+      <SEO title={"Home"} />
       <VideoWrapper>
         <Video
           url={`https://www.youtube.com/watch?v=${videoId}`}

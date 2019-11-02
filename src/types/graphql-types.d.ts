@@ -2226,8 +2226,11 @@ export type SiteFieldsEnum =
   'internal___owner' |
   'internal___type' |
   'siteMetadata___title' |
+  'siteMetadata___titleTemplate' |
   'siteMetadata___description' |
-  'siteMetadata___author' |
+  'siteMetadata___url' |
+  'siteMetadata___image' |
+  'siteMetadata___twitterUsername' |
   'port' |
   'host' |
   'polyfill' |
@@ -2877,14 +2880,20 @@ export type SitePluginSortInput = {
 
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>,
+  titleTemplate?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
-  author?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  image?: Maybe<Scalars['String']>,
+  twitterUsername?: Maybe<Scalars['String']>,
 };
 
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
+  titleTemplate?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
-  author?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  image?: Maybe<StringQueryOperatorInput>,
+  twitterUsername?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SiteSortInput = {
@@ -2905,12 +2914,17 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
+export type SeoQueryVariables = {};
+
+
+export type SeoQuery = { site: Maybe<{ siteMetadata: Maybe<(Pick<SiteSiteMetadata, 'titleTemplate' | 'twitterUsername'> & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], siteUrl: SiteSiteMetadata['url'], defaultImage: SiteSiteMetadata['image'] })> }> };
+
 export type ArticleQueryVariables = {
   id?: Maybe<Scalars['String']>
 };
 
 
-export type ArticleQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead'> & { frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date'> & { images: Maybe<Array<Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })>>>, featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
+export type ArticleQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead' | 'excerpt'> & { frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date'> & { images: Maybe<Array<Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })>>>, featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
 
 export type ArticlesQueryVariables = {
   skip: Scalars['Int'],

@@ -5,6 +5,7 @@ import GridList from "../../components/GridList"
 import { Content, Left, Right } from "../../config/style/mdx"
 import { ArticlesQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
+import SEO from "../../utils/SEO"
 import { SeeMoreLink } from "../Home/style"
 import { Actions, PageCount, PageHeading, PageTitle } from "./style"
 
@@ -19,6 +20,7 @@ const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
   const articles = safe(data.allMdx.edges)
   return (
     <>
+      <SEO title={"Articles"} />
       <Content>
         <PageHeading>
           <PageTitle>Articles</PageTitle>

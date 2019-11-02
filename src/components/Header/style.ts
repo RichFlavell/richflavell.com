@@ -42,7 +42,8 @@ export const SubscribeButton = styled(Button)`
 `
 
 export const Logo = styled.div`
-  font-family: "Romanesco", cursive !important;
+  font-family: "Montserrat Alternates", cursive !important;
+  font-weight: lighter;
   font-size: ${props => props.theme.size.logo};
   margin: auto;
   text-decoration: none;

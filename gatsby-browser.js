@@ -1,5 +1,6 @@
 import React from "react"
 import Global from "./src/config/style/global"
+import SEO from "./src/utils/SEO"
 
 import App from "./src/components/App"
 import Page from "./src/components/Page"
@@ -14,6 +15,7 @@ export const wrapRootElement = ({ element }) => {
   return (
     <App>
       <Global />
+
       {element}
     </App>
   )
@@ -22,6 +24,7 @@ export const wrapRootElement = ({ element }) => {
 export const wrapPageElement = ({ element }) => {
   return (
     <>
+      <SEO />
       <Sidebar />
       <Page>
         <Header />
