@@ -31,13 +31,21 @@ export const SubTitle = styled.h2`
   line-height: ${props => props.theme.size.lg};
 `
 
+export const SectionTitle = styled.h3`
+  font-size: ${props => props.theme.size.lg};
+`
+
+export const SectionInnerTitle = styled.h4`
+  margin-top: ${props => props.theme.spacing.md};
+`
+
 export const Body = styled.p`
   font-weight: lighter;
   line-height: ${props => props.theme.spacing.xl};
   font-size: ${props => props.theme.size.md};
   color: ${props => props.theme.palette.text.secondary};
   max-width: 980px;
-  margin: ${props => props.theme.spacing.md} auto;
+  margin: ${props => props.theme.spacing.md} 0px;
 `
 
 export const Center = styled.div`
@@ -56,5 +64,7 @@ export const Left = styled.div`
 export const components = {
   h1: Title,
   h2: SubTitle,
+  h3: SectionTitle,
+  h4: SectionInnerTitle,
   p: Body,
 } as Components

@@ -66,6 +66,14 @@ const Sidebar: React.FC = ({}) => {
             About
           </MenuLink>
         </Item>
+        <Item>
+          <MenuLink
+            onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
+            to="/privacy"
+          >
+            Privacy
+          </MenuLink>
+        </Item>
       </Items>
       <Footer>
         <FooterContainer>
