@@ -11,7 +11,6 @@ export const Holder = styled.footer`
 
 export const Container = styled.div`
   display: flex;
-  margin-top: ${props => props.theme.spacing.lg};
   width: 100%;
   border-top: 0.5px solid ${props => props.theme.palette.border.primary};
   padding: ${props => props.theme.spacing.md} 0px;
@@ -19,4 +18,5 @@ export const Container = styled.div`
   font-weight: lighter;
   color: ${props => props.theme.palette.text.primary};
   line-height: ${props => props.theme.size.lg};
+  margin-top: ${props => props.theme.spacing.lg};
 `
