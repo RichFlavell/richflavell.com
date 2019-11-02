@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `RichFlavell.com`,
-    description: `RichFlavell.com`,
-    author: `@richflavell`,
+    title: "Rich Flavell",
+    titleTemplate: "Rich Flavell // %s",
+    description:
+      "Adventure & outdoor photography/video hobbyist. Emphasis on Ultralight ethos and minimalism.",
+    url: "https://www.richflavell.com",
+    image: "/images/me.jpg",
+    twitterUsername: "@RichFlavell",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

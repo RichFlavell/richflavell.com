@@ -41,7 +41,7 @@ export const Default: DefaultTheme = {
     md: "18px",
     lg: "24px",
     xl: "38px",
-    logo: "64px",
+    logo: "42px",
   },
 }
 

@@ -7,13 +7,14 @@ import { parseImage } from "../../components/Images"
 import { Title } from "../../config/style/mdx"
 import { ArticleQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
+import SEO from "../../utils/SEO"
 import { Container, FeaturedImageContainer, Header, Meta } from "./style"
 
 interface IArticleProps {
   data: ArticleQuery
 }
 const Article: React.FC<IArticleProps> = ({ data }) => {
-  const { frontmatter, body, timeToRead } = safe(data.mdx)
+  const { frontmatter, body, timeToRead, excerpt } = safe(data.mdx)
   const { customHeading, title, images, featuredImage, date } = safe(
     frontmatter
   )
@@ -37,17 +38,25 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
   }
 
   return (
-    <main>
-      {featuredImage && (
-        <FeaturedImageContainer>
-          {parseImage(featuredImage)()}
-        </FeaturedImageContainer>
-      )}
-      <Container>
-        {!customHeading && renderHeader()}
-        <MDXRenderer images={parsedImages}>{body}</MDXRenderer>
-      </Container>
-    </main>
+    <>
+      <SEO
+        title={title}
+        article={true}
+        description={excerpt}
+        image={safe(featuredImage).publicURL!}
+      />
+      <main>
+        {featuredImage && (
+          <FeaturedImageContainer>
+            {parseImage(featuredImage)()}
+          </FeaturedImageContainer>
+        )}
+        <Container>
+          {!customHeading && renderHeader()}
+          <MDXRenderer images={parsedImages}>{body}</MDXRenderer>
+        </Container>
+      </main>
+    </>
   )
 }
 
@@ -57,6 +66,7 @@ export const pageQuery = graphql`
       id
       body
       timeToRead
+      excerpt
       frontmatter {
         title
         customHeading
