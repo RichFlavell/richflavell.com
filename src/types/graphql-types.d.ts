@@ -697,6 +697,8 @@ export type FileFieldsEnum =
   'childMdx___rawBody' |
   'childMdx___fileAbsolutePath' |
   'childMdx___frontmatter___title' |
+  'childMdx___frontmatter___path' |
+  'childMdx___frontmatter___customHeading' |
   'childMdx___frontmatter___featuredImage___birthtime' |
   'childMdx___frontmatter___featuredImage___birthtimeMs' |
   'childMdx___frontmatter___featuredImage___sourceInstanceName' |
@@ -771,8 +773,6 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___images___publicURL' |
   'childMdx___frontmatter___images___id' |
   'childMdx___frontmatter___images___children' |
-  'childMdx___frontmatter___path' |
-  'childMdx___frontmatter___customHeading' |
   'childMdx___body' |
   'childMdx___excerpt' |
   'childMdx___headings' |
@@ -1495,6 +1495,8 @@ export type MdxFieldsEnum =
   'rawBody' |
   'fileAbsolutePath' |
   'frontmatter___title' |
+  'frontmatter___path' |
+  'frontmatter___customHeading' |
   'frontmatter___featuredImage___birthtime' |
   'frontmatter___featuredImage___birthtimeMs' |
   'frontmatter___featuredImage___sourceInstanceName' |
@@ -1619,8 +1621,6 @@ export type MdxFieldsEnum =
   'frontmatter___images___childMdx___timeToRead' |
   'frontmatter___images___childMdx___id' |
   'frontmatter___images___childMdx___children' |
-  'frontmatter___path' |
-  'frontmatter___customHeading' |
   'body' |
   'excerpt' |
   'headings' |
@@ -1746,20 +1746,20 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatter = {
   title: Scalars['String'],
+  path?: Maybe<Scalars['String']>,
+  customHeading?: Maybe<Scalars['Boolean']>,
   featuredImage?: Maybe<File>,
   date?: Maybe<Scalars['String']>,
   images?: Maybe<Array<Maybe<File>>>,
-  path?: Maybe<Scalars['String']>,
-  customHeading?: Maybe<Scalars['Boolean']>,
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
+  customHeading?: Maybe<BooleanQueryOperatorInput>,
   featuredImage?: Maybe<FileFilterInput>,
   date?: Maybe<StringQueryOperatorInput>,
   images?: Maybe<FileFilterListInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-  customHeading?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export type MdxGroupConnection = {
@@ -2475,6 +2475,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___background_color' |
   'pluginCreator___pluginOptions___theme_color' |
   'pluginCreator___pluginOptions___display' |
+  'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___dest' |
   'pluginCreator___pluginOptions___trackingId' |
   'pluginCreator___pluginOptions___head' |
@@ -2689,6 +2690,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___background_color' |
   'pluginOptions___theme_color' |
   'pluginOptions___display' |
+  'pluginOptions___icon' |
   'pluginOptions___dest' |
   'pluginOptions___trackingId' |
   'pluginOptions___head' |
@@ -2822,6 +2824,7 @@ export type SitePluginPluginOptions = {
   background_color?: Maybe<Scalars['String']>,
   theme_color?: Maybe<Scalars['String']>,
   display?: Maybe<Scalars['String']>,
+  icon?: Maybe<Scalars['String']>,
   dest?: Maybe<Scalars['String']>,
   trackingId?: Maybe<Scalars['String']>,
   head?: Maybe<Scalars['Boolean']>,
@@ -2843,6 +2846,7 @@ export type SitePluginPluginOptionsFilterInput = {
   background_color?: Maybe<StringQueryOperatorInput>,
   theme_color?: Maybe<StringQueryOperatorInput>,
   display?: Maybe<StringQueryOperatorInput>,
+  icon?: Maybe<StringQueryOperatorInput>,
   dest?: Maybe<StringQueryOperatorInput>,
   trackingId?: Maybe<StringQueryOperatorInput>,
   head?: Maybe<BooleanQueryOperatorInput>,

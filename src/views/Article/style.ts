@@ -1,10 +1,17 @@
 import styled from "styled-components"
+import { SharpContainer } from "../../components/Images/style"
 
 export const Container = styled.article`
   display: flex;
   flex-direction: column;
   margin: auto;
   max-width: 980px;
+  padding: 0 ${props => props.theme.spacing.md};
+
+  & > ${SharpContainer} {
+    border-radius: 2px;
+    overflow: hidden;
+  }
 `
 export const FeaturedImageContainer = styled.div`
   margin-bottom: ${props => props.theme.spacing.xl};

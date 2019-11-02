@@ -48,12 +48,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `RichFlavell.com`,
-        short_name: `RichFlavell.com`,
+        name: `Rich Flavell`,
+        short_name: `Rich Flavell`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        background_color: `#FFFFFF`,
+        theme_color: `#9487B7`,
+        display: `standalone`,
+        icon: `src/images/me.jpg`,
       },
     },
     {

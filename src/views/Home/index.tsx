@@ -61,7 +61,7 @@ const Home: React.FC<IHomeProps> = () => {
 
   return (
     <Holder>
-      <SEO title={"Home"} />
+      <SEO title={"Adventure, Outdoors, Ultralight & Minimalism"} />
       <VideoWrapper>
         <Video
           url={`https://www.youtube.com/watch?v=${videoId}`}

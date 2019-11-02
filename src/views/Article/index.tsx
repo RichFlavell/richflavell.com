@@ -1,7 +1,8 @@
-import React from "react"
-
+import { globalHistory } from "@reach/router"
+import { DiscussionEmbed } from "disqus-react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from "react"
 import { format } from "timeago.js"
 import { parseImage } from "../../components/Images"
 import { Title } from "../../config/style/mdx"
@@ -14,10 +15,15 @@ interface IArticleProps {
   data: ArticleQuery
 }
 const Article: React.FC<IArticleProps> = ({ data }) => {
-  const { frontmatter, body, timeToRead, excerpt } = safe(data.mdx)
+  const { frontmatter, body, timeToRead, excerpt, id } = safe(data.mdx)
   const { customHeading, title, images, featuredImage, date } = safe(
     frontmatter
   )
+
+  const disqusConfig = {
+    shortname: "richflavell",
+    config: { identifier: id, title, url: globalHistory.location.href },
+  }
 
   const parsedImages: { [key: string]: React.ReactNode } = {}
   if (images) {
@@ -54,6 +60,7 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
         <Container>
           {!customHeading && renderHeader()}
           <MDXRenderer images={parsedImages}>{body}</MDXRenderer>
+          {!customHeading && <DiscussionEmbed {...disqusConfig} />}
         </Container>
       </main>
     </>
