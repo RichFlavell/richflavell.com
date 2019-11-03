@@ -1,10 +1,11 @@
+import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 
 interface IContainerProps {
   borderless?: boolean
 }
 
-export const Container = styled.button<IContainerProps>`
+export const Container = styled(Link)<IContainerProps>`
   height: 0%;
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
   background-color: ${props => props.theme.palette.background.primary};
@@ -15,6 +16,7 @@ export const Container = styled.button<IContainerProps>`
   transition: color 0.1s linear;
   display: flex;
   align-items: center;
+  margin: ${props => props.theme.spacing.md} auto;
 
   &:hover {
     color: ${props => props.theme.palette.link.primary};
