@@ -5,6 +5,7 @@ interface IContainerProps {
   height?: number
   align?: string
   round?: boolean
+  clickable?: boolean
 }
 export const SharpContainer = styled.span<IContainerProps>`
   width: ${props => (props.width ? `${props.width}px` : "100%")};
@@ -26,12 +27,28 @@ export const SharpContainer = styled.span<IContainerProps>`
       margin-left: auto;
     `}
 
+  ${props =>
+    props.align &&
+    (props.align === "left" || props.align === "center") &&
+    css`
+      margin-right: auto;
+    `}
+
+  ${props =>
+    props.clickable &&
+    css`
+      transition: all 0.2s linear;
+      box-shadow: ${props.theme.palette.shadow.passive};
+    `}
+
+  &:hover {
     ${props =>
-      props.align &&
-      (props.align === "left" || props.align === "center") &&
+      props.clickable &&
       css`
-        margin-right: auto;
-      `}
+        box-shadow: ${props.theme.palette.shadow.active};
+        cursor: pointer;
+      `} 
+  }
 `
 
 export const SrcContainer = styled.img<IContainerProps>`
@@ -54,10 +71,26 @@ export const SrcContainer = styled.img<IContainerProps>`
       margin-left: auto;
     `}
 
+  ${props =>
+    props.align &&
+    (props.align === "left" || props.align === "center") &&
+    css`
+      margin-right: auto;
+    `}
+
+  ${props =>
+    props.clickable &&
+    css`
+      transition: all 0.2s linear;
+      box-shadow: ${props.theme.palette.shadow.passive};
+    `}
+
+  &:hover {
     ${props =>
-      props.align &&
-      (props.align === "left" || props.align === "center") &&
+      props.clickable &&
       css`
-        margin-right: auto;
-      `}
+        box-shadow: ${props.theme.palette.shadow.active};
+        cursor: pointer;
+      `} 
+  }
 `

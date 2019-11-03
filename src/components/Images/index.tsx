@@ -45,6 +45,7 @@ export const SharpImg = ({
       align={align}
       round={round}
       onClick={callback}
+      clickable={!!callback}
     >
       <Img fluid={fluid} draggable={false} />
     </SharpContainer>
@@ -72,6 +73,7 @@ export const SrcImg = ({
       round={round}
       src={src}
       onClick={callback}
+      clickable={!!callback}
     />
   )
 }

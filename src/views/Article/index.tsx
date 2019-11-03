@@ -10,12 +10,15 @@ import { parseImage } from "../../components/Images"
 import { Title } from "../../config/style/mdx"
 import { Container, FeaturedImageContainer, Header, Meta } from "./style"
 import SEO from "../../utils/SEO"
+import Lightbox from "../../components/Lightbox"
 
 interface IArticleProps {
   data: ArticleQuery
 }
 const Article: React.FC<IArticleProps> = ({ data }) => {
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [activeImageIndex, setActiveImageIndex] = useState<number | undefined>(
+    undefined
+  )
   const { frontmatter, body, timeToRead, excerpt, id } = safe(data.mdx)
   const { customHeading, title, images, featuredImage, date } = safe(
     frontmatter
@@ -30,10 +33,31 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
   if (images) {
     images.forEach((image, i) => {
       parsedImages[`image${i + 1}`] = parseImage(image)(() =>
-        console.log("HERE")
+        setActiveImageIndex(featuredImage ? i + 1 : i)
       )
     })
   }
+
+  function buildImagesForLightbox() {
+    const imgUrls =
+      images &&
+      images.map(image => {
+        const { publicURL } = safe(image)
+
+        return {
+          src: publicURL!,
+        }
+      })
+
+    if (featuredImage && imgUrls) {
+      imgUrls.unshift({
+        src: safe(featuredImage).publicURL!,
+      })
+    }
+
+    return imgUrls
+  }
+
   function renderHeader() {
     return (
       <Header>
@@ -54,10 +78,19 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
         description={excerpt}
         image={safe(featuredImage).publicURL!}
       />
+      {images && (
+        <Lightbox
+          isOpen={activeImageIndex !== undefined}
+          currentIndex={activeImageIndex}
+          onClose={() => setActiveImageIndex(undefined)}
+          images={buildImagesForLightbox()!}
+        />
+      )}
+
       <main>
         {featuredImage && (
           <FeaturedImageContainer>
-            {parseImage(featuredImage)()()}
+            {parseImage(featuredImage)(() => setActiveImageIndex(0))()}
           </FeaturedImageContainer>
         )}
         <Container>
