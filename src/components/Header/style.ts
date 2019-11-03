@@ -20,7 +20,7 @@ export const Inner = styled.div`
 `
 
 export const HeaderOuterSection = styled.div`
-  width: 12.5%;
+  width: 33%;
   display: flex;
   margin: auto;
   align-items: center;
@@ -50,7 +50,7 @@ export const Logo = styled.div`
 `
 
 export const StyledIcon = styled(MaterialIcon)`
-  margin-right: ${props => props.theme.spacing.sm};
+  margin-right: ${props => props.theme.spacing.md};
   font-size: ${props => props.theme.size.md};
 `
 
