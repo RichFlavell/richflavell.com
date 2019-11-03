@@ -18,8 +18,8 @@ const Card: React.FC<ICardProps> = ({ first, data }) => {
     <Container first={first}>
       <LinkWrapper to={slug!}>
         {largeThumbnail && thumbnail && first
-          ? parseImage(largeThumbnail)()
-          : parseImage(thumbnail)()}
+          ? parseImage(largeThumbnail)()()
+          : parseImage(thumbnail)()()}
         <Details>
           <CardTitle>{title}</CardTitle>
           <CardMeta>

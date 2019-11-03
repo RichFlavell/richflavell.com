@@ -1,20 +1,21 @@
+import React, { useState } from "react"
 import { globalHistory } from "@reach/router"
 import { DiscussionEmbed } from "disqus-react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import React from "react"
 import { format } from "timeago.js"
-import { parseImage } from "../../components/Images"
-import { Title } from "../../config/style/mdx"
 import { ArticleQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
-import SEO from "../../utils/SEO"
+import { parseImage } from "../../components/Images"
+import { Title } from "../../config/style/mdx"
 import { Container, FeaturedImageContainer, Header, Meta } from "./style"
+import SEO from "../../utils/SEO"
 
 interface IArticleProps {
   data: ArticleQuery
 }
 const Article: React.FC<IArticleProps> = ({ data }) => {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const { frontmatter, body, timeToRead, excerpt, id } = safe(data.mdx)
   const { customHeading, title, images, featuredImage, date } = safe(
     frontmatter
@@ -28,7 +29,9 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
   const parsedImages: { [key: string]: React.ReactNode } = {}
   if (images) {
     images.forEach((image, i) => {
-      parsedImages[`image${i + 1}`] = parseImage(image)
+      parsedImages[`image${i + 1}`] = parseImage(image)(() =>
+        console.log("HERE")
+      )
     })
   }
   function renderHeader() {
@@ -54,7 +57,7 @@ const Article: React.FC<IArticleProps> = ({ data }) => {
       <main>
         {featuredImage && (
           <FeaturedImageContainer>
-            {parseImage(featuredImage)()}
+            {parseImage(featuredImage)()()}
           </FeaturedImageContainer>
         )}
         <Container>
