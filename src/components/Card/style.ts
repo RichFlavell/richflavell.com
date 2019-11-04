@@ -15,7 +15,7 @@ export const Container = styled.article<IContainerProps>`
   border-radius: 2px;
   overflow: hidden;
   position: relative;
-  transition: all 0.2s ease;
+  transition: all 0.2s linear;
 
   ${props =>
     props.first &&

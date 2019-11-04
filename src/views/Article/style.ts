@@ -14,6 +14,8 @@ export const Container = styled.article`
   }
 `
 export const FeaturedImageContainer = styled.div`
+  max-width: 2160px;
+  margin: auto;
   margin-bottom: ${props => props.theme.spacing.xl};
 `
 

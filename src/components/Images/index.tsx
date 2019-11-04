@@ -9,6 +9,11 @@ export interface IImageProps {
   height?: number
   align?: string
   round?: boolean
+  callback?: () => void
+}
+
+export interface IParsedImageProps {
+  callback?: () => void
 }
 
 interface ISharpImgProps extends IImageProps, GatsbyImageProps {}
@@ -31,9 +36,17 @@ export const SharpImg = ({
   round,
   fluid,
   height,
+  callback,
 }: ISharpImgProps) => {
   return (
-    <SharpContainer width={width} height={height} align={align} round={round}>
+    <SharpContainer
+      width={width}
+      height={height}
+      align={align}
+      round={round}
+      onClick={callback}
+      clickable={!!callback}
+    >
       <Img fluid={fluid} draggable={false} />
     </SharpContainer>
   )
@@ -41,9 +54,17 @@ export const SharpImg = ({
 
 interface ISrcImgProps extends IImageProps {
   src?: string
+  callback?: () => void
 }
 
-export const SrcImg = ({ width, align, round, src, height }: ISrcImgProps) => {
+export const SrcImg = ({
+  width,
+  align,
+  round,
+  src,
+  height,
+  callback,
+}: ISrcImgProps) => {
   return (
     <SrcContainer
       width={width}
@@ -51,6 +72,8 @@ export const SrcImg = ({ width, align, round, src, height }: ISrcImgProps) => {
       align={align}
       round={round}
       src={src}
+      onClick={callback}
+      clickable={!!callback}
     />
   )
 }
@@ -61,27 +84,31 @@ export const parseImage = (image: any) => {
   const { childImageSharp: c, publicURL } = safe(image)
   const { fluid: f } = safe(c)
 
-  return ({
-    width,
-    round = false,
-    align = "center",
-    height,
-  }: IImageProps = {}) =>
-    f ? (
-      <SharpImg
-        width={width}
-        round={round}
-        align={align}
-        height={height}
-        fluid={safeFluid(f)}
-      />
-    ) : (
-      <SrcImg
-        width={width}
-        round={round}
-        align={align}
-        height={height}
-        src={publicURL || undefined}
-      />
-    )
+  return (callback?: () => void) => {
+    return ({
+      width,
+      round = false,
+      align = "center",
+      height,
+    }: IImageProps = {}) =>
+      f ? (
+        <SharpImg
+          width={width}
+          round={round}
+          align={align}
+          height={height}
+          fluid={safeFluid(f)}
+          callback={callback}
+        />
+      ) : (
+        <SrcImg
+          width={width}
+          round={round}
+          align={align}
+          height={height}
+          src={publicURL || undefined}
+          callback={callback}
+        />
+      )
+  }
 }

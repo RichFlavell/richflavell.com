@@ -22,7 +22,7 @@ export const VideoWrapper = styled.div`
   border-radius: 4px;
   overflow: hidden;
   box-shadow: ${props => props.theme.palette.shadow.passive};
-  transition: all 0.2s ease;
+  transition: all 0.2s linear;
 
   @media (min-width: 30em) {
     height: 720px;

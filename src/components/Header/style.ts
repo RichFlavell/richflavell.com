@@ -47,6 +47,7 @@ export const Logo = styled.div`
   font-size: ${props => props.theme.size.logo};
   margin: auto;
   text-decoration: none;
+  white-space: nowrap;
 `
 
 export const StyledIcon = styled(MaterialIcon)`
