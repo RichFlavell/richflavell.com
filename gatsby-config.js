@@ -5,11 +5,18 @@ module.exports = {
     description:
       "Adventure & outdoor photography/video hobbyist. Emphasis on Ultralight ethos and minimalism.",
     url: "https://www.richflavell.com",
+    siteUrl: "https://www.richflavell.com",
     image: "/images/me.jpg",
     twitterUsername: "@RichFlavell",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-typescript`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-tslint`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -24,9 +31,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-typescript`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-plugin-mdx",
       options: {
@@ -43,8 +47,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-tslint`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

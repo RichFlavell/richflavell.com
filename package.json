@@ -21,6 +21,7 @@
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-react-svg": "^2.1.2",
     "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-styled-components": "^3.1.8",
     "gatsby-plugin-typescript": "^2.1.11",
     "gatsby-remark-images": "^3.1.28",
@@ -57,7 +58,7 @@
     "typescript": "^3.6.3"
   },
   "scripts": {
-    "build": "tsc -b",
+    "build": "gatsby build",
     "start": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",

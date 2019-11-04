@@ -2229,6 +2229,7 @@ export type SiteFieldsEnum =
   'siteMetadata___titleTemplate' |
   'siteMetadata___description' |
   'siteMetadata___url' |
+  'siteMetadata___siteUrl' |
   'siteMetadata___image' |
   'siteMetadata___twitterUsername' |
   'port' |
@@ -2903,6 +2904,7 @@ export type SiteSiteMetadata = {
   titleTemplate?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   url?: Maybe<Scalars['String']>,
+  siteUrl?: Maybe<Scalars['String']>,
   image?: Maybe<Scalars['String']>,
   twitterUsername?: Maybe<Scalars['String']>,
 };
@@ -2912,6 +2914,7 @@ export type SiteSiteMetadataFilterInput = {
   titleTemplate?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
   url?: Maybe<StringQueryOperatorInput>,
+  siteUrl?: Maybe<StringQueryOperatorInput>,
   image?: Maybe<StringQueryOperatorInput>,
   twitterUsername?: Maybe<StringQueryOperatorInput>,
 };
