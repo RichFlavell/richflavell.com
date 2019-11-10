@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: "slug",
-      value: `/article${value}`,
+      value: `/post${value}`,
     })
   }
 }
@@ -17,7 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   // CREATE ARTICLE PAGES
-  const articlePages = graphql(`
+  const postPages = graphql(`
     query {
       allMdx {
         edges {
@@ -35,18 +35,18 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then((results, errors) => {
     if (errors) return Promise.reject(errors)
-    const articles = results.data.allMdx.edges
-    articles.forEach(article => {
+    const posts = results.data.allMdx.edges
+    posts.forEach(post => {
       createPage({
-        path: article.node.frontmatter.path || article.node.fields.slug,
-        component: path.resolve("./src/views/Article/index.tsx"),
-        context: { id: article.node.id },
+        path: post.node.frontmatter.path || post.node.fields.slug,
+        component: path.resolve("./src/views/Post/index.tsx"),
+        context: { id: post.node.id },
       })
     })
   })
 
   // CREATE ARTICLE LISTING PAGES
-  const articleListings = graphql(`
+  const postListings = graphql(`
     query {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
@@ -61,16 +61,16 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then((results, errors) => {
     if (errors) return Promise.reject(errors)
-    const articles = results.data.allMdx.edges
-    const articlesPerPage = 12
-    const numPages = Math.ceil(articles.length / articlesPerPage)
+    const posts = results.data.allMdx.edges
+    const postsPerPage = 12
+    const numPages = Math.ceil(posts.length / postsPerPage)
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `/articles` : `/articles/${i + 1}`,
-        component: path.resolve("./src/views/Articles/index.tsx"),
+        path: i === 0 ? `/posts` : `/posts/${i + 1}`,
+        component: path.resolve("./src/views/Posts/index.tsx"),
         context: {
-          limit: articlesPerPage,
-          skip: i * articlesPerPage,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
           numPages,
           currentPage: i + 1,
         },
@@ -78,5 +78,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([articlePages, articleListings])
+  return Promise.all([postPages, postListings])
 }

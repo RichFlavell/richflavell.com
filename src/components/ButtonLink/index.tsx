@@ -6,6 +6,7 @@ interface IButtonProps {
   children: React.ReactNode
   borderless?: boolean
   onClick?: () => void
+  className?: string
 }
 
 const Button: React.FC<IButtonProps> = ({
@@ -13,9 +14,16 @@ const Button: React.FC<IButtonProps> = ({
   children,
   onClick,
   borderless,
+  className,
 }) => {
   return (
-    <Container to={to} onClick={onClick} borderless={borderless}>
+    // @ts-ignore (Needed due to Gatsby `Link` missing className prop)
+    <Container
+      to={to}
+      onClick={onClick}
+      borderless={borderless}
+      className={className}
+    >
       {children}
     </Container>
   )

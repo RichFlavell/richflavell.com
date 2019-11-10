@@ -34,9 +34,9 @@ const Header: React.FC = ({}) => {
           <Link to="/">Rich Flavell</Link>
         </Logo>
         <HeaderInnerSection>
-          <SubscribeButton onClick={() => alert("Subscribe")}>
+          <SubscribeButton to="mailto:me@richflavell.com?subject=RichFlavell.com - Query">
             <StyledIcon icon="mail_outline" />
-            {"Subscribe"}
+            {"Get in touch!"}
           </SubscribeButton>
         </HeaderInnerSection>
       </Inner>

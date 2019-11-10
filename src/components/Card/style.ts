@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 import { Title } from "../../config/style/mdx"
-import { Meta } from "../../views/Article/style"
+import { Meta } from "../../views/Post/style"
 
 interface IContainerProps {
   first: boolean
@@ -42,6 +42,14 @@ export const CardMeta = styled(Meta)`
   margin: auto;
   text-align: center;
   font-size: ${props => props.theme.size.sm};
+
+  span {
+    margin: auto ${props => props.theme.spacing.xs};
+  }
+
+  time {
+    margin: auto ${props => props.theme.spacing.xs};
+  }
 `
 
 export const Details = styled.div`

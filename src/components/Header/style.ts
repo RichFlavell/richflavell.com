@@ -1,7 +1,7 @@
 import MaterialIcon from "@material/react-material-icon"
 import styled from "styled-components"
 import media from "styled-media-query"
-import Button from "../Button"
+import ButtonLink from "../ButtonLink"
 
 export const Container = styled.header`
   display: flex;
@@ -10,9 +10,12 @@ export const Container = styled.header`
   color: ${props => props.theme.palette.text.primary};
   border-bottom: 2px solid ${props => props.theme.palette.border.secondary};
   align-items: center;
+  margin: auto;
+  width: 100%;
 `
 
 export const Inner = styled.div`
+  max-width: 1280px;
   width: 75%;
   display: flex;
   margin: auto;
@@ -37,7 +40,8 @@ export const HeaderInnerSection = styled.div`
   `}
 `
 
-export const SubscribeButton = styled(Button)`
+export const SubscribeButton = styled(ButtonLink)`
+  margin: 0px;
   margin-left: auto;
 `
 
