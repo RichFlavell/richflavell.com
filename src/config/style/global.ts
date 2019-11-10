@@ -10,6 +10,8 @@ const Global = createGlobalStyle`
   html {
     width: 100%;
     height: 100%;
+    color: ${props => props.theme.palette.text.primary};
+    background-color: ${props => props.theme.palette.background.primary};
   }
 
   * {
@@ -26,6 +28,11 @@ const Global = createGlobalStyle`
     &:hover {
       color: ${props => props.theme.palette.link.primary};
     }
+  }
+
+  hr {
+    width: 0px;
+    opacity: 0;
   }
 
   body {

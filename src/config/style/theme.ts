@@ -49,19 +49,19 @@ export const Dark: DefaultTheme = {
   ...Default,
   palette: {
     background: {
-      primary: "#202121",
-      secondary: "#252626",
+      primary: "#191919",
+      secondary: "#1D1E1F",
     },
     text: {
-      primary: "#F1F1EF",
-      secondary: "#F1F1EF",
+      primary: "#F2F2F2",
+      secondary: "#F2F2F2",
     },
     link: {
-      primary: "#DEC79B",
+      primary: "#9487B7",
     },
     border: {
-      primary: "#F1F1EF",
-      secondary: "#F1F1EF",
+      primary: "#191919",
+      secondary: "#1D1E1F",
     },
     shadow: Default.palette.shadow,
     brand: Default.palette.brand,

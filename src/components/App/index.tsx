@@ -16,8 +16,7 @@ const App: React.FC = ({ children }) => {
   const [isWrapperVisible, setIsWrapperVisible] = useState(
     process.env.NODE_ENV !== "development"
   )
-  const themeVariant =
-    theme === "light" || process.env.NODE_ENV === "development" ? Default : Dark
+  const themeVariant = theme === "light" ? Default : Dark
 
   setTimeout(() => {
     setIsLoading(false)
