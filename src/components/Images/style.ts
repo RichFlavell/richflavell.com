@@ -17,7 +17,7 @@ export const SharpContainer = styled.span<IContainerProps>`
   ${props =>
     props.round &&
     css`
-      border-radius: 50%;
+      border-radius: 50% !important;
     `}
 
   ${props =>
@@ -48,7 +48,7 @@ export const SharpContainer = styled.span<IContainerProps>`
         box-shadow: ${props.theme.palette.shadow.active};
         cursor: pointer;
       `} 
-  }
+  } 
 `
 
 export const SrcContainer = styled.img<IContainerProps>`

@@ -3,34 +3,34 @@ import React from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Left, Right } from "../../config/style/mdx"
-import { ArticlesQuery } from "../../types/graphql-types"
+import { PostsQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { SeeMoreLink } from "../Home/style"
 import { Actions, PageCount, PageHeading, PageTitle } from "./style"
 
-interface IArticlesProps {
-  data: ArticlesQuery
+interface IPostsProps {
+  data: PostsQuery
   pageContext: {
     currentPage: number
     numPages: number
   }
 }
-const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
-  const articles = safe(data.allMdx.edges)
+const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
+  const posts = safe(data.allMdx.edges)
   return (
     <>
-      <SEO title={"Articles"} />
+      <SEO title={"Posts"} />
       <Content>
         <PageHeading>
-          <PageTitle>Articles</PageTitle>
+          <PageTitle>Posts</PageTitle>
           <PageCount>
             Page {pageContext.currentPage} / {pageContext.numPages}
           </PageCount>
         </PageHeading>
         <GridList>
-          {articles.map(article => (
-            <Card first={false} key={article.node.id} data={article} />
+          {posts.map(post => (
+            <Card first={false} key={post.node.id} data={post} />
           ))}
         </GridList>
         <Actions>
@@ -39,8 +39,8 @@ const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
               <SeeMoreLink
                 to={
                   pageContext.currentPage - 1 === 1
-                    ? `/articles`
-                    : `/articles/${pageContext.currentPage - 1}`
+                    ? `/posts`
+                    : `/posts/${pageContext.currentPage - 1}`
                 }
               >
                 &laquo; Previous
@@ -49,7 +49,7 @@ const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
           )}
           {pageContext.currentPage < pageContext.numPages && (
             <Right>
-              <SeeMoreLink to={`/articles/${pageContext.currentPage + 1}`}>
+              <SeeMoreLink to={`/posts/${pageContext.currentPage + 1}`}>
                 Next &raquo;
               </SeeMoreLink>
             </Right>
@@ -61,7 +61,7 @@ const Articles: React.FC<IArticlesProps> = ({ data, pageContext }) => {
 }
 
 export const pageQuery = graphql`
-  query Articles($skip: Int!, $limit: Int!) {
+  query Posts($skip: Int!, $limit: Int!) {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
@@ -104,4 +104,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default Articles
+export default Posts

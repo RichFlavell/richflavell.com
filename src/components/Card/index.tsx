@@ -1,18 +1,18 @@
 import React from "react"
 import { format } from "timeago.js"
-import { ArticlesQuery } from "../../types/graphql-types"
+import { PostsQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import { parseImage } from "../Images"
 import { CardMeta, CardTitle, Container, Details, LinkWrapper } from "./style"
 
 interface ICardProps {
   first: boolean
-  data: ArticlesQuery["allMdx"]["edges"][0] // Article query type - nested inside `node`
+  data: PostsQuery["allMdx"]["edges"][0] // Post query type - nested inside `node`
 }
 const Card: React.FC<ICardProps> = ({ first, data }) => {
-  const article = safe(data.node)
-  const { title, date, largeThumbnail, thumbnail } = safe(article.frontmatter)
-  const { slug } = safe(article.fields)
+  const post = safe(data.node)
+  const { title, date, largeThumbnail, thumbnail } = safe(post.frontmatter)
+  const { slug } = safe(post.fields)
 
   return (
     <Container first={first}>
@@ -23,8 +23,9 @@ const Card: React.FC<ICardProps> = ({ first, data }) => {
         <Details>
           <CardTitle>{title}</CardTitle>
           <CardMeta>
-            <span>{format(date!)}</span> <span>{" • "} </span>
-            <span>{article.timeToRead} min read</span>
+            <time dateTime={date || undefined}>{format(date!)}</time>{" "}
+            <span>{" • "} </span>
+            <span>{post.timeToRead} min read</span>
           </CardMeta>
         </Details>
       </LinkWrapper>

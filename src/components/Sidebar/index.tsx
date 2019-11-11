@@ -45,17 +45,9 @@ const Sidebar: React.FC = ({}) => {
         <Item>
           <MenuLink
             onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/articles"
+            to="/posts"
           >
-            Articles
-          </MenuLink>
-        </Item>
-        <Item>
-          <MenuLink
-            onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/gear"
-          >
-            Gear
+            Posts
           </MenuLink>
         </Item>
         <Item>
@@ -64,14 +56,6 @@ const Sidebar: React.FC = ({}) => {
             to="/about"
           >
             About
-          </MenuLink>
-        </Item>
-        <Item>
-          <MenuLink
-            onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/privacy"
-          >
-            Privacy
           </MenuLink>
         </Item>
       </Items>

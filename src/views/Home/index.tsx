@@ -12,7 +12,7 @@ interface IHomeProps {
   data?: HomeQuery
 }
 const Home: React.FC<IHomeProps> = () => {
-  const videoId = "QPdWJeybMo8"
+  const videoId = ""
 
   const data: HomeQuery = useStaticQuery(graphql`
     query Home {
@@ -57,31 +57,33 @@ const Home: React.FC<IHomeProps> = () => {
     }
   `)
 
-  const articles = safe(data.allMdx.edges)
+  const posts = safe(data.allMdx.edges)
 
   return (
     <Holder>
       <SEO title={"Adventure, Outdoors, Ultralight & Minimalism"} />
-      <VideoWrapper>
-        <Video
-          url={`https://www.youtube.com/watch?v=${videoId}`}
-          playing={true}
-          controls={true}
-          light={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-          width="100%"
-          height="100%"
-        />
-      </VideoWrapper>
+      {videoId && (
+        <VideoWrapper>
+          <Video
+            url={`https://www.youtube.com/watch?v=${videoId}`}
+            playing={true}
+            controls={true}
+            light={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            width="100%"
+            height="100%"
+          />
+        </VideoWrapper>
+      )}
 
       <Content>
         <GridList>
-          {articles.map((article, i) => (
-            <Card first={i === 0} key={article.node.id} data={article} />
+          {posts.map((post, i) => (
+            <Card first={i === 0} key={post.node.id} data={post} />
           ))}
         </GridList>
         {data.allMdx.totalCount > 10 && (
           <Right>
-            <SeeMoreLink to="/articles">See more &raquo;</SeeMoreLink>
+            <SeeMoreLink to="/posts">See more &raquo;</SeeMoreLink>
           </Right>
         )}
       </Content>

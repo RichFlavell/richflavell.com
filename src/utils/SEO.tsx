@@ -9,7 +9,7 @@ interface ISEOProps {
   description?: string
   image?: string
   pathname?: string
-  article?: boolean
+  post?: boolean
 }
 
 const SEO: React.FC<ISEOProps> = ({
@@ -17,7 +17,7 @@ const SEO: React.FC<ISEOProps> = ({
   description = null,
   image = null,
   pathname = null,
-  article = false,
+  post = false,
 }) => {
   const data: SeoQuery = useStaticQuery(graphql`
     query SEO {
@@ -58,9 +58,7 @@ const SEO: React.FC<ISEOProps> = ({
         <meta name="description" content={seo.description!} />
         <meta name="image" content={seo.image} />
         {seo.url && <meta property="og:url" content={seo.url} />}
-        {(article ? true : null) && (
-          <meta property="og:type" content="article" />
-        )}
+        {(post ? true : null) && <meta property="og:type" content="post" />}
         {seo.title && <meta property="og:title" content={seo.title} />}
         {seo.description && (
           <meta property="og:description" content={seo.description} />

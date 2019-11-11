@@ -45,7 +45,7 @@ export const SharpImg = ({
       align={align}
       round={round}
       onClick={callback}
-      clickable={!!callback}
+      clickable={callback !== undefined}
     >
       <Img fluid={fluid} draggable={false} />
     </SharpContainer>

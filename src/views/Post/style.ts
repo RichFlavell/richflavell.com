@@ -31,12 +31,14 @@ export const Meta = styled.h2`
   font-weight: lighter;
   color: ${props => props.theme.palette.text.primary};
   line-height: ${props => props.theme.size.lg};
+  justify-content: center;
 
   span {
     margin: auto ${props => props.theme.spacing.sm};
   }
 
-  span:first-of-type {
+  time {
+    margin: auto ${props => props.theme.spacing.sm};
     flex: 1;
     text-align: right;
   }

@@ -67,7 +67,7 @@ const Reset = css`
   tr,
   th,
   td,
-  article,
+  post,
   aside,
   canvas,
   details,
@@ -102,7 +102,7 @@ const Reset = css`
   }
 
   /* HTML5 display-role reset for older browsers */
-  article,
+  post,
   aside,
   details,
   figcaption,
