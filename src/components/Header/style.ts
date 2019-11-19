@@ -5,7 +5,7 @@ import ButtonLink from "../ButtonLink"
 
 export const Container = styled.header`
   display: flex;
-  padding: ${props => props.theme.spacing.sm};
+  padding: ${props => props.theme.spacing.sm} 0px;
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};
   border-bottom: 2px solid ${props => props.theme.palette.border.secondary};
