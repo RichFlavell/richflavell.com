@@ -7,6 +7,11 @@ const Global = createGlobalStyle`
   ${Reset}
   ${MaterialIcon.toString()}
 
+  .material-icons {
+  font-family: 'Material Icons Outlined';
+  stroke-width: 0.1px;
+}
+
   html {
     width: 100%;
     height: 100%;
@@ -17,7 +22,11 @@ const Global = createGlobalStyle`
   * {
     @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
     @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400&display=swap");
-    @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+    @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004) !important;
   }
 
   a { 

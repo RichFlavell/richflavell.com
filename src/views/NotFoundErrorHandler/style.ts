@@ -7,7 +7,6 @@ export const Holder = styled.main`
   flex-grow: 1;
   align-content: center;
   justify-content: center;
-  width: 100%;
   height: 100%;
   margin: auto;
   text-align: center;
@@ -15,5 +14,5 @@ export const Holder = styled.main`
 
 export const Buttonicon = styled(MaterialIcon)`
   font-size: ${props => props.theme.size.lg};
-  margin-right: ${props => props.theme.spacing.md};
+  margin-right: ${props => props.theme.spacing.sm};
 `

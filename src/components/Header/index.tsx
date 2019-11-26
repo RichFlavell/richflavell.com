@@ -13,9 +13,15 @@ import {
   StyledIcon,
   SubscribeButton,
 } from "./style"
+import { Right } from "../../config/style/mdx"
+import useDarkMode from "../../hooks/useDarkMode"
+import { ThemeContext } from "../../context/ThemeContext"
+import { Dark } from "../../config/style/theme"
 
 const Header: React.FC = ({}) => {
   const sidebarContext = useContext(SidebarContext)
+  const themeContext = useContext(ThemeContext)
+  const { toggleTheme } = useDarkMode()
   return (
     <Container>
       <HeaderOuterSection>
@@ -34,13 +40,23 @@ const Header: React.FC = ({}) => {
           <Link to="/">Rich Flavell</Link>
         </Logo>
         <HeaderInnerSection>
-          <SubscribeButton to="mailto:me@richflavell.com?subject=RichFlavell.com - Query">
+          <SubscribeButton to="/contact">
             <StyledIcon icon="mail_outline" />
-            {"Get in touch!"}
+            {"Contact"}
           </SubscribeButton>
         </HeaderInnerSection>
       </Inner>
-      <HeaderOuterSection />
+      <HeaderOuterSection>
+        <Right>
+          <Button onClick={() => toggleTheme()} borderless={true}>
+            {themeContext.state.theme === Dark ? (
+              <MenuIcon icon="brightness_7" />
+            ) : (
+              <MenuIcon icon="brightness_3" />
+            )}
+          </Button>
+        </Right>
+      </HeaderOuterSection>
     </Container>
   )
 }

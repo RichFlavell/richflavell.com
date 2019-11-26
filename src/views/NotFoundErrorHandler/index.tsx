@@ -11,6 +11,7 @@ const NotFoundErrorHandler: React.FC = () => {
       <Content>
         <Title>:( 404</Title>
         <SubTitle>Page Not Found</SubTitle>
+        <hr />
         <ButtonLink to="/">
           <Buttonicon icon="arrow_back" />
           Click here to return

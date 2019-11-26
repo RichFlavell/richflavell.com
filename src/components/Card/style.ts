@@ -57,9 +57,10 @@ export const Details = styled.div`
   background: ${props => props.theme.palette.background.primary};
   position: absolute;
   bottom: 0px;
-  padding: ${props => props.theme.spacing.md};
+  padding: ${props => props.theme.spacing.md} 0px;
 `
 export const LinkWrapper = styled(Link)`
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `

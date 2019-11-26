@@ -31,6 +31,8 @@ declare module "styled-components" {
         passive: string
         active: string
       }
+      white: string
+      black: string
     }
     spacing: ThemeSpatialOption
     size: ThemeSpatialOption & { logo: string }

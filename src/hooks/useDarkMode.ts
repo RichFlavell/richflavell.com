@@ -1,22 +1,28 @@
 /**
  * https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
  */
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { ThemeContext } from "../context/ThemeContext"
+import Default from "../config/style/theme"
 
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState("light")
+  const themeContext = useContext(ThemeContext)
   const [componentMounted, setComponentMounted] = useState(false)
-  const setMode = (mode: string) => {
-    window.localStorage.setItem("theme", mode)
-    setTheme(mode)
-  }
 
   const toggleTheme = () => {
-    if (theme === "light") {
-      setMode("dark")
+    if (themeContext.state.theme === Default) {
+      window.localStorage.setItem("theme", "dark")
     } else {
-      setMode("light")
+      window.localStorage.setItem("theme", "light")
     }
+    themeContext.dispatch({ type: "TOGGLE_THEME" })
+  }
+
+  const setTheme = (type: string) => {
+    window.localStorage.setItem("theme", type)
+    themeContext.dispatch({
+      type: type === "light" ? "SET_LIGHT_THEME" : "SET_DARK_THEME",
+    })
   }
 
   useEffect(() => {
@@ -24,14 +30,14 @@ export const useDarkMode = () => {
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches &&
     !localTheme
-      ? setMode("dark")
+      ? setTheme("dark")
       : localTheme
       ? setTheme(localTheme)
-      : setMode("light")
+      : setTheme("light")
     setComponentMounted(true)
   }, [])
 
-  return [theme, toggleTheme, componentMounted]
+  return { toggleTheme, componentMounted }
 }
 
 export default useDarkMode

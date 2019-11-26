@@ -27,6 +27,8 @@ export const Default: DefaultTheme = {
       passive: "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
       active: "0 4px 5px rgba(0, 0, 0, 0.2)",
     },
+    white: "#FFFFFF",
+    black: "#000000",
   },
   spacing: {
     xs: "2px",
@@ -41,7 +43,7 @@ export const Default: DefaultTheme = {
     md: "18px",
     lg: "24px",
     xl: "38px",
-    logo: "42px",
+    logo: "28px",
   },
 }
 
@@ -65,6 +67,8 @@ export const Dark: DefaultTheme = {
     },
     shadow: Default.palette.shadow,
     brand: Default.palette.brand,
+    white: "#FFFFFF",
+    black: "#000000",
   },
 }
 

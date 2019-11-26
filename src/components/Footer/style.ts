@@ -6,7 +6,7 @@ export const Holder = styled.footer`
   align-items: flex-end;
   display: flex;
   width: 100%;
-  max-width: 980px;
+  max-width: 1440px;
 `
 
 export const Container = styled.div`

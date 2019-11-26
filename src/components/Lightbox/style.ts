@@ -8,13 +8,13 @@ export const StyledLightbox = styled(ReactSpringLightbox)`
 `
 
 export const ControlIcon = styled(MaterialIcon)`
-  color: ${props => props.theme.palette.background.primary};
+  color: ${props => props.theme.palette.white};
   font-size: ${props => props.theme.size.xl};
 `
 
 export const HeaderIcon = styled(MaterialIcon)`
   margin: ${props => props.theme.spacing.md};
-  color: ${props => props.theme.palette.background.primary};
+  color: ${props => props.theme.palette.white};
   font-size: ${props => props.theme.size.lg};
 `
 

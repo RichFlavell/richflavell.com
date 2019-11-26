@@ -5,7 +5,7 @@ export const Content = styled.main`
   display: flex;
   margin: auto;
   width: 100%;
-  max-width: 980px;
+  max-width: 1440px;
   flex-direction: column;
 `
 
