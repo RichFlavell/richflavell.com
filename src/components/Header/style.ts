@@ -5,7 +5,7 @@ import ButtonLink from "../ButtonLink"
 
 export const Container = styled.header`
   display: flex;
-  padding: ${props => props.theme.spacing.sm} 0px;
+  padding: ${props => props.theme.spacing.lg} 0px;
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};
   border-bottom: 2px solid ${props => props.theme.palette.border.secondary};
@@ -20,6 +20,10 @@ export const Inner = styled.div`
   display: flex;
   margin: auto;
   align-items: center;
+
+  @media (max-width: 60em) {
+    width: 100%;
+  }
 `
 
 export const HeaderOuterSection = styled.div`
@@ -55,10 +59,10 @@ export const Logo = styled.div`
 `
 
 export const StyledIcon = styled(MaterialIcon)`
-  margin-right: ${props => props.theme.spacing.md};
+  margin-right: ${props => props.theme.spacing.sm};
   font-size: ${props => props.theme.size.md};
 `
 
 export const MenuIcon = styled(MaterialIcon)`
-  font-size: ${props => props.theme.size.lg};
+  font-size: ${props => props.theme.size.md};
 `

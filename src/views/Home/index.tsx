@@ -36,7 +36,7 @@ const Home: React.FC<IHomeProps> = () => {
               largeThumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 980, quality: 90) {
+                  fluid(maxWidth: 1440, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -44,7 +44,7 @@ const Home: React.FC<IHomeProps> = () => {
               thumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 316, quality: 90) {
+                  fluid(maxWidth: 500, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }

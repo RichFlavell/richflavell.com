@@ -11,13 +11,16 @@ import Sidebar from "./src/components/Sidebar"
 
 import { Right } from "./src/config/style/mdx"
 import { Link } from "gatsby"
+import ThemeContextProvider from "./src/context/ThemeContext"
 
 export const wrapRootElement = ({ element }) => {
   return (
-    <App>
-      <Global />
-      {element}
-    </App>
+    <ThemeContextProvider>
+      <App>
+        <Global />
+        {element}
+      </App>
+    </ThemeContextProvider>
   )
 }
 

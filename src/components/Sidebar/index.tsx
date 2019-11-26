@@ -16,6 +16,7 @@ import {
 
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import GatsbyIcon from "../../icons/gatsby.svg"
+import GithubIcon from "../../icons/github.svg"
 
 const Sidebar: React.FC = ({}) => {
   const sidebarContext = useContext(SidebarContext)
@@ -61,10 +62,15 @@ const Sidebar: React.FC = ({}) => {
       </Items>
       <Footer>
         <FooterContainer>
-          Built with: 💜, lots of ☕ & &nbsp;{" "}
+          Built with lots of ☕,&nbsp;
           <OutboundLink href="https://www.gatsbyjs.org/" target="_blank">
-            <GatsbyIcon height={24} />
+            <GatsbyIcon height={14} />
           </OutboundLink>
+          &nbsp; & &nbsp;
+          <OutboundLink href="https://www.github.com/" target="_blank">
+            <GithubIcon height={14} />
+          </OutboundLink>
+          .
         </FooterContainer>
       </Footer>
     </Container>

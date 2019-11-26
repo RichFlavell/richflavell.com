@@ -83,7 +83,7 @@ export const pageQuery = graphql`
             largeThumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 980, quality: 90) {
+                fluid(maxWidth: 980, quality: 90, cropFocus: ENTROPY) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -91,7 +91,7 @@ export const pageQuery = graphql`
             thumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 316, quality: 90) {
+                fluid(maxWidth: 500, quality: 90, cropFocus: ENTROPY) {
                   ...GatsbyImageSharpFluid
                 }
               }

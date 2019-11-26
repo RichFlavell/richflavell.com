@@ -70,7 +70,6 @@ export const ActionsTitle = styled.h1`
 export const FooterContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: auto;
   padding: ${props => props.theme.spacing.lg};
   fill: ${props => props.theme.palette.text.primary};
 
