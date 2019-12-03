@@ -4,6 +4,7 @@ import { Container } from "./style"
 interface IButtonProps {
   children: React.ReactNode
   borderless?: boolean
+  compact?: boolean
   className?: string
   onClick?: () => void
 }
@@ -13,9 +14,15 @@ const Button: React.FC<IButtonProps> = ({
   children,
   onClick,
   borderless,
+  compact,
 }) => {
   return (
-    <Container className={className} onClick={onClick} borderless={borderless}>
+    <Container
+      className={className}
+      onClick={onClick}
+      borderless={borderless}
+      compact={compact}
+    >
       {children}
     </Container>
   )

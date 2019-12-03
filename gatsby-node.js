@@ -1,5 +1,14 @@
 const { createFilePath } = require("gatsby-source-filesystem")
+const fs = require("fs-extra")
 const path = require("path")
+
+exports.onPostBootstrap = () => {
+  console.log("Moving locales to public dir")
+  fs.copySync(
+    path.join(__dirname, "/src/i18n"),
+    path.join(__dirname, "/public/locales")
+  )
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions

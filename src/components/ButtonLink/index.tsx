@@ -5,7 +5,8 @@ interface IButtonProps {
   to: string
   children: React.ReactNode
   borderless?: boolean
-  onClick?: () => void
+  compact?: boolean
+  onClick?: (e: React.MouseEvent) => void
   className?: string
 }
 
@@ -14,6 +15,7 @@ const Button: React.FC<IButtonProps> = ({
   children,
   onClick,
   borderless,
+  compact,
   className,
 }) => {
   return (
@@ -22,6 +24,7 @@ const Button: React.FC<IButtonProps> = ({
       to={to}
       onClick={onClick}
       borderless={borderless}
+      compact={compact}
       className={className}
     >
       {children}

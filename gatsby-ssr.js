@@ -6,11 +6,9 @@ import App from "./src/components/App"
 import Page from "./src/components/Page"
 
 import Header from "./src/components/Header"
-import Footer from "./src/components/Footer"
+import GlobalFooter from "./src/components/GlobalFooter"
 import Sidebar from "./src/components/Sidebar"
 
-import { Right } from "./src/config/style/mdx"
-import { Link } from "gatsby"
 import ThemeContextProvider from "./src/context/ThemeContext"
 
 export const wrapRootElement = ({ element }) => {
@@ -32,12 +30,7 @@ export const wrapPageElement = ({ element }) => {
       <Page>
         <Header />
         {element}
-        <Footer>
-          Rich Flavell © {new Date().getFullYear()}. All rights reserved
-          &nbsp;|&nbsp;
-          <Link to="/privacy">Privacy</Link>
-          <Right>English &nbsp;//&nbsp; 日本語</Right>
-        </Footer>
+        <GlobalFooter />
       </Page>
     </>
   )

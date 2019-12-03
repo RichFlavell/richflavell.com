@@ -10,6 +10,7 @@ interface ISEOProps {
   image?: string
   pathname?: string
   post?: boolean
+  lang?: string
 }
 
 const SEO: React.FC<ISEOProps> = ({
