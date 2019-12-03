@@ -7,11 +7,13 @@ import { HomeQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
+import { useTranslation } from "react-i18next"
 
 interface IHomeProps {
   data?: HomeQuery
 }
 const Home: React.FC<IHomeProps> = () => {
+  const { t } = useTranslation("Home")
   const videoId = ""
 
   const data: HomeQuery = useStaticQuery(graphql`
@@ -83,7 +85,7 @@ const Home: React.FC<IHomeProps> = () => {
         </GridList>
         {data.allMdx.totalCount > 10 && (
           <Right>
-            <SeeMoreLink to="/posts">See more &raquo;</SeeMoreLink>
+            <SeeMoreLink to="/posts">{t("seeMore")} &raquo;</SeeMoreLink>
           </Right>
         )}
       </Content>

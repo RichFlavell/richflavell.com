@@ -2,10 +2,11 @@ import styled, { css } from "styled-components"
 
 interface IContainerProps {
   borderless?: boolean
+  compact?: boolean
 }
 
 export const buttonStyle = css<IContainerProps>`
-  height: 0%;
+  height: auto;
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
   background-color: initial;
   color: ${props => props.theme.palette.text.primary};
@@ -13,8 +14,9 @@ export const buttonStyle = css<IContainerProps>`
   border-radius: ${props => props.theme.spacing.sm};
   font-size: ${props => props.theme.size.sm};
   transition: color 0.1s linear;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  font-weight: lighter;
 
   &:hover {
     color: ${props => props.theme.palette.link.primary};
@@ -25,6 +27,12 @@ export const buttonStyle = css<IContainerProps>`
     props.borderless &&
     css`
       border: none;
+    `}
+
+  ${props =>
+    props.compact &&
+    css`
+      padding: 0px;
     `}
 `
 

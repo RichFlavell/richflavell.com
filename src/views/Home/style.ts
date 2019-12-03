@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
 import ReactPlayer from "react-player"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 export const Holder = styled.main`
   padding: 0 ${props => props.theme.spacing.md};

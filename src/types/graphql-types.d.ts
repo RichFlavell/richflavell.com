@@ -71,7 +71,7 @@ export type Directory = Node & {
   gid?: Maybe<Scalars['Int']>,
   rdev?: Maybe<Scalars['Int']>,
   blksize?: Maybe<Scalars['Int']>,
-  ino?: Maybe<Scalars['Float']>,
+  ino?: Maybe<Scalars['Int']>,
   blocks?: Maybe<Scalars['Int']>,
   atimeMs?: Maybe<Scalars['Float']>,
   mtimeMs?: Maybe<Scalars['Float']>,
@@ -323,7 +323,7 @@ export type DirectoryFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<FloatQueryOperatorInput>,
+  ino?: Maybe<IntQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -381,7 +381,7 @@ export type File = Node & {
   gid?: Maybe<Scalars['Int']>,
   rdev?: Maybe<Scalars['Int']>,
   blksize?: Maybe<Scalars['Int']>,
-  ino?: Maybe<Scalars['Float']>,
+  ino?: Maybe<Scalars['Int']>,
   blocks?: Maybe<Scalars['Int']>,
   atimeMs?: Maybe<Scalars['Float']>,
   mtimeMs?: Maybe<Scalars['Float']>,
@@ -697,45 +697,6 @@ export type FileFieldsEnum =
   'childMdx___rawBody' |
   'childMdx___fileAbsolutePath' |
   'childMdx___frontmatter___title' |
-  'childMdx___frontmatter___path' |
-  'childMdx___frontmatter___customHeading' |
-  'childMdx___frontmatter___images' |
-  'childMdx___frontmatter___images___birthtime' |
-  'childMdx___frontmatter___images___birthtimeMs' |
-  'childMdx___frontmatter___images___sourceInstanceName' |
-  'childMdx___frontmatter___images___absolutePath' |
-  'childMdx___frontmatter___images___relativePath' |
-  'childMdx___frontmatter___images___extension' |
-  'childMdx___frontmatter___images___size' |
-  'childMdx___frontmatter___images___prettySize' |
-  'childMdx___frontmatter___images___modifiedTime' |
-  'childMdx___frontmatter___images___accessTime' |
-  'childMdx___frontmatter___images___changeTime' |
-  'childMdx___frontmatter___images___birthTime' |
-  'childMdx___frontmatter___images___root' |
-  'childMdx___frontmatter___images___dir' |
-  'childMdx___frontmatter___images___base' |
-  'childMdx___frontmatter___images___ext' |
-  'childMdx___frontmatter___images___name' |
-  'childMdx___frontmatter___images___relativeDirectory' |
-  'childMdx___frontmatter___images___dev' |
-  'childMdx___frontmatter___images___mode' |
-  'childMdx___frontmatter___images___nlink' |
-  'childMdx___frontmatter___images___uid' |
-  'childMdx___frontmatter___images___gid' |
-  'childMdx___frontmatter___images___rdev' |
-  'childMdx___frontmatter___images___blksize' |
-  'childMdx___frontmatter___images___ino' |
-  'childMdx___frontmatter___images___blocks' |
-  'childMdx___frontmatter___images___atimeMs' |
-  'childMdx___frontmatter___images___mtimeMs' |
-  'childMdx___frontmatter___images___ctimeMs' |
-  'childMdx___frontmatter___images___atime' |
-  'childMdx___frontmatter___images___mtime' |
-  'childMdx___frontmatter___images___ctime' |
-  'childMdx___frontmatter___images___publicURL' |
-  'childMdx___frontmatter___images___id' |
-  'childMdx___frontmatter___images___children' |
   'childMdx___frontmatter___featuredImage___birthtime' |
   'childMdx___frontmatter___featuredImage___birthtimeMs' |
   'childMdx___frontmatter___featuredImage___sourceInstanceName' |
@@ -773,6 +734,45 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___featuredImage___id' |
   'childMdx___frontmatter___featuredImage___children' |
   'childMdx___frontmatter___date' |
+  'childMdx___frontmatter___images' |
+  'childMdx___frontmatter___images___birthtime' |
+  'childMdx___frontmatter___images___birthtimeMs' |
+  'childMdx___frontmatter___images___sourceInstanceName' |
+  'childMdx___frontmatter___images___absolutePath' |
+  'childMdx___frontmatter___images___relativePath' |
+  'childMdx___frontmatter___images___extension' |
+  'childMdx___frontmatter___images___size' |
+  'childMdx___frontmatter___images___prettySize' |
+  'childMdx___frontmatter___images___modifiedTime' |
+  'childMdx___frontmatter___images___accessTime' |
+  'childMdx___frontmatter___images___changeTime' |
+  'childMdx___frontmatter___images___birthTime' |
+  'childMdx___frontmatter___images___root' |
+  'childMdx___frontmatter___images___dir' |
+  'childMdx___frontmatter___images___base' |
+  'childMdx___frontmatter___images___ext' |
+  'childMdx___frontmatter___images___name' |
+  'childMdx___frontmatter___images___relativeDirectory' |
+  'childMdx___frontmatter___images___dev' |
+  'childMdx___frontmatter___images___mode' |
+  'childMdx___frontmatter___images___nlink' |
+  'childMdx___frontmatter___images___uid' |
+  'childMdx___frontmatter___images___gid' |
+  'childMdx___frontmatter___images___rdev' |
+  'childMdx___frontmatter___images___blksize' |
+  'childMdx___frontmatter___images___ino' |
+  'childMdx___frontmatter___images___blocks' |
+  'childMdx___frontmatter___images___atimeMs' |
+  'childMdx___frontmatter___images___mtimeMs' |
+  'childMdx___frontmatter___images___ctimeMs' |
+  'childMdx___frontmatter___images___atime' |
+  'childMdx___frontmatter___images___mtime' |
+  'childMdx___frontmatter___images___ctime' |
+  'childMdx___frontmatter___images___publicURL' |
+  'childMdx___frontmatter___images___id' |
+  'childMdx___frontmatter___images___children' |
+  'childMdx___frontmatter___path' |
+  'childMdx___frontmatter___customHeading' |
   'childMdx___body' |
   'childMdx___excerpt' |
   'childMdx___headings' |
@@ -851,7 +851,7 @@ export type FileFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<FloatQueryOperatorInput>,
+  ino?: Maybe<IntQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -1495,70 +1495,6 @@ export type MdxFieldsEnum =
   'rawBody' |
   'fileAbsolutePath' |
   'frontmatter___title' |
-  'frontmatter___path' |
-  'frontmatter___customHeading' |
-  'frontmatter___images' |
-  'frontmatter___images___birthtime' |
-  'frontmatter___images___birthtimeMs' |
-  'frontmatter___images___sourceInstanceName' |
-  'frontmatter___images___absolutePath' |
-  'frontmatter___images___relativePath' |
-  'frontmatter___images___extension' |
-  'frontmatter___images___size' |
-  'frontmatter___images___prettySize' |
-  'frontmatter___images___modifiedTime' |
-  'frontmatter___images___accessTime' |
-  'frontmatter___images___changeTime' |
-  'frontmatter___images___birthTime' |
-  'frontmatter___images___root' |
-  'frontmatter___images___dir' |
-  'frontmatter___images___base' |
-  'frontmatter___images___ext' |
-  'frontmatter___images___name' |
-  'frontmatter___images___relativeDirectory' |
-  'frontmatter___images___dev' |
-  'frontmatter___images___mode' |
-  'frontmatter___images___nlink' |
-  'frontmatter___images___uid' |
-  'frontmatter___images___gid' |
-  'frontmatter___images___rdev' |
-  'frontmatter___images___blksize' |
-  'frontmatter___images___ino' |
-  'frontmatter___images___blocks' |
-  'frontmatter___images___atimeMs' |
-  'frontmatter___images___mtimeMs' |
-  'frontmatter___images___ctimeMs' |
-  'frontmatter___images___atime' |
-  'frontmatter___images___mtime' |
-  'frontmatter___images___ctime' |
-  'frontmatter___images___publicURL' |
-  'frontmatter___images___childImageSharp___id' |
-  'frontmatter___images___childImageSharp___children' |
-  'frontmatter___images___id' |
-  'frontmatter___images___parent___id' |
-  'frontmatter___images___parent___children' |
-  'frontmatter___images___children' |
-  'frontmatter___images___children___id' |
-  'frontmatter___images___children___children' |
-  'frontmatter___images___internal___content' |
-  'frontmatter___images___internal___contentDigest' |
-  'frontmatter___images___internal___description' |
-  'frontmatter___images___internal___fieldOwners' |
-  'frontmatter___images___internal___ignoreType' |
-  'frontmatter___images___internal___mediaType' |
-  'frontmatter___images___internal___owner' |
-  'frontmatter___images___internal___type' |
-  'frontmatter___images___childMdx___rawBody' |
-  'frontmatter___images___childMdx___fileAbsolutePath' |
-  'frontmatter___images___childMdx___body' |
-  'frontmatter___images___childMdx___excerpt' |
-  'frontmatter___images___childMdx___headings' |
-  'frontmatter___images___childMdx___html' |
-  'frontmatter___images___childMdx___mdxAST' |
-  'frontmatter___images___childMdx___tableOfContents' |
-  'frontmatter___images___childMdx___timeToRead' |
-  'frontmatter___images___childMdx___id' |
-  'frontmatter___images___childMdx___children' |
   'frontmatter___featuredImage___birthtime' |
   'frontmatter___featuredImage___birthtimeMs' |
   'frontmatter___featuredImage___sourceInstanceName' |
@@ -1621,6 +1557,70 @@ export type MdxFieldsEnum =
   'frontmatter___featuredImage___childMdx___id' |
   'frontmatter___featuredImage___childMdx___children' |
   'frontmatter___date' |
+  'frontmatter___images' |
+  'frontmatter___images___birthtime' |
+  'frontmatter___images___birthtimeMs' |
+  'frontmatter___images___sourceInstanceName' |
+  'frontmatter___images___absolutePath' |
+  'frontmatter___images___relativePath' |
+  'frontmatter___images___extension' |
+  'frontmatter___images___size' |
+  'frontmatter___images___prettySize' |
+  'frontmatter___images___modifiedTime' |
+  'frontmatter___images___accessTime' |
+  'frontmatter___images___changeTime' |
+  'frontmatter___images___birthTime' |
+  'frontmatter___images___root' |
+  'frontmatter___images___dir' |
+  'frontmatter___images___base' |
+  'frontmatter___images___ext' |
+  'frontmatter___images___name' |
+  'frontmatter___images___relativeDirectory' |
+  'frontmatter___images___dev' |
+  'frontmatter___images___mode' |
+  'frontmatter___images___nlink' |
+  'frontmatter___images___uid' |
+  'frontmatter___images___gid' |
+  'frontmatter___images___rdev' |
+  'frontmatter___images___blksize' |
+  'frontmatter___images___ino' |
+  'frontmatter___images___blocks' |
+  'frontmatter___images___atimeMs' |
+  'frontmatter___images___mtimeMs' |
+  'frontmatter___images___ctimeMs' |
+  'frontmatter___images___atime' |
+  'frontmatter___images___mtime' |
+  'frontmatter___images___ctime' |
+  'frontmatter___images___publicURL' |
+  'frontmatter___images___childImageSharp___id' |
+  'frontmatter___images___childImageSharp___children' |
+  'frontmatter___images___id' |
+  'frontmatter___images___parent___id' |
+  'frontmatter___images___parent___children' |
+  'frontmatter___images___children' |
+  'frontmatter___images___children___id' |
+  'frontmatter___images___children___children' |
+  'frontmatter___images___internal___content' |
+  'frontmatter___images___internal___contentDigest' |
+  'frontmatter___images___internal___description' |
+  'frontmatter___images___internal___fieldOwners' |
+  'frontmatter___images___internal___ignoreType' |
+  'frontmatter___images___internal___mediaType' |
+  'frontmatter___images___internal___owner' |
+  'frontmatter___images___internal___type' |
+  'frontmatter___images___childMdx___rawBody' |
+  'frontmatter___images___childMdx___fileAbsolutePath' |
+  'frontmatter___images___childMdx___body' |
+  'frontmatter___images___childMdx___excerpt' |
+  'frontmatter___images___childMdx___headings' |
+  'frontmatter___images___childMdx___html' |
+  'frontmatter___images___childMdx___mdxAST' |
+  'frontmatter___images___childMdx___tableOfContents' |
+  'frontmatter___images___childMdx___timeToRead' |
+  'frontmatter___images___childMdx___id' |
+  'frontmatter___images___childMdx___children' |
+  'frontmatter___path' |
+  'frontmatter___customHeading' |
   'body' |
   'excerpt' |
   'headings' |
@@ -1746,20 +1746,20 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatter = {
   title: Scalars['String'],
-  path?: Maybe<Scalars['String']>,
-  customHeading?: Maybe<Scalars['Boolean']>,
-  images?: Maybe<Array<Maybe<File>>>,
   featuredImage?: Maybe<File>,
   date?: Maybe<Scalars['String']>,
+  images?: Maybe<Array<Maybe<File>>>,
+  path?: Maybe<Scalars['String']>,
+  customHeading?: Maybe<Scalars['Boolean']>,
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
-  path?: Maybe<StringQueryOperatorInput>,
-  customHeading?: Maybe<BooleanQueryOperatorInput>,
-  images?: Maybe<FileFilterListInput>,
   featuredImage?: Maybe<FileFilterInput>,
   date?: Maybe<StringQueryOperatorInput>,
+  images?: Maybe<FileFilterListInput>,
+  path?: Maybe<StringQueryOperatorInput>,
+  customHeading?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export type MdxGroupConnection = {
@@ -1894,7 +1894,7 @@ export type QueryFileArgs = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<FloatQueryOperatorInput>,
+  ino?: Maybe<IntQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,
@@ -2070,7 +2070,7 @@ export type QueryDirectoryArgs = {
   gid?: Maybe<IntQueryOperatorInput>,
   rdev?: Maybe<IntQueryOperatorInput>,
   blksize?: Maybe<IntQueryOperatorInput>,
-  ino?: Maybe<FloatQueryOperatorInput>,
+  ino?: Maybe<IntQueryOperatorInput>,
   blocks?: Maybe<IntQueryOperatorInput>,
   atimeMs?: Maybe<FloatQueryOperatorInput>,
   mtimeMs?: Maybe<FloatQueryOperatorInput>,

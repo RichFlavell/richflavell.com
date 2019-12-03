@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React, { useContext } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import Button from "../Button"
@@ -17,11 +16,15 @@ import { Right } from "../../config/style/mdx"
 import useDarkMode from "../../hooks/useDarkMode"
 import { ThemeContext } from "../../context/ThemeContext"
 import { Dark } from "../../config/style/theme"
+import { useTranslation } from "react-i18next"
+import { Link } from "gatsby"
 
 const Header: React.FC = ({}) => {
   const sidebarContext = useContext(SidebarContext)
   const themeContext = useContext(ThemeContext)
   const { toggleTheme } = useDarkMode()
+  const { t } = useTranslation("Header")
+
   return (
     <Container>
       <HeaderOuterSection>
@@ -42,7 +45,7 @@ const Header: React.FC = ({}) => {
         <HeaderInnerSection>
           <SubscribeButton to="/contact">
             <StyledIcon icon="mail_outline" />
-            {"Contact"}
+            {t("contactButton")}
           </SubscribeButton>
         </HeaderInnerSection>
       </Inner>

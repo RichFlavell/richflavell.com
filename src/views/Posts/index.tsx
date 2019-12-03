@@ -8,6 +8,7 @@ import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { SeeMoreLink } from "../Home/style"
 import { Actions, PageCount, PageHeading, PageTitle } from "./style"
+import { useTranslation } from "react-i18next"
 
 interface IPostsProps {
   data: PostsQuery
@@ -17,15 +18,16 @@ interface IPostsProps {
   }
 }
 const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
+  const { t } = useTranslation("Posts")
   const posts = safe(data.allMdx.edges)
   return (
     <>
       <SEO title={"Posts"} />
       <Content>
         <PageHeading>
-          <PageTitle>Posts</PageTitle>
+          <PageTitle>{t("posts")}</PageTitle>
           <PageCount>
-            Page {pageContext.currentPage} / {pageContext.numPages}
+            {t("page")} {pageContext.currentPage} / {pageContext.numPages}
           </PageCount>
         </PageHeading>
         <GridList>
@@ -43,14 +45,14 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
                     : `/posts/${pageContext.currentPage - 1}`
                 }
               >
-                &laquo; Previous
+                &laquo; {t("previous")}
               </SeeMoreLink>
             </Left>
           )}
           {pageContext.currentPage < pageContext.numPages && (
             <Right>
               <SeeMoreLink to={`/posts/${pageContext.currentPage + 1}`}>
-                Next &raquo;
+                {t("next")} &raquo;
               </SeeMoreLink>
             </Right>
           )}

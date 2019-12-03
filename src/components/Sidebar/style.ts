@@ -65,12 +65,15 @@ export const MenuLink = styled(Link)`
 export const ActionsTitle = styled.h1`
   font-family: "Lato", sans-serif;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
 `
 
 export const FooterContainer = styled.div`
   display: flex;
   align-items: center;
   padding: ${props => props.theme.spacing.lg};
+  white-space: pre;
   fill: ${props => props.theme.palette.text.primary};
 
   a {
@@ -78,9 +81,10 @@ export const FooterContainer = styled.div`
     justify-content: center;
 
     &:hover {
-    cursor: pointer;
-    svg {
-      fill: ${props => props.theme.palette.link.primary};
+      cursor: pointer;
+      svg {
+        fill: ${props => props.theme.palette.link.primary};
+      }
     }
   }
 `

@@ -1,7 +1,7 @@
-import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 import { Title } from "../../config/style/mdx"
 import { Meta } from "../../views/Post/style"
+import { Link } from "gatsby"
 
 interface IContainerProps {
   first: boolean
