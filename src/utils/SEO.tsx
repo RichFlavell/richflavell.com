@@ -74,6 +74,18 @@ const SEO: React.FC<ISEOProps> = ({
           <meta name="twitter:description" content={seo.description} />
         )}
         {seo.image && <meta name="twitter:image" content={seo.image} />}
+        <link
+          href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+          rel="stylesheet"
+        />
       </Helmet>
     </>
   )
