@@ -2,7 +2,7 @@
   "name": "richflavell.com",
   "private": true,
   "description": "RichFlavell.com",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Rich Flavell <me@richflavell.com>",
   "dependencies": {
     "@material/react-material-icon": "^0.15.0",
