@@ -6,7 +6,7 @@ export const Holder = styled.footer`
   align-items: flex-end;
   display: flex;
   width: 100%;
-  max-width: 1440px;
+  max-width: 980px;
 `
 
 export const Container = styled.div`
@@ -19,4 +19,13 @@ export const Container = styled.div`
   color: ${props => props.theme.palette.text.primary};
   line-height: ${props => props.theme.size.lg};
   margin-top: ${props => props.theme.spacing.lg};
+
+  @media (max-width: 30em) {
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      margin: auto;
+    }
+  }
 `

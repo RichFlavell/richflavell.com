@@ -5,7 +5,7 @@ export const Content = styled.main`
   display: flex;
   margin: auto;
   width: 100%;
-  max-width: 1440px;
+  max-width: 980px;
   flex-direction: column;
 `
 
@@ -21,12 +21,13 @@ export const Title = styled.h1`
   margin: auto;
   margin-bottom: ${props => props.theme.spacing.md};
   font-weight: lighter;
+  text-align: center;
 `
 
 export const SubTitle = styled.h2`
   font-size: ${props => props.theme.size.md};
   font-weight: lighter;
-  color: ${props => props.theme.palette.text.primary};
+  color: ${props => props.theme.palette.text.secondary};
   margin: auto;
   line-height: ${props => props.theme.size.lg};
 `
@@ -61,10 +62,21 @@ export const Left = styled.div`
   margin-right: auto;
 `
 
+export const Emphasis = styled.em`
+  font-style: italic;
+`
+
+export const Break = styled.hr`
+  width: 0px;
+  opacity: 0;
+`
+
 export const components = {
   h1: Title,
   h2: SubTitle,
   h3: SectionTitle,
   h4: SectionInnerTitle,
   p: Body,
+  em: Emphasis,
+  hr: Break,
 } as Components

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default styled.div`
   width: 100%;
-  max-width: 1440px;
+  max-width: 980px;
   margin: ${props => props.theme.spacing.lg} auto;
   display: grid;
 

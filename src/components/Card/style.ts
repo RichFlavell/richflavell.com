@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 
 interface IContainerProps {
   first: boolean
+  only?: boolean
 }
 export const Container = styled.article<IContainerProps>`
   text-decoration: none;
@@ -23,6 +24,15 @@ export const Container = styled.article<IContainerProps>`
       @media (min-width: 60em) {
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
+      }
+    `}
+
+  ${props =>
+    props.only &&
+    css`
+      @media (min-width: 60em) {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 3;
       }
     `}
 

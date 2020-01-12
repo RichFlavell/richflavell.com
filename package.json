@@ -2,7 +2,7 @@
   "name": "richflavell.com",
   "private": true,
   "description": "RichFlavell.com",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Rich Flavell <me@richflavell.com>",
   "dependencies": {
     "@material/react-material-icon": "^0.15.0",
@@ -24,6 +24,7 @@
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-styled-components": "^3.1.8",
     "gatsby-plugin-typescript": "^2.1.11",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.1.28",
     "gatsby-source-filesystem": "^2.1.28",
     "gatsby-transformer-remark": "^2.6.30",
@@ -66,7 +67,6 @@
     "start": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
     "type-check": "tsc --noEmit",
     "lint": "tslint --project . --fix"
   }

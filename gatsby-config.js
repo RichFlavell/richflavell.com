@@ -3,7 +3,7 @@ module.exports = {
     title: "Rich Flavell",
     titleTemplate: "Rich Flavell // %s",
     description:
-      "Adventure & outdoor photography/video hobbyist. Emphasis on Ultralight ethos and minimalism.",
+      "Software Engineer, Outdoors Enthusiast & Aspirational Photographer",
     url: "https://www.richflavell.com",
     siteUrl: "https://www.richflavell.com",
     image: "/images/me.jpg",
@@ -34,7 +34,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        gatsbyRemarkPlugins: [`gatsby-remark-images`],
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-images`,
+          `gatsby-remark-external-links`,
+        ],
         plugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -42,6 +45,13 @@ module.exports = {
               maxWidth: 1440,
               quality: 75,
               linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_self",
+              rel: "nofollow",
             },
           },
         ],
