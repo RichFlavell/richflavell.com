@@ -70,6 +70,6 @@
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "lint": "tslint --project . --fix",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && gh-pages -d public -b gh-pages"
   }
 }
