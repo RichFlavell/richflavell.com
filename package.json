@@ -2,7 +2,7 @@
   "name": "richflavell.com",
   "private": true,
   "description": "RichFlavell.com",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Rich Flavell <me@richflavell.com>",
   "dependencies": {
     "@material/react-material-icon": "^0.15.0",
@@ -54,6 +54,7 @@
     "@types/styled-components": "^4.1.19",
     "babel-preset-gatsby-package": "^0.2.7",
     "gatsby-plugin-tslint": "^0.0.2",
+    "gh-pages": "^2.2.0",
     "prettier": "^1.18.2",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0",
@@ -68,6 +69,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project . --fix"
+    "lint": "tslint --project . --fix",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   }
 }
