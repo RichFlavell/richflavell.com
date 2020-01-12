@@ -7,15 +7,16 @@ import { CardMeta, CardTitle, Container, Details, LinkWrapper } from "./style"
 
 interface ICardProps {
   first: boolean
+  only?: boolean // Is this the only card in the list
   data: PostsQuery["allMdx"]["edges"][0] // Post query type - nested inside `node`
 }
-const Card: React.FC<ICardProps> = ({ first, data }) => {
+const Card: React.FC<ICardProps> = ({ first, only, data }) => {
   const post = safe(data.node)
   const { title, date, largeThumbnail, thumbnail } = safe(post.frontmatter)
   const { slug } = safe(post.fields)
 
   return (
-    <Container first={first}>
+    <Container first={first} only={only}>
       <LinkWrapper to={slug!}>
         {largeThumbnail && thumbnail && first
           ? parseImage(largeThumbnail)()()

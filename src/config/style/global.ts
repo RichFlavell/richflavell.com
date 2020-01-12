@@ -20,7 +20,7 @@ const Global = createGlobalStyle`
   }
 
   * {
-    @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Lato:300,400,300i,400i&display=swap');
     @import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400&display=swap");
     @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
     font-family: 'Lato', sans-serif;
@@ -38,11 +38,6 @@ const Global = createGlobalStyle`
     &:hover {
       color: ${props => props.theme.palette.link.primary};
     }
-  }
-
-  hr {
-    width: 0px;
-    opacity: 0;
   }
 
   body {

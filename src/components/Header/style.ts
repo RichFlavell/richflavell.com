@@ -1,7 +1,7 @@
 import MaterialIcon from "@material/react-material-icon"
 import styled from "styled-components"
 import media from "styled-media-query"
-import ButtonLink from "../ButtonLink"
+import { buttonStyle } from "../Button/style"
 
 export const Container = styled.header`
   display: flex;
@@ -44,9 +44,10 @@ export const HeaderInnerSection = styled.div`
   `}
 `
 
-export const SubscribeButton = styled(ButtonLink)`
+export const SubscribeButton = styled.a`
   margin: 0px;
   margin-left: auto;
+  ${buttonStyle}
 `
 
 export const Logo = styled.div`

@@ -43,7 +43,7 @@ const Header: React.FC = ({}) => {
           <Link to="/">Rich Flavell</Link>
         </Logo>
         <HeaderInnerSection>
-          <SubscribeButton to="/contact">
+          <SubscribeButton href="mailto:me@richflavell.com?subject=RichFlavell.com - Contact">
             <StyledIcon icon="mail_outline" />
             {t("contactButton")}
           </SubscribeButton>

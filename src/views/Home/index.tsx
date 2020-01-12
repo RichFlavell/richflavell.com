@@ -38,7 +38,7 @@ const Home: React.FC<IHomeProps> = () => {
               largeThumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 1440, quality: 90) {
+                  fluid(maxWidth: 980, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -63,7 +63,11 @@ const Home: React.FC<IHomeProps> = () => {
 
   return (
     <Holder>
-      <SEO title={"Adventure, Outdoors, Ultralight & Minimalism"} />
+      <SEO
+        title={
+          "Software Engineer, Outdoors Enthusiast & Aspirational Photographer"
+        }
+      />
       {videoId && (
         <VideoWrapper>
           <Video
@@ -80,7 +84,12 @@ const Home: React.FC<IHomeProps> = () => {
       <Content>
         <GridList>
           {posts.map((post, i) => (
-            <Card first={i === 0} key={post.node.id} data={post} />
+            <Card
+              first={i === 0}
+              only={posts.length === 1}
+              key={post.node.id}
+              data={post}
+            />
           ))}
         </GridList>
         {data.allMdx.totalCount > 10 && (
