@@ -6,7 +6,7 @@ module.exports = {
       "Software Engineer, Outdoors Enthusiast & Aspirational Photographer",
     url: "https://www.richflavell.com",
     siteUrl: "https://www.richflavell.com",
-    image: "/images/me.jpg",
+    image: "/me.jpg",
     twitterUsername: "@RichFlavell",
   },
   plugins: [
