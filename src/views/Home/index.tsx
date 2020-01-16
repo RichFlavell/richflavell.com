@@ -63,11 +63,7 @@ const Home: React.FC<IHomeProps> = () => {
 
   return (
     <Holder>
-      <SEO
-        title={
-          "Software Engineer, Outdoors Enthusiast & Aspirational Photographer"
-        }
-      />
+      <SEO title="Rich Flavell" templateOverride={"%s"} />
       {videoId && (
         <VideoWrapper>
           <Video

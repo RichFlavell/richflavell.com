@@ -4,9 +4,10 @@ import LanguageDetector from "i18next-browser-languagedetector"
 import { initReactI18next } from "react-i18next"
 
 i18n
-  .use(XHR)
+
   .use(LanguageDetector)
   .use(initReactI18next)
+  .use(XHR)
   .init({
     fallbackLng: "en",
     debug: process.env.NODE_ENV === "development",
@@ -22,6 +23,7 @@ i18n
       wait: true,
       useSuspense: false,
     },
+    ns: ["Home", "Header", "Posts", "Sidebar", "GlobalFooter"],
   })
 
 export default i18n

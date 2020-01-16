@@ -11,6 +11,7 @@ interface ISEOProps {
   pathname?: string
   post?: boolean
   lang?: string
+  templateOverride?: string
 }
 
 const SEO: React.FC<ISEOProps> = ({
@@ -19,6 +20,7 @@ const SEO: React.FC<ISEOProps> = ({
   image = null,
   pathname = null,
   post = false,
+  templateOverride,
 }) => {
   const data: SeoQuery = useStaticQuery(graphql`
     query SEO {
@@ -55,7 +57,10 @@ const SEO: React.FC<ISEOProps> = ({
 
   return (
     <>
-      <Helmet title={seo.title!} titleTemplate={titleTemplate!}>
+      <Helmet
+        title={seo.title!}
+        titleTemplate={templateOverride || titleTemplate!}
+      >
         <meta name="description" content={seo.description!} />
         <meta name="image" content={seo.image} />
         {seo.url && <meta property="og:url" content={seo.url} />}

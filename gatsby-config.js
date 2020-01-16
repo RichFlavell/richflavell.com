@@ -3,7 +3,7 @@ module.exports = {
     title: "Rich Flavell",
     titleTemplate: "Rich Flavell // %s",
     description:
-      "Software Engineer, Outdoors Enthusiast & Aspirational Photographer",
+      "Rich Flavell is a software engineer by trade, a keen outdoors enthusiast and aspirational photographer.",
     url: "https://www.richflavell.com",
     siteUrl: "https://www.richflavell.com",
     image: "/me.jpg",
