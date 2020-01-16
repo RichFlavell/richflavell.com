@@ -1,6 +1,6 @@
 # RichFlavell.com
 
-> A lightweight writing platform built with React & Gatsby. (<a href="https://richflavell.com" target="_blank">richflavell.com</a>)
+> A lightweight writing platform built with React & Gatsby. (<a href="https://www.richflavell.com" target="_blank">richflavell.com</a>)
 
 ---
 

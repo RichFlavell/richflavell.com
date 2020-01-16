@@ -5,14 +5,12 @@ import { ThemeProvider } from "styled-components"
 import { components } from "../../config/style/mdx"
 import SidebarContextProvider from "../../context/SidebarContext"
 import { LoadingWrapper } from "./style"
-import useDarkMode from "../../hooks/useDarkMode"
 import { ThemeContext } from "../../context/ThemeContext"
 import i18n from "../../utils/i18n"
 import { I18nextProvider } from "react-i18next"
 
 const App: React.FC = ({ children }) => {
   const themeContext = useContext(ThemeContext)
-  const { componentMounted } = useDarkMode()
   const [isLoading, setIsLoading] = useState(
     process.env.NODE_ENV !== "development"
   )
@@ -27,20 +25,6 @@ const App: React.FC = ({ children }) => {
   setTimeout(() => {
     setIsWrapperVisible(false)
   }, 1500)
-
-  if (!componentMounted) {
-    return (
-      <LoadingWrapper
-        background={themeContext.state.theme.palette.background.primary}
-        hidden={!isWrapperVisible}
-      >
-        <CircleLoader
-          color={themeContext.state.theme.palette.text.primary}
-          loading={true}
-        />
-      </LoadingWrapper>
-    )
-  }
 
   return (
     <I18nextProvider i18n={i18n}>
