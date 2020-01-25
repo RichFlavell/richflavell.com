@@ -20,9 +20,14 @@ const Post: React.FC<IPostProps> = ({ data }) => {
     undefined
   )
   const { frontmatter, body, timeToRead, excerpt, id } = safe(data.mdx)
-  const { customHeading, title, images, featuredImage, date } = safe(
-    frontmatter
-  )
+  const {
+    customHeading,
+    title,
+    images,
+    featuredImage,
+    date,
+    description,
+  } = safe(frontmatter)
 
   const disqusConfig = {
     shortname: "richflavell",
@@ -78,7 +83,7 @@ const Post: React.FC<IPostProps> = ({ data }) => {
       <SEO
         title={title}
         post={true}
-        description={excerpt}
+        description={description || excerpt}
         image={safe(featuredImage).publicURL!}
       />
       {images && (
@@ -117,6 +122,7 @@ export const pageQuery = graphql`
         title
         customHeading
         date
+        description
         images {
           publicURL
           childImageSharp {
@@ -129,8 +135,8 @@ export const pageQuery = graphql`
           publicURL
           childImageSharp {
             fluid(
-              maxWidth: 2160
-              maxHeight: 620
+              maxWidth: 3840
+              maxHeight: 980
               quality: 90
               cropFocus: CENTER
             ) {
