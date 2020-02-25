@@ -1,14 +1,6 @@
 # RichFlavell.com
 
-> A lightweight writing platform built with React & Gatsby. (<a href="https://www.richflavell.com" target="_blank">richflavell.com</a>)
-
----
-
-## About
-
-This repository holds the code for my personal writing platform.
-
-Feel free to take a look through the project, provide suggestions or submit any improvements that you might find.
+> A lightweight writing platform built with React & Gatsby
 
 ---
 
