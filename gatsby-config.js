@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Rich Flavell",
-    titleTemplate: "Rich Flavell // %s",
+    titleTemplate: "%s",
     description:
       "Rich Flavell is a software engineer by trade, a keen outdoors enthusiast and aspirational photographer.",
     url: "https://www.richflavell.com",
@@ -34,26 +34,26 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        extensions: [".md", ".mdx"],
         gatsbyRemarkPlugins: [
-          `gatsby-remark-images`,
-          `gatsby-remark-external-links`,
-        ],
-        plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1440,
-              quality: 75,
+              maxWidth: 10000,
               linkImagesToOriginal: false,
+              quality: 80,
+              withWebp: true,
             },
           },
           {
             resolve: "gatsby-remark-external-links",
             options: {
-              target: "_self",
-              rel: "nofollow",
+              target: "_blank",
+              rel: "noreferrer",
             },
           },
+          { resolve: `gatsby-remark-smartypants` },
+          { resolve: `gatsby-remark-numbered-footnotes` },
         ],
       },
     },

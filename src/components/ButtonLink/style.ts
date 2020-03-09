@@ -7,5 +7,6 @@ interface IContainerProps {
 }
 
 export const Container = styled(Link)<IContainerProps>`
-  ${buttonStyle}
+  ${buttonStyle};
+  margin: auto;
 `

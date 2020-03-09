@@ -1,6 +1,5 @@
 import MaterialIcon from "@material/react-material-icon"
 import styled from "styled-components"
-import media from "styled-media-query"
 import { buttonStyle } from "../Button/style"
 
 export const Container = styled.header`
@@ -8,18 +7,16 @@ export const Container = styled.header`
   padding: ${props => props.theme.spacing.lg} 0px;
   background-color: ${props => props.theme.palette.background.primary};
   color: ${props => props.theme.palette.text.primary};
-  border-bottom: 2px solid ${props => props.theme.palette.border.secondary};
   align-items: center;
   margin: auto;
   width: 100%;
 `
 
 export const Inner = styled.div`
-  max-width: 1280px;
+  max-width: 980px;
   width: 75%;
   display: flex;
-  margin: auto;
-  align-items: center;
+  justify-content: center;
 
   @media (max-width: 60em) {
     width: 100%;
@@ -27,21 +24,10 @@ export const Inner = styled.div`
 `
 
 export const HeaderOuterSection = styled.div`
-  width: 33%;
+  width: 25%;
   display: flex;
   margin: auto;
   align-items: center;
-`
-
-export const HeaderInnerSection = styled.div`
-  width: 33%;
-  display: flex;
-  margin: auto;
-  align-items: center;
-
-  ${media.lessThan("medium")`
-    display: none;
-  `}
 `
 
 export const SubscribeButton = styled.a`
@@ -50,13 +36,12 @@ export const SubscribeButton = styled.a`
   ${buttonStyle}
 `
 
-export const Logo = styled.div`
-  font-family: "Montserrat Alternates", cursive !important;
+export const LogoContainer = styled.div`
   font-weight: lighter;
   font-size: ${props => props.theme.size.logo};
-  margin: auto;
   text-decoration: none;
   white-space: nowrap;
+  fill: ${props => props.theme.palette.text.primary};
 `
 
 export const StyledIcon = styled(MaterialIcon)`

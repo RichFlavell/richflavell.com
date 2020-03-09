@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Right } from "../../config/style/mdx"
 import { HomeQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
-import { Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
+import { Holder, Actions, SeeMoreLink, Video, VideoWrapper } from "./style"
 import { useTranslation } from "react-i18next"
 
 interface IHomeProps {
@@ -15,12 +15,13 @@ interface IHomeProps {
 const Home: React.FC<IHomeProps> = () => {
   const { t } = useTranslation("Home")
   const videoId = ""
+  const [rows, setRows] = useState<Array<typeof data.allMdx.edges>>()
 
   const data: HomeQuery = useStaticQuery(graphql`
     query Home {
       allMdx(
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 9
+        limit: 6
         filter: { frontmatter: { path: { eq: null } } }
       ) {
         totalCount
@@ -35,23 +36,15 @@ const Home: React.FC<IHomeProps> = () => {
             frontmatter {
               title
               path
-              largeThumbnail: featuredImage {
-                publicURL
-                childImageSharp {
-                  fluid(maxWidth: 980, quality: 90) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+              date
               thumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 500, quality: 90) {
+                  fluid(maxWidth: 653, maxHeight: 280, cropFocus: ENTROPY) {
                     ...GatsbyImageSharpFluid
                   }
                 }
               }
-              date
             }
           }
         }
@@ -59,7 +52,16 @@ const Home: React.FC<IHomeProps> = () => {
     }
   `)
 
-  const posts = safe(data.allMdx.edges)
+  const postsData = safe(data.allMdx.edges)
+
+  useEffect(() => {
+    const tmp = []
+    const posts = [...postsData]
+    while (posts.length > 0) {
+      tmp.push(posts.splice(0, 2))
+    }
+    setRows(tmp)
+  }, [postsData])
 
   return (
     <Holder>
@@ -78,20 +80,25 @@ const Home: React.FC<IHomeProps> = () => {
       )}
 
       <Content>
-        <GridList>
-          {posts.map((post, i) => (
-            <Card
-              first={i === 0}
-              only={posts.length === 1}
-              key={post.node.id}
-              data={post}
-            />
+        {rows &&
+          rows.map((row, i) => (
+            <GridList key={i} even={i % 2 === 0} cascade={false}>
+              {row.map(post => (
+                <Card
+                  cascade={false}
+                  only={postsData.length === 1}
+                  key={post.node.id}
+                  data={post}
+                />
+              ))}
+            </GridList>
           ))}
-        </GridList>
-        {data.allMdx.totalCount > 10 && (
-          <Right>
-            <SeeMoreLink to="/posts">{t("seeMore")} &raquo;</SeeMoreLink>
-          </Right>
+        {data.allMdx.totalCount > 6 && (
+          <Actions>
+            <Right>
+              <SeeMoreLink to="/posts">{t("seeMore")} &raquo;</SeeMoreLink>
+            </Right>
+          </Actions>
         )}
       </Content>
     </Holder>

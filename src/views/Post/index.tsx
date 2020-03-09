@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { globalHistory } from "@reach/router"
 import { DiscussionEmbed } from "disqus-react"
 import { graphql } from "gatsby"
@@ -6,63 +6,30 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { format } from "timeago.js"
 import { PostQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
-import { parseImage } from "../../components/Images"
 import { Title } from "../../config/style/mdx"
-import { Container, FeaturedImageContainer, Header, Meta } from "./style"
+import {
+  Container,
+  Header,
+  Meta,
+  MDXBody,
+  FeaturedImageContainer,
+  DisqusWrapper,
+} from "./style"
 import SEO from "../../utils/SEO"
-import Lightbox from "../../components/Lightbox"
+import Img from "gatsby-image"
 
 interface IPostProps {
   data: PostQuery
 }
 const Post: React.FC<IPostProps> = ({ data }) => {
-  const [activeImageIndex, setActiveImageIndex] = useState<number | undefined>(
-    undefined
-  )
   const { frontmatter, body, timeToRead, excerpt, id } = safe(data.mdx)
-  const {
-    customHeading,
-    title,
-    images,
-    featuredImage,
-    date,
-    description,
-  } = safe(frontmatter)
+  const { customHeading, title, featuredImage, date, description } = safe(
+    frontmatter
+  )
 
   const disqusConfig = {
     shortname: "richflavell",
     config: { identifier: id, title, url: globalHistory.location.href },
-  }
-
-  const parsedImages: { [key: string]: React.ReactNode } = {}
-  if (images) {
-    images.forEach((image, i) => {
-      parsedImages[`image${i + 1}`] = parseImage(image)(
-        !customHeading
-          ? () => setActiveImageIndex(featuredImage ? i + 1 : i)
-          : undefined
-      )
-    })
-  }
-
-  function buildImagesForLightbox() {
-    const imgUrls =
-      images &&
-      images.map(image => {
-        const { publicURL } = safe(image)
-
-        return {
-          src: publicURL!,
-        }
-      })
-
-    if (featuredImage && imgUrls) {
-      imgUrls.unshift({
-        src: safe(featuredImage).publicURL!,
-      })
-    }
-
-    return imgUrls
   }
 
   function renderHeader() {
@@ -71,7 +38,7 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         <Title>{title}</Title>
         <Meta>
           <time dateTime={date || undefined}>{format(date!)}</time>{" "}
-          <span>{" • "} </span>
+          <span>{"•"} </span>
           <span>{timeToRead} min read</span>
         </Meta>
       </Header>
@@ -86,25 +53,29 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         description={description || excerpt}
         image={safe(featuredImage).publicURL!}
       />
-      {images && (
-        <Lightbox
-          isOpen={activeImageIndex !== undefined}
-          currentIndex={activeImageIndex}
-          onClose={() => setActiveImageIndex(undefined)}
-          images={buildImagesForLightbox()!}
-        />
-      )}
 
       <main>
-        {featuredImage && (
-          <FeaturedImageContainer>
-            {parseImage(featuredImage)(() => setActiveImageIndex(0))()}
-          </FeaturedImageContainer>
-        )}
         <Container>
           {!customHeading && renderHeader()}
-          <MDXRenderer images={parsedImages}>{body}</MDXRenderer>
-          {!customHeading && <DiscussionEmbed {...disqusConfig} />}
+
+          <MDXBody>
+            {featuredImage && (
+              <FeaturedImageContainer
+                className={customHeading ? "i-s i-r" : "i-m i-f"}
+              >
+                {
+                  // @ts-ignore
+                  <Img fluid={featuredImage.childImageSharp.fluid} />
+                }
+              </FeaturedImageContainer>
+            )}
+            <MDXRenderer>{body}</MDXRenderer>
+          </MDXBody>
+          {!customHeading && (
+            <DisqusWrapper>
+              <DiscussionEmbed {...disqusConfig} />
+            </DisqusWrapper>
+          )}
         </Container>
       </main>
     </>
@@ -123,23 +94,10 @@ export const pageQuery = graphql`
         customHeading
         date
         description
-        images {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 980, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         featuredImage {
           publicURL
           childImageSharp {
-            fluid(
-              maxWidth: 3840
-              maxHeight: 980
-              quality: 90
-              cropFocus: CENTER
-            ) {
+            fluid(maxWidth: 980, quality: 100, cropFocus: CENTER) {
               ...GatsbyImageSharpFluid
             }
           }

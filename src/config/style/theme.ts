@@ -7,15 +7,15 @@ export const Default: DefaultTheme = {
       secondary: "#F6F7FB",
     },
     text: {
-      primary: "#757575",
-      secondary: "#404040",
+      primary: "#08080B",
+      secondary: "#73737D",
     },
     link: {
       primary: "#9487B7",
     },
     border: {
-      primary: "#757575",
-      secondary: "#F4F5F9",
+      primary: "#73737D",
+      secondary: "#000",
     },
     brand: {
       facebook: "#3B5998",
@@ -24,18 +24,20 @@ export const Default: DefaultTheme = {
       instagram: "#C13584",
     },
     shadow: {
-      passive: "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
-      active: "0 4px 5px rgba(0, 0, 0, 0.2)",
+      passive:
+        "0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
+      active:
+        "0 30px 30px -20px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
     },
     white: "#FFFFFF",
     black: "#000000",
   },
   spacing: {
     xs: "2px",
-    sm: "4px",
-    md: "8px",
-    lg: "16px",
-    xl: "32px",
+    sm: "8px",
+    md: "16px",
+    lg: "24px",
+    xl: "48px",
   },
   size: {
     xs: "12px",
@@ -43,7 +45,7 @@ export const Default: DefaultTheme = {
     md: "18px",
     lg: "24px",
     xl: "38px",
-    logo: "28px",
+    logo: "48px",
   },
 }
 

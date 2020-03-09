@@ -23,7 +23,7 @@ i18n
       wait: true,
       useSuspense: false,
     },
-    ns: ["Home", "Header", "Posts", "Sidebar", "GlobalFooter"],
+    ns: ["Home", "Header", "Posts", "Sidebar", "GlobalFooter", "NotFound"],
   })
 
 export default i18n

@@ -17,7 +17,9 @@ export const Container = styled.section<IContainerProps>`
   background-color: ${props => props.theme.palette.background.primary};
   transition: all 0.2s linear;
   padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.lg};
+  padding-bottom: 0px;
   color: ${props => props.theme.palette.text.primary};
+  backface-visibility: hidden;
   ${props =>
     props.isOpen
       ? css`
@@ -45,14 +47,16 @@ export const ActionButton = styled(Button)`
 `
 
 export const Items = styled.ul`
-  padding: ${props => props.theme.spacing.md};
+  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.sm};
 `
 
 export const Item = styled.li`
   font-size: ${props => props.theme.size.sm};
 
   border-bottom: 1px solid ${props => props.theme.palette.background.secondary};
-  font-family: "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial,
+    sans-serif;
 `
 
 export const MenuLink = styled(Link)`
@@ -63,7 +67,9 @@ export const MenuLink = styled(Link)`
 `
 
 export const ActionsTitle = styled.h1`
-  font-family: "Lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial,
+    sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
   white-space: nowrap;
@@ -72,7 +78,7 @@ export const ActionsTitle = styled.h1`
 export const FooterContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
   white-space: pre;
   fill: ${props => props.theme.palette.text.primary};
 

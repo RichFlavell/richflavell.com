@@ -1,3 +1,3 @@
 declare module "@reach/router"
 
-declare module "react-spring-lightbox"
+declare module "react-medium-image-zoom"
