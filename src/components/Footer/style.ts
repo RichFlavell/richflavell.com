@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../config/style/global"
 
 export const Holder = styled.footer`
   flex-grow: 1;
@@ -7,6 +8,10 @@ export const Holder = styled.footer`
   display: flex;
   width: 100%;
   max-width: 980px;
+
+  ${media.lessThan("tablet")`
+    padding: 0px ${props => props.theme.spacing.md}
+  `};
 `
 
 export const Container = styled.div`

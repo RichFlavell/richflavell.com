@@ -1,13 +1,18 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
-import GridList from "../../components/GridList"
 import { Content, Left, Right } from "../../config/style/mdx"
 import { PostsQuery } from "../../types/graphql-types"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { SeeMoreLink } from "../Home/style"
-import { Actions, PageCount, PageHeading, PageTitle } from "./style"
+import {
+  Actions,
+  PageCount,
+  PageHeading,
+  PageTitle,
+  PostsGridList,
+} from "./style"
 import { useTranslation } from "react-i18next"
 
 interface IPostsProps {
@@ -30,11 +35,16 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
             {t("page")} {pageContext.currentPage} / {pageContext.numPages}
           </PageCount>
         </PageHeading>
-        <GridList>
+        <PostsGridList>
           {posts.map(post => (
-            <Card first={false} key={post.node.id} data={post} />
+            <Card
+              cascade={false}
+              first={false}
+              key={post.node.id}
+              data={post}
+            />
           ))}
-        </GridList>
+        </PostsGridList>
         <Actions>
           {pageContext.currentPage > 1 && (
             <Left>
@@ -82,18 +92,10 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
-            largeThumbnail: featuredImage {
-              publicURL
-              childImageSharp {
-                fluid(maxWidth: 980, quality: 90, cropFocus: ENTROPY) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
             thumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 500, quality: 90, cropFocus: ENTROPY) {
+                fluid(maxWidth: 653, maxHeight: 280, cropFocus: ENTROPY) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -1,9 +1,22 @@
 import ReactPlayer from "react-player"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { media } from "../../config/style/global"
 
 export const Holder = styled.main`
   padding: 0 ${props => props.theme.spacing.md};
+  margin-top: ${props => props.theme.spacing.lg};
+`
+
+export const Actions = styled.div`
+  margin: auto;
+  display: flex;
+  width: 100%;
+  max-width: 980px;
+
+  ${media.lessThan("tablet")`
+    padding: 0px ${props => props.theme.spacing.md};
+  `}
 `
 
 export const SeeMoreLink = styled(Link)`

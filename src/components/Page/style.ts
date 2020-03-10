@@ -8,9 +8,11 @@ export const Container = styled.div<IContainerProps>`
   flex-direction: column;
   min-width: 100%;
   min-height: 100%;
-  background-color: ${props => props.theme.palette.background.secondary};
+  background-color: ${props => props.theme.palette.background.primary};
   transition: all 0.1s linear;
   z-index: 1;
+  backface-visibility: hidden;
+
   ${props =>
     props.isSidebarOpen
       ? css`

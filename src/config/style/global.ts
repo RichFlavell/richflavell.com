@@ -2,15 +2,44 @@ import { createGlobalStyle } from "styled-components"
 
 import MaterialIcon from "@material/react-material-icon"
 import Reset from "./reset"
+import { generateMedia } from "styled-media-query"
 
 const Global = createGlobalStyle`
   ${Reset}
   ${MaterialIcon.toString()}
 
-  .material-icons {
-  font-family: 'Material Icons Outlined';
-  stroke-width: 0.1px;
-}
+  @font-face {
+    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
+      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
+      "Arial", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-display: block;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004) !important;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :root {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    cursor: default;
+    font-size: 0.625rem;
+    line-height: 1.4;
+  }
 
   html {
     width: 100%;
@@ -19,12 +48,19 @@ const Global = createGlobalStyle`
     background-color: ${props => props.theme.palette.background.primary};
   }
 
-  * {
-    font-family: 'Lato', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004) !important;
+  body {
+    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
+      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
+      "Arial", sans-serif;
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 400;
+    height: 100%;
+  }
+
+  .material-icons {
+    font-family: 'Material Icons Outlined';
+    stroke-width: 0.1px;
   }
 
   a { 
@@ -37,29 +73,100 @@ const Global = createGlobalStyle`
     }
   }
 
-  body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Lato', sans-serif;
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+    align-self: center;
   }
 
-  #___gatsby, #gatsby-focus-wrapper {
-    width: 100%; 
-    height: 100%;
+  input,
+  textarea,
+  select,
+  button {
+    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
+      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
+      "Arial", sans-serif;
   }
 
-  .gatsby-resp-image-background-image {
-    position: absolute !important;
+  .underline {
+    text-decoration: underline;
   }
 
-  .gatsby-resp-image-image {
-    position: static;
+  button,
+  input,
+  select,
+  textarea {
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace;
+  }
+  
+  fieldset,
+  button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  audio:not([controls]) {
+    display: none;
+  }
+
+  details {
+    display: block;
+  }
+
+  input {
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    &[type="number"] {
+      width: auto;
+    }
+  }
+
+  img.i-z ~ div {
+    background: transparent !important;
   }
 
   .gatsby-image-wrapper {
+    overflow: inherit !important;
     width: 100%;
     height: 100%;
   }
+
+  #gatsby-focus-wrapper {
+    height: 100%;
+  }
+
+  #___gatsby {
+    height: 100%;
+  }
 `
+
+export const media = generateMedia({
+  desktop: "78em",
+  tablet: "60em",
+  mobile: "46em",
+})
 
 export default Global

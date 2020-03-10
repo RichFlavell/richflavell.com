@@ -10,8 +10,6 @@ export const buttonStyle = css<IContainerProps>`
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
   background-color: initial;
   color: ${props => props.theme.palette.text.primary};
-  border: 0.75px solid ${props => props.theme.palette.text.primary};
-  border-radius: ${props => props.theme.spacing.sm};
   font-size: ${props => props.theme.size.sm};
   transition: color 0.1s linear;
   display: inline-flex;

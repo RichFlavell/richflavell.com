@@ -1,96 +1,20 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
+import { Controlled as ControlledZoom } from "react-medium-image-zoom"
 
 interface IContainerProps {
-  width?: number
-  height?: number
-  align?: string
-  round?: boolean
-  clickable?: boolean
+  isZoomed: boolean
 }
-export const SharpContainer = styled.span<IContainerProps>`
-  width: ${props => (props.width ? `${props.width}px` : "100%")};
-  height: ${props => (props.height ? `${props.height}px` : "100%")};
-  margin-top: ${props => props.theme.spacing.lg};
-  margin-bottom: ${props => props.theme.spacing.lg};
-  overflow: hidden;
 
-  ${props =>
-    props.round &&
-    css`
-      border-radius: 50% !important;
-    `}
-
-  ${props =>
-    props.align &&
-    (props.align === "right" || props.align === "center") &&
-    css`
-      margin-left: auto;
-    `}
-
-  ${props =>
-    props.align &&
-    (props.align === "left" || props.align === "center") &&
-    css`
-      margin-right: auto;
-    `}
-
-  ${props =>
-    props.clickable &&
-    css`
-      transition: all 0.2s linear;
-      box-shadow: ${props.theme.palette.shadow.passive};
-    `}
-
-  &:hover {
-    ${props =>
-      props.clickable &&
-      css`
-        box-shadow: ${props.theme.palette.shadow.active};
-        cursor: pointer;
-      `} 
-  } 
+export const Image = styled.img<IContainerProps>`
+  display: block;
+  margin: 0 auto !important;
+  width: 100%;
+  height: 100%;
+  border-radius: ${props => (props.isZoomed ? "5px" : "0px")};
+  box-shadow: ${props => props.theme.palette.shadow.passive};
 `
 
-export const SrcContainer = styled.img<IContainerProps>`
-  width: ${props => (props.width ? `${props.width}px` : "100%")};
-  height: ${props => (props.height ? `${props.height}px` : "100%")};
-  margin-top: ${props => props.theme.spacing.lg};
-  margin-bottom: ${props => props.theme.spacing.lg};
-  overflow: hidden;
-
-  ${props =>
-    props.round &&
-    css`
-      border-radius: 50%;
-    `}
-
-  ${props =>
-    props.align &&
-    (props.align === "right" || props.align === "center") &&
-    css`
-      margin-left: auto;
-    `}
-
-  ${props =>
-    props.align &&
-    (props.align === "left" || props.align === "center") &&
-    css`
-      margin-right: auto;
-    `}
-
-  ${props =>
-    props.clickable &&
-    css`
-      transition: all 0.2s linear;
-      box-shadow: ${props.theme.palette.shadow.passive};
-    `}
-
-  &:hover {
-    ${props =>
-      props.clickable &&
-      css`
-        box-shadow: ${props.theme.palette.shadow.active};
-        cursor: pointer;
-      `} 
-  }
+export const ImageContainer = styled(ControlledZoom)`
+  margin: auto;
+  box-shadow: ${props => props.theme.palette.shadow.passive};
 `

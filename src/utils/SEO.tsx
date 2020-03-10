@@ -80,11 +80,7 @@ const SEO: React.FC<ISEOProps> = ({
         )}
         {seo.image && <meta name="twitter:image" content={seo.image} />}
         <link
-          href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:300,400&display=swap"
+          href="https://fonts.googleapis.com/css?family=Merriweather:700,700i&amp;display=swap"
           rel="stylesheet"
         />
         <link

@@ -10,14 +10,26 @@ exports.onPostBootstrap = () => {
   )
 }
 
+function slugify(string) {
+  const slug = string
+    .toLowerCase()
+    .normalize("NFD")
+    .replace("&", "and")
+    .replace(/[\u0300-\u036F]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "")
+
+  return `${slug}`.replace(/\/\/+/g, "/")
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === "Mdx") {
-    const value = createFilePath({ node, getNode })
+    const value = slugify(createFilePath({ node, getNode }))
     createNodeField({
       node,
       name: "slug",
-      value: `/post${value}`,
+      value: `/${value}`,
     })
   }
 }
