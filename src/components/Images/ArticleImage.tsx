@@ -1,6 +1,7 @@
 import React, { useCallback, useState, ImgHTMLAttributes } from "react"
 import { Image, ImageContainer } from "./style"
 
+// tslint:disable-next-line: no-submodule-imports
 import "react-medium-image-zoom/dist/styles.css"
 
 const ArticleImage: React.FC<ImgHTMLAttributes<HTMLImageElement>> = attrs => {

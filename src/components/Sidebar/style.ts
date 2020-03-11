@@ -2,6 +2,7 @@ import styled, { css } from "styled-components"
 
 import { Link } from "gatsby"
 import Button from "../Button"
+import { media } from "../../config/style/global"
 
 interface IContainerProps {
   isOpen: boolean
@@ -81,6 +82,11 @@ export const FooterContainer = styled.div`
   padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
   white-space: pre;
   fill: ${props => props.theme.palette.text.primary};
+
+  ${media.lessThan("mobile")`
+  margin: inherit;
+    margin-right: auto !important;
+  `}
 
   a {
     display: flex;

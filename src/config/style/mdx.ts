@@ -33,15 +33,27 @@ export const SubTitle = styled.h2`
   color: ${props => props.theme.palette.text.secondary};
   margin: auto;
   text-align: center;
+
+  ${media.lessThan("mobile")`
+    padding: 0px ${props => props.theme.spacing.md} !important;
+  `}
 `
 
 export const SectionTitle = styled.h3`
   max-width: 680px !important;
   font-size: ${props => props.theme.size.lg};
+
+  ${media.lessThan("mobile")`
+    padding: 0px ${props => props.theme.spacing.md} !important;
+  `}
 `
 
 export const SectionInnerTitle = styled.h4`
   margin-top: ${props => props.theme.spacing.md};
+
+  ${media.lessThan("mobile")`
+    padding: 0px ${props => props.theme.spacing.md} !important;
+  `}
 `
 
 export const Body = styled.p`
@@ -84,6 +96,10 @@ export const Break = styled.hr`
   max-width: 680px;
   margin: ${props => props.theme.spacing.md} auto;
   margin-top: ${props => props.theme.spacing.lg};
+
+  ${media.lessThan("mobile")`
+    width: 85%;
+  `}
 
   &:before,
   &:after {
