@@ -11,6 +11,7 @@ export const Header = styled.header`
   display: flex;
   flex-direction: column;
   margin: ${props => props.theme.spacing.xl};
+  margin-top: ${props => props.theme.spacing.md};
   margin-bottom: ${props => props.theme.spacing.xs};
 `
 

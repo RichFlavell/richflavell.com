@@ -698,6 +698,8 @@ export type FileFieldsEnum =
   'childMdx___fileAbsolutePath' |
   'childMdx___frontmatter___title' |
   'childMdx___frontmatter___path' |
+  'childMdx___frontmatter___customHeading' |
+  'childMdx___frontmatter___description' |
   'childMdx___frontmatter___featuredImage___birthtime' |
   'childMdx___frontmatter___featuredImage___birthtimeMs' |
   'childMdx___frontmatter___featuredImage___sourceInstanceName' |
@@ -734,8 +736,6 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___featuredImage___publicURL' |
   'childMdx___frontmatter___featuredImage___id' |
   'childMdx___frontmatter___featuredImage___children' |
-  'childMdx___frontmatter___customHeading' |
-  'childMdx___frontmatter___description' |
   'childMdx___frontmatter___date' |
   'childMdx___body' |
   'childMdx___excerpt' |
@@ -1456,6 +1456,8 @@ export type MdxFieldsEnum =
   'fileAbsolutePath' |
   'frontmatter___title' |
   'frontmatter___path' |
+  'frontmatter___customHeading' |
+  'frontmatter___description' |
   'frontmatter___featuredImage___birthtime' |
   'frontmatter___featuredImage___birthtimeMs' |
   'frontmatter___featuredImage___sourceInstanceName' |
@@ -1517,8 +1519,6 @@ export type MdxFieldsEnum =
   'frontmatter___featuredImage___childMdx___timeToRead' |
   'frontmatter___featuredImage___childMdx___id' |
   'frontmatter___featuredImage___childMdx___children' |
-  'frontmatter___customHeading' |
-  'frontmatter___description' |
   'frontmatter___date' |
   'body' |
   'excerpt' |
@@ -1646,18 +1646,18 @@ export type MdxFilterInput = {
 export type MdxFrontmatter = {
   title: Scalars['String'],
   path?: Maybe<Scalars['String']>,
-  featuredImage?: Maybe<File>,
   customHeading?: Maybe<Scalars['Boolean']>,
   description?: Maybe<Scalars['String']>,
+  featuredImage?: Maybe<File>,
   date?: Maybe<Scalars['String']>,
 };
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
-  featuredImage?: Maybe<FileFilterInput>,
   customHeading?: Maybe<BooleanQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
+  featuredImage?: Maybe<FileFilterInput>,
   date?: Maybe<StringQueryOperatorInput>,
 };
 
