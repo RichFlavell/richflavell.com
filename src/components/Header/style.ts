@@ -10,6 +10,8 @@ export const Container = styled.header`
   align-items: center;
   margin: auto;
   width: 100%;
+  border-bottom: 1px solid ${props => props.theme.palette.background.secondary};
+  margin-bottom: ${props => props.theme.spacing.md};
 `
 
 export const Inner = styled.div`

@@ -37,12 +37,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
         </PageHeading>
         <PostsGridList>
           {posts.map(post => (
-            <Card
-              cascade={false}
-              first={false}
-              key={post.node.id}
-              data={post}
-            />
+            <Card cascade={false} key={post.node.id} data={post} />
           ))}
         </PostsGridList>
         <Actions>

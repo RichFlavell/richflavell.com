@@ -64,7 +64,7 @@ export const Dark: DefaultTheme = {
       primary: "#9487B7",
     },
     border: {
-      primary: "#191919",
+      primary: "#F2F2F2",
       secondary: "#1D1E1F",
     },
     shadow: Default.palette.shadow,

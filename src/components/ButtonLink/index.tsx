@@ -15,16 +15,14 @@ const Button: React.FC<IButtonProps> = ({
   children,
   onClick,
   borderless,
-  compact,
   className,
 }) => {
   return (
-    // @ts-ignore (Needed due to Gatsby `Link` missing className prop)
     <Container
       to={to}
       onClick={onClick}
       borderless={borderless}
-      compact={compact}
+      // @ts-ignore (Needed due to Gatsby `Link` missing className prop)
       className={className}
     >
       {children}

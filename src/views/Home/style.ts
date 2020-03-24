@@ -31,7 +31,6 @@ export const VideoWrapper = styled.div`
   max-width: 1280px;
   max-height: 720px;
   margin: auto;
-  margin-top: ${props => props.theme.spacing.lg};
   border-radius: 4px;
   overflow: hidden;
   box-shadow: ${props => props.theme.palette.shadow.passive};

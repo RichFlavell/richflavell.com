@@ -14,18 +14,16 @@ import {
 import Img from "gatsby-image"
 
 interface ICardProps {
-  first: boolean
-  only?: boolean // Is this the only card in the list
   cascade?: boolean
   data: PostsQuery["allMdx"]["edges"][0] // Post query type - nested inside `node`
 }
-const Card: React.FC<ICardProps> = ({ first, only, cascade, data }) => {
+const Card: React.FC<ICardProps> = ({ cascade, data }) => {
   const post = safe(data.node)
   const { title, date, thumbnail } = safe(post.frontmatter)
   const { slug } = safe(post.fields)
 
   return (
-    <Container cascade={cascade} first={first} only={only}>
+    <Container cascade={cascade}>
       <LinkWrapper cascade={cascade} to={slug!}>
         <CardImage cascade={cascade} className="i-m">
           {
@@ -34,9 +32,7 @@ const Card: React.FC<ICardProps> = ({ first, only, cascade, data }) => {
           }
         </CardImage>
         <Details>
-          <CardTitle first={first} only={only}>
-            {title}
-          </CardTitle>
+          <CardTitle>{title}</CardTitle>
           <CardExcerpt>{post.excerpt}</CardExcerpt>
           <CardMeta>
             <time dateTime={date || undefined}>{format(date!)}</time>{" "}

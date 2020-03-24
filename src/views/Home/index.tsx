@@ -84,12 +84,7 @@ const Home: React.FC<IHomeProps> = () => {
           rows.map((row, i) => (
             <GridList key={i} even={i % 2 === 0} cascade={false}>
               {row.map(post => (
-                <Card
-                  cascade={false}
-                  only={postsData.length === 1}
-                  key={post.node.id}
-                  data={post}
-                />
+                <Card cascade={false} key={post.node.id} data={post} />
               ))}
             </GridList>
           ))}

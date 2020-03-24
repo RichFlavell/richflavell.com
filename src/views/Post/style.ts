@@ -23,18 +23,18 @@ export const DisqusWrapper = styled.div`
 
 export const Meta = styled.h2`
   display: flex;
+  font-weight: 500;
   font-size: ${props => props.theme.size.md};
-  font-weight: lighter;
-  color: ${props => props.theme.palette.text.primary};
+  opacity: 0.3;
   line-height: ${props => props.theme.size.lg};
   justify-content: center;
 
   span {
-    margin: auto ${props => props.theme.spacing.sm};
+    margin: auto ${props => props.theme.spacing.xs};
   }
 
   time {
-    margin: auto ${props => props.theme.spacing.sm};
+    margin: auto ${props => props.theme.spacing.xs};
     flex: 1;
     text-align: right;
   }

@@ -5,8 +5,6 @@ import { Link } from "gatsby"
 import { media } from "../../config/style/global"
 
 interface IContainerProps {
-  first: boolean
-  only?: boolean
   cascade?: boolean
 }
 export const Container = styled.article<IContainerProps>`

@@ -17,6 +17,7 @@ import {
 } from "./style"
 import SEO from "../../utils/SEO"
 import Img from "gatsby-image"
+import ScrollProgress from "../../components/ScrollProgress"
 
 interface IPostProps {
   data: PostQuery
@@ -54,10 +55,11 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         image={safe(featuredImage).publicURL!}
       />
 
+      <ScrollProgress />
+
       <main>
         <Container>
           {!customHeading && renderHeader()}
-
           <MDXBody>
             {featuredImage && (
               <FeaturedImageContainer
