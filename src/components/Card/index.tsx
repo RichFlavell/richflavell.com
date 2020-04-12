@@ -1,7 +1,6 @@
 import React from "react"
 import { format } from "timeago.js"
 import { PostsQuery } from "../../types/graphql-types"
-import safe from "../../utils/safe"
 import {
   CardMeta,
   CardTitle,
@@ -18,9 +17,9 @@ interface ICardProps {
   data: PostsQuery["allMdx"]["edges"][0] // Post query type - nested inside `node`
 }
 const Card: React.FC<ICardProps> = ({ cascade, data }) => {
-  const post = safe(data.node)
-  const { title, date, thumbnail } = safe(post.frontmatter)
-  const { slug } = safe(post.fields)
+  const post = data.node!
+  const { title, date, thumbnail } = post.frontmatter!
+  const { slug } = post.fields!
 
   return (
     <Container cascade={cascade}>

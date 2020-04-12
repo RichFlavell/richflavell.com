@@ -23,10 +23,16 @@ interface IPostProps {
   data: PostQuery
 }
 const Post: React.FC<IPostProps> = ({ data }) => {
-  const { frontmatter, body, timeToRead, excerpt, id } = safe(data.mdx)
-  const { customHeading, title, featuredImage, date, description } = safe(
-    frontmatter
-  )
+  const { frontmatter, body, timeToRead, excerpt, id, fields } = data.mdx!
+  const {
+    customHeading,
+    title,
+    featuredImage,
+    date,
+    description,
+  } = frontmatter!
+
+  const { slug } = fields!
 
   const disqusConfig = {
     shortname: "richflavell",
@@ -50,9 +56,10 @@ const Post: React.FC<IPostProps> = ({ data }) => {
     <>
       <SEO
         title={title}
-        post={true}
+        article={true}
         description={description || excerpt}
         image={safe(featuredImage).publicURL!}
+        pathname={slug!}
       />
 
       <ScrollProgress />
@@ -91,6 +98,9 @@ export const pageQuery = graphql`
       body
       timeToRead
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
         customHeading

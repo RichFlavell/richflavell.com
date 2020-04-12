@@ -20,7 +20,7 @@ const Home: React.FC<IHomeProps> = () => {
   const data: HomeQuery = useStaticQuery(graphql`
     query Home {
       allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___date], order: ASC }
         limit: 6
         filter: { frontmatter: { path: { eq: null } } }
       ) {
@@ -40,7 +40,7 @@ const Home: React.FC<IHomeProps> = () => {
               thumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 653, maxHeight: 280, cropFocus: ENTROPY) {
+                  fluid(maxWidth: 653, maxHeight: 280, cropFocus: CENTER) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -82,9 +82,9 @@ const Home: React.FC<IHomeProps> = () => {
       <Content>
         {rows &&
           rows.map((row, i) => (
-            <GridList key={i} even={i % 2 === 0} cascade={false}>
+            <GridList key={i} even={i % 2 === 0} cascade={true}>
               {row.map(post => (
-                <Card cascade={false} key={post.node.id} data={post} />
+                <Card cascade={true} key={post.node.id} data={post} />
               ))}
             </GridList>
           ))}

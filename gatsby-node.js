@@ -70,7 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
   const postListings = graphql(`
     query {
       allMdx(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___date], order: ASC }
         filter: { frontmatter: { path: { eq: null } } }
       ) {
         edges {

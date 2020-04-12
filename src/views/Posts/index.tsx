@@ -27,7 +27,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
   const posts = safe(data.allMdx.edges)
   return (
     <>
-      <SEO title={"Posts"} />
+      <SEO title={"Posts"} pathname={"/posts"} />
       <Content>
         <PageHeading>
           <PageTitle>{t("posts")}</PageTitle>
@@ -70,7 +70,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
 export const pageQuery = graphql`
   query Posts($skip: Int!, $limit: Int!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
       limit: $limit
       skip: $skip
       filter: { frontmatter: { path: { eq: null } } }
@@ -90,7 +90,7 @@ export const pageQuery = graphql`
             thumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(maxWidth: 653, maxHeight: 280, cropFocus: ENTROPY) {
+                fluid(maxWidth: 653, maxHeight: 280, cropFocus: CENTER) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -2848,7 +2848,7 @@ export type PostQueryVariables = {
 };
 
 
-export type PostQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead' | 'excerpt'> & { frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date' | 'description'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
+export type PostQuery = { mdx: Maybe<(Pick<Mdx, 'id' | 'body' | 'timeToRead' | 'excerpt'> & { fields: Maybe<Pick<MdxFields, 'slug'>>, frontmatter: Maybe<(Pick<MdxFrontmatter, 'title' | 'customHeading' | 'date' | 'description'> & { featuredImage: Maybe<(Pick<File, 'publicURL'> & { childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> })> })> })> };
 
 export type PostsQueryVariables = {
   skip: Scalars['Int'],
