@@ -4,8 +4,8 @@ module.exports = {
     titleTemplate: "%s",
     description:
       "Rich Flavell is a software engineer by trade, a keen outdoors enthusiast and aspirational photographer.",
-    url: "https://www.richflavell.com",
-    siteUrl: "https://www.richflavell.com",
+    url: "https://www.richflavell.com/",
+    siteUrl: "https://www.richflavell.com/",
     image: "/me.jpg",
     twitterUsername: "@RichFlavell",
   },
@@ -17,6 +17,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-tslint`,
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `./src/types/graphql.ts`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -66,12 +72,6 @@ module.exports = {
         theme_color: `#9487B7`,
         display: `standalone`,
         icon: `src/images/me.jpg`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-generate-typings",
-      options: {
-        dest: "./src/types/graphql-types.d.ts",
       },
     },
     {

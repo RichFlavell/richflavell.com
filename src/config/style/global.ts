@@ -154,6 +154,10 @@ const Global = createGlobalStyle`
     height: 100%;
   }
 
+  .gatsby-resp-image-image {
+    position: relative !important;
+  }
+
   #gatsby-focus-wrapper {
     height: 100%;
   }

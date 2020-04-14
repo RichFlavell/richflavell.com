@@ -1,6 +1,6 @@
 import React from "react"
 import { format } from "timeago.js"
-import { PostsQuery } from "../../types/graphql-types"
+import { PostsQuery } from "../../types/graphql"
 import {
   CardMeta,
   CardTitle,
@@ -23,7 +23,7 @@ const Card: React.FC<ICardProps> = ({ cascade, data }) => {
 
   return (
     <Container cascade={cascade}>
-      <LinkWrapper cascade={cascade} to={slug!}>
+      <LinkWrapper cascade={cascade ? 1 : 0} to={`${slug!}/`}>
         <CardImage cascade={cascade} className="i-m">
           {
             // @ts-ignore

@@ -106,7 +106,7 @@ const HeadingsCSS = css`
 
 const ImageCSS = css`
   .gatsby-resp-image-background-image {
-    display: none !important;
+    position: absolute !important;
   }
 
   img {

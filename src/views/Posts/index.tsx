@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
 import { Content, Left, Right } from "../../config/style/mdx"
-import { PostsQuery } from "../../types/graphql-types"
+import { PostsQuery } from "../../types/graphql"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { SeeMoreLink } from "../Home/style"
@@ -46,8 +46,8 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
               <SeeMoreLink
                 to={
                   pageContext.currentPage - 1 === 1
-                    ? `/posts`
-                    : `/posts/${pageContext.currentPage - 1}`
+                    ? `/posts/`
+                    : `/posts/${pageContext.currentPage - 1}/`
                 }
               >
                 &laquo; {t("previous")}
@@ -56,7 +56,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
           )}
           {pageContext.currentPage < pageContext.numPages && (
             <Right>
-              <SeeMoreLink to={`/posts/${pageContext.currentPage + 1}`}>
+              <SeeMoreLink to={`/posts/${pageContext.currentPage + 1}/`}>
                 {t("next")} &raquo;
               </SeeMoreLink>
             </Right>

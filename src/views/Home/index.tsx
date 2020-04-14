@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Right } from "../../config/style/mdx"
-import { HomeQuery } from "../../types/graphql-types"
+import { HomeQuery } from "../../types/graphql"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { Holder, Actions, SeeMoreLink, Video, VideoWrapper } from "./style"
@@ -91,7 +91,7 @@ const Home: React.FC<IHomeProps> = () => {
         {data.allMdx.totalCount > 6 && (
           <Actions>
             <Right>
-              <SeeMoreLink to="/posts">{t("seeMore")} &raquo;</SeeMoreLink>
+              <SeeMoreLink to="/posts/">{t("seeMore")} &raquo;</SeeMoreLink>
             </Right>
           </Actions>
         )}

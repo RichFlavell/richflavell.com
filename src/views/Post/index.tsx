@@ -4,7 +4,7 @@ import { DiscussionEmbed } from "disqus-react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { format } from "timeago.js"
-import { PostQuery } from "../../types/graphql-types"
+import { PostQuery } from "../../types/graphql"
 import safe from "../../utils/safe"
 import { Title } from "../../config/style/mdx"
 import {
@@ -59,7 +59,7 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         article={true}
         description={description || excerpt}
         image={safe(featuredImage).publicURL!}
-        pathname={slug!}
+        pathname={`${slug!}/`}
       />
 
       <ScrollProgress />

@@ -72,7 +72,7 @@ export const CardImage = styled.div<{ cascade?: boolean }>`
   `};
 `
 
-export const LinkWrapper = styled(Link)<{ cascade?: boolean }>`
+export const LinkWrapper = styled(Link)<{ cascade?: number }>`
   width: 100%;
   height: 100%;
   display: flex;

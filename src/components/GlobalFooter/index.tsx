@@ -13,7 +13,7 @@ const GlobalFooter: React.FC = () => {
       <Left>
         Rich Flavell © {new Date().getFullYear()}. All rights reserved
         &nbsp;|&nbsp;
-        <Link to="/privacy">{t("privacy")}</Link>
+        <Link to="/privacy/">{t("privacy")}</Link>
       </Left>
       <Right>
         <Button
