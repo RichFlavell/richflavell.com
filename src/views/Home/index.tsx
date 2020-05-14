@@ -40,7 +40,12 @@ const Home: React.FC<IHomeProps> = () => {
               thumbnail: featuredImage {
                 publicURL
                 childImageSharp {
-                  fluid(maxWidth: 653, maxHeight: 280, cropFocus: CENTER) {
+                  fluid(
+                    maxWidth: 653
+                    maxHeight: 280
+                    cropFocus: CENTER
+                    quality: 90
+                  ) {
                     ...GatsbyImageSharpFluid
                   }
                 }

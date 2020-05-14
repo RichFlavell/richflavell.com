@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
+import i18n from "./i18n"
 
 interface ISEOProps {
   title?: string
@@ -53,6 +54,7 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, article }) => {
     >
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      <html lang={i18n.language} />
 
       {seo.url && <meta property="og:url" content={seo.url} />}
 

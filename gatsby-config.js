@@ -4,8 +4,8 @@ module.exports = {
     titleTemplate: "%s",
     description:
       "Rich Flavell is a software engineer by trade, a keen outdoors enthusiast and aspirational photographer.",
-    url: "https://www.richflavell.com/",
-    siteUrl: "https://www.richflavell.com/",
+    url: "https://www.richflavell.com",
+    siteUrl: "https://www.richflavell.com",
     image: "/me.jpg",
     twitterUsername: "@RichFlavell",
   },
@@ -45,9 +45,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 10000,
+              maxWidth: 5120,
               linkImagesToOriginal: false,
-              quality: 80,
+              quality: 90,
               withWebp: true,
             },
           },
