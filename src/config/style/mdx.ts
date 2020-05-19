@@ -1,6 +1,5 @@
 import { Components } from "@mdx-js/react"
 import styled from "styled-components"
-import ArticleImage from "../../components/Images/ArticleImage"
 import { media } from "./global"
 
 export const Content = styled.main`
@@ -124,7 +123,6 @@ export const Break = styled.hr`
 `
 
 export const components = {
-  img: ArticleImage,
   h1: Title,
   h2: SubTitle,
   h3: SectionTitle,

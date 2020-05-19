@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useLayoutEffect } from "react"
 import { globalHistory } from "@reach/router"
 import { DiscussionEmbed } from "disqus-react"
 import { graphql } from "gatsby"
@@ -38,6 +38,17 @@ const Post: React.FC<IPostProps> = ({ data }) => {
     shortname: "richflavell",
     config: { identifier: id, title, url: globalHistory.location.href },
   }
+
+  useLayoutEffect(() => {
+    const wrappers = document.querySelectorAll(".gatsby-resp-image-wrapper")
+
+    wrappers.forEach(wrapper => {
+      const img = wrapper.querySelector("img")
+      const placeholder = wrapper.querySelector("span")
+
+      img!.addEventListener("load", () => (placeholder!.style.opacity = "0"))
+    })
+  }, [])
 
   function renderHeader() {
     return (

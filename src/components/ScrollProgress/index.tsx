@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
-const Holder = styled.div<{ progress: number }>`
+const Holder = styled.div`
   position: fixed;
-  ${props => css`
-    background: linear-gradient(
-      to right,
-      ${props.theme.palette.text.secondary} ${props.progress}%,
-      transparent 0
-    );
-  `}
   opacity: 0.8;
   width: 100%;
   height: 2px;
   z-index: 50;
+`
+
+const Progress = styled.div<{ progress: number }>`
+  transition: all 0.2s ease-out;
+  background-color: ${props => props.theme.palette.text.secondary};
+  width: ${props => props.progress}%;
+  height: 100%;
 `
 
 const ScrollProgress: React.FC = () => {
@@ -33,7 +33,11 @@ const ScrollProgress: React.FC = () => {
 
     return () => document.removeEventListener("scroll", updateScrollProgress)
   }, [])
-  return <Holder progress={scrollProgress} />
+  return (
+    <Holder>
+      <Progress progress={scrollProgress} />
+    </Holder>
+  )
 }
 
 export default ScrollProgress

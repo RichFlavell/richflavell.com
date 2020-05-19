@@ -144,18 +144,13 @@ const Global = createGlobalStyle`
     }
   }
 
-  img.i-z ~ div {
-    background: transparent !important;
+  .medium-zoom-overlay {
+    background: ${props => props.theme.palette.background.primary} !important;
+    box-shadow: none !important;
   }
 
-  .gatsby-image-wrapper {
-    overflow: inherit !important;
-    width: 100%;
-    height: 100%;
-  }
-
-  .gatsby-resp-image-image {
-    position: relative !important;
+  img.medium-zoom-image--opened {
+    border-radius: 5px;
   }
 
   #gatsby-focus-wrapper {
@@ -163,6 +158,11 @@ const Global = createGlobalStyle`
   }
 
   #___gatsby {
+    height: 100%;
+  }
+
+  .gatsby-image-wrapper {
+    width: 100%;
     height: 100%;
   }
 `

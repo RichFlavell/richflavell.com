@@ -13,16 +13,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-typescript`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-tslint`,
-    {
-      resolve: `gatsby-plugin-graphql-codegen`,
-      options: {
-        fileName: `./src/types/graphql.ts`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,26 +22,24 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: `${__dirname}/src/images`,
-      },
-    },
+    `gatsby-remark-images`,
     {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".md", ".mdx"],
+        plugins: [`gatsby-remark-images-medium-zoom`, `gatsby-remark-images`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 5120,
+              maxWidth: 2160,
               linkImagesToOriginal: false,
               quality: 90,
-              withWebp: true,
             },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+            options: {},
           },
           {
             resolve: "gatsby-remark-external-links",
@@ -62,6 +52,8 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

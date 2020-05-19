@@ -105,10 +105,6 @@ const HeadingsCSS = css`
 `
 
 const ImageCSS = css`
-  .gatsby-resp-image-background-image {
-    position: absolute !important;
-  }
-
   img {
     display: inline-block;
     position: relative;

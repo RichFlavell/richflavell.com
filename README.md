@@ -1,6 +1,6 @@
 # RichFlavell.com
 
-> A lightweight writing platform built with React & Gatsby
+> My personal lightweight writing platform, built with React & Gatsby
 
 ---
 
@@ -8,20 +8,20 @@
 
 > Clone the repository
 
-```zsh
-  % git clone https://github.com/RichFlavell/richflavell.com.git
+```sh
+  $ git clone https://github.com/RichFlavell/richflavell.com.git
 ```
 
 > Navigate to the project root and install all the required packages
 
-```zsh
-  % yarn
+```sh
+  $ yarn
 ```
 
 > Start the local dev server! (This is just a proxy of `gatsby develop`)
 
-```zsh
-  % yarn start
+```sh
+  $ yarn start
 ```
 
 Options and more information for the local dev server can be found <a href="https://www.gatsbyjs.org/docs/gatsby-cli/#develop">here</a>
