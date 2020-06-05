@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react"
-import { globalHistory } from "@reach/router"
+import { globalHistory, navigate } from "@reach/router"
 import { DiscussionEmbed } from "disqus-react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -9,20 +9,28 @@ import safe from "../../utils/safe"
 import { Title } from "../../config/style/mdx"
 import {
   Container,
-  Header,
   Meta,
+  TimeHolder,
   MDXBody,
-  FeaturedImageContainer,
+  Hero,
   DisqusWrapper,
+  Subtitle,
+  MetaContainer,
+  HomeLink,
+  ScrollPromptIcon,
+  MDXContainer,
 } from "./style"
 import SEO from "../../utils/SEO"
 import Img from "gatsby-image"
 import ScrollProgress from "../../components/ScrollProgress"
+import { useTranslation } from "react-i18next"
+import Header from "../../components/Header"
 
 interface IPostProps {
   data: PostQuery
 }
 const Post: React.FC<IPostProps> = ({ data }) => {
+  const { t } = useTranslation("Sidebar")
   const { frontmatter, body, timeToRead, excerpt, id, fields } = data.mdx!
   const {
     customHeading,
@@ -50,19 +58,6 @@ const Post: React.FC<IPostProps> = ({ data }) => {
     })
   }, [])
 
-  function renderHeader() {
-    return (
-      <Header>
-        <Title>{title}</Title>
-        <Meta>
-          <time dateTime={date || undefined}>{format(date!)}</time>{" "}
-          <span>{"•"} </span>
-          <span>{timeToRead} min read</span>
-        </Meta>
-      </Header>
-    )
-  }
-
   return (
     <>
       <SEO
@@ -73,23 +68,40 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         pathname={`${slug!}/`}
       />
 
+      {customHeading && <Header alignCenter={true} />}
+
       <ScrollProgress />
 
       <main>
         <Container>
-          {!customHeading && renderHeader()}
           <MDXBody>
-            {featuredImage && (
-              <FeaturedImageContainer
-                className={customHeading ? "i-s i-r" : "i-m i-f"}
-              >
+            {featuredImage && !customHeading && (
+              <Hero className={"i-m i-f"}>
+                <Meta>
+                  <HomeLink to="/">{t("home")}</HomeLink>
+                  <MetaContainer>
+                    <Title>{title}</Title>
+                    <Subtitle>{description || excerpt}</Subtitle>
+                  </MetaContainer>
+                  <TimeHolder>
+                    <time dateTime={date || undefined}>{format(date!)}</time>{" "}
+                    <span>{"•"} </span>
+                    <span>{timeToRead} min read</span>
+                  </TimeHolder>
+                  <ScrollPromptIcon
+                    onClick={() => navigate(`${slug}#POST`)}
+                    icon="arrow_drop_down_circle"
+                  />
+                </Meta>
                 {
                   // @ts-ignore
                   <Img fluid={featuredImage.childImageSharp.fluid} />
                 }
-              </FeaturedImageContainer>
+              </Hero>
             )}
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXContainer id="POST">
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXContainer>
           </MDXBody>
           {!customHeading && (
             <DisqusWrapper>
@@ -120,7 +132,7 @@ export const pageQuery = graphql`
         featuredImage {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 980, quality: 90, cropFocus: CENTER) {
+            fluid(maxWidth: 3300, quality: 90, cropFocus: CENTER) {
               ...GatsbyImageSharpFluid
             }
           }

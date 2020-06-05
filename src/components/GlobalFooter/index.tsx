@@ -20,6 +20,7 @@ const GlobalFooter: React.FC = () => {
           borderless={true}
           compact={true}
           onClick={() => i18n.changeLanguage("en")}
+          active={i18n.language !== "jp"}
         >
           English
         </Button>{" "}
@@ -28,6 +29,7 @@ const GlobalFooter: React.FC = () => {
           borderless={true}
           compact={true}
           onClick={() => i18n.changeLanguage("jp")}
+          active={i18n.language === "jp"}
         >
           日本語
         </Button>

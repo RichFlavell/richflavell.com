@@ -14,6 +14,16 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Material Icons Outlined`,
+          `Merriweather:300,300i,400,400i,700,700i`,
+          "Lato:300;300i,400,400i,700,700i",
+        ],
+      },
+    },
     `gatsby-plugin-tslint`,
     {
       resolve: `gatsby-source-filesystem`,

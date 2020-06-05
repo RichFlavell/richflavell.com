@@ -6,8 +6,8 @@ export const Holder = styled.footer`
   align-self: center;
   align-items: flex-end;
   display: flex;
-  width: 100%;
-  max-width: 980px;
+  width: 95%;
+  max-width: 90em;
 
   ${media.lessThan("tablet")`
     padding: 0px ${props => props.theme.spacing.md}

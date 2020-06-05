@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components"
 import { Title } from "../../config/style/mdx"
-import { Meta } from "../../views/Post/style"
 import { Link } from "gatsby"
 import { media } from "../../config/style/global"
 
@@ -19,7 +18,7 @@ export const Container = styled.article<IContainerProps>`
   ${props =>
     props.cascade
       ? css`
-          max-width: 653px;
+          max-width: 100%;
         `
       : css`
           margin-top: ${props.theme.spacing.lg};
@@ -32,18 +31,29 @@ export const CardTitle = styled(Title)<IContainerProps>`
   transition: color 0.2s linear;
 `
 
-export const CardMeta = styled(Meta)`
+export const CardMeta = styled.h2`
+  display: flex;
+  line-height: ${props => props.theme.size.lg};
+  justify-content: center;
+  font-weight: lighter;
+  font-style: italic;
   text-align: left;
   display: block;
   font-weight: 600;
   font-size: ${props => props.theme.size.sm};
   opacity: 0.3;
+
   span {
     margin: auto ${props => props.theme.spacing.xs};
   }
 
   time {
     margin: auto ${props => props.theme.spacing.xs};
+  }
+
+  span:last-of-type {
+    flex: 1;
+    text-align: left;
   }
 `
 
@@ -55,7 +65,6 @@ export const Details = styled.div`
 export const CardImage = styled.div<{ cascade?: boolean }>`
   transition: all 0.2s linear;
   overflow: hidden;
-  box-shadow: ${props => props.theme.palette.shadow.passive};
   height: 280px;
   ${props =>
     !props.cascade &&
@@ -93,10 +102,6 @@ export const LinkWrapper = styled(Link)<{ cascade?: number }>`
 
     ${CardTitle} {
       color: ${props => props.theme.palette.link.primary} !important;
-    }
-
-    ${CardImage} {
-      box-shadow: ${props => props.theme.palette.shadow.active};
     }
   }
 `

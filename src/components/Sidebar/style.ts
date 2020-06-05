@@ -55,22 +55,18 @@ export const Item = styled.li`
   font-size: ${props => props.theme.size.sm};
 
   border-bottom: 1px solid ${props => props.theme.palette.background.secondary};
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
-    "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial,
-    sans-serif;
+  font-family: "Lato", sans-serif;
 `
 
 export const MenuLink = styled(Link)`
   display: inline-block;
   width: 100%;
   height: 100%;
-  padding: ${props => props.theme.spacing.lg} 0px;
+  padding: ${props => props.theme.spacing.md} 0px;
 `
 
 export const ActionsTitle = styled.h1`
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
-    "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial,
-    sans-serif;
+  font-family: "Lato", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
   white-space: nowrap;

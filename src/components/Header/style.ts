@@ -1,6 +1,7 @@
 import MaterialIcon from "@material/react-material-icon"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { buttonStyle } from "../Button/style"
+import { media } from "../../config/style/global"
 
 export const Container = styled.header`
   display: flex;
@@ -10,26 +11,23 @@ export const Container = styled.header`
   align-items: center;
   margin: auto;
   width: 100%;
-  border-bottom: 1px solid ${props => props.theme.palette.background.secondary};
-  margin-bottom: ${props => props.theme.spacing.md};
 `
 
-export const Inner = styled.div`
-  max-width: 980px;
-  width: 75%;
+export const Inner = styled.div<{ alignCenter?: boolean }>`
+  max-width: 90em;
+  width: 95%;
   display: flex;
-  justify-content: center;
+  margin: auto;
+
+  ${props =>
+    props.alignCenter &&
+    css`
+      text-align: center;
+    `}
 
   @media (max-width: 60em) {
     width: 100%;
   }
-`
-
-export const HeaderOuterSection = styled.div`
-  width: 25%;
-  display: flex;
-  margin: auto;
-  align-items: center;
 `
 
 export const SubscribeButton = styled.a`
@@ -38,12 +36,25 @@ export const SubscribeButton = styled.a`
   ${buttonStyle}
 `
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<{ alignCenter?: boolean }>`
+  display: flex;
+  flex-direction: column;
   font-weight: lighter;
-  font-size: ${props => props.theme.size.logo};
+  font-style: italic;
   text-decoration: none;
   white-space: nowrap;
   fill: ${props => props.theme.palette.text.primary};
+  font-size: ${props => props.theme.size.md};
+
+  ${props =>
+    props.alignCenter &&
+    css`
+      text-align: center;
+      margin: auto;
+    `}
+  ${media.lessThan("mobile")`
+    margin: auto;
+  `}
 `
 
 export const StyledIcon = styled(MaterialIcon)`
@@ -53,4 +64,19 @@ export const StyledIcon = styled(MaterialIcon)`
 
 export const MenuIcon = styled(MaterialIcon)`
   font-size: ${props => props.theme.size.md};
+`
+
+export const RightAction = styled.div`
+  margin: auto;
+`
+
+export const LeftAction = styled.div`
+  margin: auto;
+`
+
+export const Subtitle = styled.span`
+  opacity: 0.5;
+  ${media.lessThan("mobile")`
+    display: none;
+  `}
 `

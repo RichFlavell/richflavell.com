@@ -8,6 +8,7 @@ import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { Holder, Actions, SeeMoreLink, Video, VideoWrapper } from "./style"
 import { useTranslation } from "react-i18next"
+import Header from "../../components/Header"
 
 interface IHomeProps {
   data?: HomeQuery
@@ -71,6 +72,7 @@ const Home: React.FC<IHomeProps> = () => {
   return (
     <Holder>
       <SEO title="Rich Flavell" templateOverride={"%s"} />
+      <Header />
       {videoId && (
         <VideoWrapper>
           <Video

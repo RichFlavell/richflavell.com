@@ -52,9 +52,13 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, article }) => {
           : []
       }
     >
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      <html lang={i18n.language} />
+      <html lang={i18n.language === "jp" ? "jp" : "en"} />
 
       {seo.url && <meta property="og:url" content={seo.url} />}
 
@@ -81,15 +85,6 @@ const SEO: React.FC<ISEOProps> = ({ title, description, image, article }) => {
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-
-      <link
-        href="https://fonts.googleapis.com/css?family=Merriweather:700,700i&amp;display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-        rel="stylesheet"
-      />
     </Helmet>
   )
 }

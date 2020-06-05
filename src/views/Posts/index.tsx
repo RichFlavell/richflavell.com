@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
-import { Content, Left, Right } from "../../config/style/mdx"
+import { Left, Right } from "../../config/style/mdx"
 import { PostsQuery } from "../../types/graphql"
 import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
@@ -12,8 +12,10 @@ import {
   PageHeading,
   PageTitle,
   PostsGridList,
+  Wrapper,
 } from "./style"
 import { useTranslation } from "react-i18next"
+import Header from "../../components/Header"
 
 interface IPostsProps {
   data: PostsQuery
@@ -28,7 +30,8 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
   return (
     <>
       <SEO title={"Posts"} pathname={"/posts"} />
-      <Content>
+      <Wrapper>
+        <Header />
         <PageHeading>
           <PageTitle>{t("posts")}</PageTitle>
           <PageCount>
@@ -62,7 +65,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
             </Right>
           )}
         </Actions>
-      </Content>
+      </Wrapper>
     </>
   )
 }

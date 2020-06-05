@@ -6,6 +6,7 @@ interface IButtonProps {
   borderless?: boolean
   compact?: boolean
   className?: string
+  active?: boolean
   onClick?: () => void
 }
 
@@ -15,6 +16,7 @@ const Button: React.FC<IButtonProps> = ({
   onClick,
   borderless,
   compact,
+  active,
 }) => {
   return (
     <Container
@@ -22,6 +24,7 @@ const Button: React.FC<IButtonProps> = ({
       onClick={onClick}
       borderless={borderless}
       compact={compact}
+      active={active}
     >
       {children}
     </Container>

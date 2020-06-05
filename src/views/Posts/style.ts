@@ -1,13 +1,17 @@
 import styled from "styled-components"
-import { Heading, Title } from "../../config/style/mdx"
+import { Heading, Title, Content } from "../../config/style/mdx"
 import GridList from "../../components/GridList"
 import { media } from "../../config/style/global"
+
+export const Wrapper = styled(Content)`
+  padding: 0 ${props => props.theme.spacing.md};
+`
 
 export const Actions = styled.div`
   margin: auto;
   display: flex;
-  width: 100%;
-  max-width: 980px;
+  width: 95%;
+  max-width: 90em;
 
   ${media.lessThan("tablet")`
     padding: 0px ${props => props.theme.spacing.md};
@@ -19,7 +23,8 @@ export const PageHeading = styled(Heading)`
   flex-direction: row;
   align-items: center;
   padding-bottom: ${props => props.theme.spacing.md};
-  max-width: 980px;
+  max-width: 90em;
+  width: 95%;
   margin: auto;
 
   ${media.lessThan("tablet")`
@@ -42,7 +47,7 @@ export const PageCount = styled.div`
 `
 
 export const PostsGridList = styled(GridList)`
-  max-width: 980px;
+  max-width: 90em;
 
   ${media.lessThan("tablet")`
     padding: 0px ${props => props.theme.spacing.md}

@@ -16,7 +16,7 @@ export const Container = styled.div<IContainerProps>`
   ${props =>
     props.isSidebarOpen
       ? css`
-          filter: brightness(75%);
+          filter: brightness(66%);
         `
       : css`
           filter: none;

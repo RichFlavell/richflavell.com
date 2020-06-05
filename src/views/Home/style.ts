@@ -5,14 +5,13 @@ import { media } from "../../config/style/global"
 
 export const Holder = styled.main`
   padding: 0 ${props => props.theme.spacing.md};
-  margin-top: ${props => props.theme.spacing.lg};
 `
 
 export const Actions = styled.div`
   margin: auto;
   display: flex;
-  width: 100%;
-  max-width: 980px;
+  width: 95%;
+  max-width: 90em;
 
   ${media.lessThan("tablet")`
     padding: 0px ${props => props.theme.spacing.md};
@@ -33,8 +32,8 @@ export const VideoWrapper = styled.div`
   margin: auto;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: ${props => props.theme.palette.shadow.passive};
   transition: all 0.2s linear;
+  margin-bottom: ${props => props.theme.spacing.md};
 
   @media (min-width: 30em) {
     height: 720px;
@@ -43,10 +42,6 @@ export const VideoWrapper = styled.div`
   @media (max-width: 60em) {
     height: auto;
     padding-top: 56.25%;
-  }
-
-  &:hover {
-    box-shadow: ${props => props.theme.palette.shadow.active};
   }
 `
 

@@ -3,11 +3,13 @@ import styled, { css } from "styled-components"
 interface IContainerProps {
   borderless?: boolean
   compact?: boolean
+  active?: boolean
 }
 
 export const buttonStyle = css<IContainerProps>`
   height: auto;
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.sm} ${props =>
+  props.theme.spacing.lg};
   background-color: initial;
   color: ${props => props.theme.palette.text.secondary};
   font-size: ${props => props.theme.size.sm};
@@ -19,6 +21,12 @@ export const buttonStyle = css<IContainerProps>`
     color: ${props => props.theme.palette.link.primary};
     border-color: ${props => props.theme.palette.link.primary};
   }
+
+  ${props =>
+    props.active &&
+    css`
+      font-weight: bold;
+    `}
 
   ${props =>
     props.borderless &&
