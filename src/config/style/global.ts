@@ -8,14 +8,6 @@ const Global = createGlobalStyle`
   ${Reset}
   ${MaterialIcon.toString()}
 
-  @font-face {
-    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
-      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
-      "Arial", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
   *,
   *:before,
   *:after {
@@ -37,7 +29,6 @@ const Global = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     cursor: default;
-    font-size: 0.625rem;
     line-height: 1.4;
   }
 
@@ -46,15 +37,13 @@ const Global = createGlobalStyle`
     height: 100%;
     color: ${props => props.theme.palette.text.primary};
     background-color: ${props => props.theme.palette.background.primary};
+    scroll-behavior: smooth;
   }
 
   body {
-    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
-      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
-      "Arial", sans-serif;
-    font-size: 1.6rem;
-    margin: 0;
-    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
     height: 100%;
   }
 
@@ -81,15 +70,6 @@ const Global = createGlobalStyle`
   video {
     vertical-align: middle;
     align-self: center;
-  }
-
-  input,
-  textarea,
-  select,
-  button {
-    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
-      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
-      "Arial", sans-serif;
   }
 
   .underline {
@@ -164,6 +144,10 @@ const Global = createGlobalStyle`
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
+  }
+
+  ::selection {
+    background: rgba(242, 181, 212, 0.4);
   }
 `
 

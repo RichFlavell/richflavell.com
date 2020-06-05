@@ -21,14 +21,14 @@ export const Title = styled.h1`
   color: ${props => props.theme.palette.text.primary};
   margin: auto;
   margin-bottom: ${props => props.theme.spacing.md};
-  font-weight: lighter;
+  font-weight: 700;
   text-align: center;
 `
 
 export const SubTitle = styled.h2`
   font-family: "Merriweather", Georgia, Serif;
   font-size: ${props => props.theme.size.lg};
-  font-weight: lighter;
+  font-weight: 400;
   color: ${props => props.theme.palette.text.secondary};
   margin: auto;
   text-align: center;
@@ -39,8 +39,11 @@ export const SubTitle = styled.h2`
 `
 
 export const SectionTitle = styled.h3`
-  max-width: 680px !important;
+  font-family: "Merriweather", Georgia, Serif;
+  max-width: 700px !important;
   font-size: ${props => props.theme.size.lg};
+  font-weight: 300;
+  text-align: center;
 
   ${media.lessThan("mobile")`
     padding: 0px ${props => props.theme.spacing.md} !important;
@@ -48,7 +51,10 @@ export const SectionTitle = styled.h3`
 `
 
 export const SectionInnerTitle = styled.h4`
+  font-family: "Merriweather", Georgia, Serif;
   margin-top: ${props => props.theme.spacing.md};
+  text-align: center;
+  font-weight: 300;
 
   ${media.lessThan("mobile")`
     padding: 0px ${props => props.theme.spacing.md} !important;
@@ -58,10 +64,11 @@ export const SectionInnerTitle = styled.h4`
 export const Body = styled.p`
   font-size: ${props => props.theme.size.md};
   color: ${props => props.theme.palette.text.primary};
-  max-width: 680px;
+  max-width: 700px;
   width: 100%;
-  margin: 0px auto 35px;
-  line-height: 1.756;
+  margin: 0px auto 26px;
+  line-height: 1.48;
+  text-align: center;
 
   ${media.lessThan("mobile")`
     padding: 0px ${props => props.theme.spacing.md};
@@ -92,7 +99,7 @@ export const Break = styled.hr`
   height: 11px;
   border-style: double;
   width: 100%;
-  max-width: 680px;
+  max-width: 700px;
   margin: ${props => props.theme.spacing.md} auto;
   margin-top: ${props => props.theme.spacing.lg};
 

@@ -61,7 +61,7 @@ module.exports = {
         short_name: `Rich Flavell`,
         start_url: `/`,
         background_color: `#FFFFFF`,
-        theme_color: `#9487B7`,
+        theme_color: `#F2B5D4`,
         display: `standalone`,
         icon: `src/images/me.jpg`,
       },

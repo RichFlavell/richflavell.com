@@ -7,11 +7,11 @@ export const Default: DefaultTheme = {
       secondary: "#F6F7FB",
     },
     text: {
-      primary: "#08080B",
+      primary: "#292525",
       secondary: "#73737D",
     },
     link: {
-      primary: "#9487B7",
+      primary: "#F2B5D4",
     },
     border: {
       primary: "#73737D",
@@ -22,12 +22,6 @@ export const Default: DefaultTheme = {
       twitter: "#38A1F3",
       youtube: "#FF0000",
       instagram: "#C13584",
-    },
-    shadow: {
-      passive:
-        "0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
-      active:
-        "0 30px 30px -20px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
     },
     white: "#FFFFFF",
     black: "#000000",
@@ -53,7 +47,7 @@ export const Dark: DefaultTheme = {
   ...Default,
   palette: {
     background: {
-      primary: "#191919",
+      primary: "#080808",
       secondary: "#1D1E1F",
     },
     text: {
@@ -61,13 +55,12 @@ export const Dark: DefaultTheme = {
       secondary: "#F2F2F2",
     },
     link: {
-      primary: "#9487B7",
+      primary: "#F2B5D4",
     },
     border: {
       primary: "#F2F2F2",
       secondary: "#1D1E1F",
     },
-    shadow: Default.palette.shadow,
     brand: Default.palette.brand,
     white: "#FFFFFF",
     black: "#000000",

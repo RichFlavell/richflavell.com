@@ -27,10 +27,6 @@ declare module "styled-components" {
         youtube: string
         instagram: string
       }
-      shadow: {
-        passive: string
-        active: string
-      }
       white: string
       black: string
     }
