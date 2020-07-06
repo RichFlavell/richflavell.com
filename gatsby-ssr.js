@@ -7,16 +7,12 @@ import Page from "./src/components/Page"
 import GlobalFooter from "./src/components/GlobalFooter"
 import Sidebar from "./src/components/Sidebar"
 
-import ThemeContextProvider from "./src/context/ThemeContext"
-
 export const wrapRootElement = ({ element }) => {
   return (
-    <ThemeContextProvider>
-      <App>
-        <Global />
-        {element}
-      </App>
-    </ThemeContextProvider>
+    <App>
+      <Global />
+      {element}
+    </App>
   )
 }
 

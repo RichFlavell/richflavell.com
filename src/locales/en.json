@@ -1,0 +1,29 @@
+{
+  "GlobalFooter": {
+    "privacy": "Privacy"
+  },
+  "Header": {
+    "contactButton": "Contact",
+    "subtitle": "Software Engineer, outdoors enthusiast and aspirational photographer"
+  },
+  "Home": {
+    "seeMore": "See more"
+  },
+  "NotFound": {
+    "pageNotFound": "Page not found",
+    "return": "Click here to return"
+  },
+  "Posts": {
+    "posts": "Posts",
+    "page": "Page",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "Sidebar": {
+    "browse": "Browse",
+    "home": "Home",
+    "posts": "Posts",
+    "about": "About",
+    "builtWith": "Built with lots of ☕, <0><0/></0>  &  <1><0/></1>"
+  }
+}

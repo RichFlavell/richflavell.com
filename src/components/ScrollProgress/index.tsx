@@ -30,9 +30,9 @@ const ScrollProgress: React.FC = () => {
 
   useEffect(() => {
     document.addEventListener("scroll", updateScrollProgress)
-
     return () => document.removeEventListener("scroll", updateScrollProgress)
   }, [])
+
   return (
     <Holder>
       <Progress progress={scrollProgress} />

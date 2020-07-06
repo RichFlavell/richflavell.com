@@ -72,6 +72,7 @@ export const Body = styled.p`
 
   ${media.lessThan("mobile")`
     width: 90%;
+    text-align: inherit;
   `}
 `
 

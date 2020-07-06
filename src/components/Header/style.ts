@@ -1,6 +1,6 @@
 import MaterialIcon from "@material/react-material-icon"
 import styled, { css } from "styled-components"
-import { buttonStyle } from "../Button/style"
+import Button from "../Button"
 import { media } from "../../config/style/global"
 
 export const Container = styled.header`
@@ -30,10 +30,43 @@ export const Inner = styled.div<{ alignCenter?: boolean }>`
   }
 `
 
-export const SubscribeButton = styled.a`
+export const SubscribeContainer = styled.div<{
+  floating?: boolean
+  hidden: boolean
+}>`
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+
+  ${props =>
+    props.floating &&
+    css`
+      position: fixed;
+      bottom: ${props.theme.spacing.lg};
+      right: ${props.theme.spacing.lg};
+    `}
+
+  ${props =>
+    props.hidden &&
+    css`
+      opacity: 0;
+    `}
+
+  ${media.lessThan("mobile")`
+    position: fixed;
+    bottom: ${props => props.theme.spacing.lg};
+    right: ${props => props.theme.spacing.lg};
+  `}
+`
+
+export const SubscribeButton = styled(Button)`
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  font-family: "Lato", Georgia, Serif;
+  text-align: center;
   margin: 0px;
   margin-left: auto;
-  ${buttonStyle}
 `
 
 export const LogoContainer = styled.div<{ alignCenter?: boolean }>`
@@ -64,6 +97,10 @@ export const StyledIcon = styled(MaterialIcon)`
 
 export const MenuIcon = styled(MaterialIcon)`
   font-size: ${props => props.theme.size.md};
+`
+
+export const ButtonIcon = styled(MaterialIcon)`
+  margin-right: calc(${props => props.theme.spacing.sm} - 2px);
 `
 
 export const RightAction = styled.div`

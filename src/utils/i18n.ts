@@ -1,12 +1,14 @@
 import i18n from "i18next"
-import XHR from "i18next-xhr-backend"
 import LanguageDetector from "i18next-browser-languagedetector"
 import { initReactI18next } from "react-i18next"
+
+// Language resources
+import en from "../locales/en.json"
+import jp from "../locales/jp.json"
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
-  .use(XHR)
   .init({
     fallbackLng: "en",
     debug: process.env.NODE_ENV === "development",
@@ -22,7 +24,10 @@ i18n
       wait: true,
       useSuspense: false,
     },
-    ns: ["Home", "Header", "Posts", "Sidebar", "GlobalFooter", "NotFound"],
+    resources: {
+      en,
+      jp,
+    },
   })
 
 export default i18n

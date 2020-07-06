@@ -1,0 +1,29 @@
+{
+  "GlobalFooter": {
+    "privacy": "プライバシー"
+  },
+  "Header": {
+    "contactButton": "メールくださいね",
+    "subtitle": "プログラマー、ハイカー、志望写真家"
+  },
+  "Home": {
+    "seeMore": "続きを見る"
+  },
+  "NotFound": {
+    "pageNotFound": "ページが見つかりません",
+    "return": "戻る"
+  },
+  "Posts": {
+    "posts": "投稿",
+    "page": "頁",
+    "previous": "前へ",
+    "next": "次へ"
+  },
+  "Sidebar": {
+    "browse": "ブラウズ",
+    "home": "ホーム",
+    "posts": "投稿",
+    "about": "アバウト",
+    "builtWith": "たくさんのコーヒーと<0><0/></0>と<1><0/></1>で構築"
+  }
+}

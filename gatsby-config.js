@@ -15,6 +15,14 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://richflavell.us5.list-manage.com/subscribe/post?u=735eb1bda7a0c28ed5d35cdc4&amp;id=0b6c57dfe2",
+        timeout: 3500,
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [

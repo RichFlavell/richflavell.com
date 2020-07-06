@@ -16,6 +16,8 @@ export const buttonStyle = css<IContainerProps>`
   transition: color 0.1s linear;
   display: inline-flex;
   align-items: center;
+  border: 1px solid ${props => props.theme.palette.border.primary};
+  border-radius: 32px;
 
   &:hover {
     color: ${props => props.theme.palette.link.primary};

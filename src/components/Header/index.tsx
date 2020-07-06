@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import Button from "../Button"
 import {
@@ -9,6 +9,9 @@ import {
   LeftAction,
   RightAction,
   Subtitle,
+  SubscribeContainer,
+  SubscribeButton,
+  ButtonIcon,
 } from "./style"
 import useDarkMode from "../../hooks/useDarkMode"
 import { ThemeContext } from "../../context/ThemeContext"
@@ -23,6 +26,22 @@ const Header: React.FC<{ alignCenter?: boolean }> = ({ alignCenter }) => {
   const themeContext = useContext(ThemeContext)
   const { toggleTheme } = useDarkMode()
   const { t } = useTranslation("Header")
+  const [isSubscribeHidden, setIsSubscribeHidden] = useState(false)
+  const subscribeEnabled = false
+
+  const checkScroll = () => {
+    if (window.pageYOffset > 50 && !isSubscribeHidden) {
+      setIsSubscribeHidden(true)
+    }
+    if (window.pageYOffset <= 50 && isSubscribeHidden) {
+      setIsSubscribeHidden(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("scroll", checkScroll)
+    return () => document.removeEventListener("scroll", checkScroll)
+  }, [isSubscribeHidden])
 
   return (
     <Container>
@@ -41,6 +60,13 @@ const Header: React.FC<{ alignCenter?: boolean }> = ({ alignCenter }) => {
           </Link>
           <Subtitle>{t("subtitle")}</Subtitle>
         </LogoContainer>
+        {subscribeEnabled && (
+          <SubscribeContainer floating={alignCenter} hidden={isSubscribeHidden}>
+            <SubscribeButton>
+              <ButtonIcon icon="mail" /> Subscribe
+            </SubscribeButton>
+          </SubscribeContainer>
+        )}
       </Inner>
       <RightAction>
         <Button onClick={() => toggleTheme()} borderless={true}>

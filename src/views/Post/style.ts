@@ -48,6 +48,11 @@ export const DisqusWrapper = styled.div`
   max-width: 90em;
   margin: auto;
   width: 75%;
+
+  ${media.lessThan("mobile")`
+    width: 95%;
+    padding: 0px ${props => props.theme.spacing.md}
+  `}
 `
 
 const IMAGE_WIDTHS = {
