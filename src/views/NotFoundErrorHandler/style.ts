@@ -13,6 +13,6 @@ export const Holder = styled.main`
 `
 
 export const Buttonicon = styled(MaterialIcon)`
-  font-size: ${props => props.theme.size.lg};
+  font-size: ${props => props.theme.size.md};
   margin-right: ${props => props.theme.spacing.sm};
 `

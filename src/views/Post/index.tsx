@@ -68,7 +68,7 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         pathname={`${slug!}/`}
       />
 
-      {customHeading && <Header alignCenter={true} />}
+      <Header actionsOnly={!customHeading} alignCenter={true} />
 
       <ScrollProgress />
 
@@ -76,7 +76,7 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         <Container>
           <MDXBody>
             {featuredImage && !customHeading && (
-              <Hero className={"i-m i-f"}>
+              <Hero className="i-m i-f">
                 <Meta>
                   <HomeLink to="/">{t("home")}</HomeLink>
                   <MetaContainer>
@@ -132,7 +132,7 @@ export const pageQuery = graphql`
         featuredImage {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 3300, quality: 90, cropFocus: CENTER) {
+            fluid(maxWidth: 3300, quality: 80, cropFocus: CENTER) {
               ...GatsbyImageSharpFluid
             }
           }

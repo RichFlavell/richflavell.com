@@ -23,7 +23,7 @@ export const Container = styled.article`
 export const Meta = styled.div`
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  z-index: 10;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -56,27 +56,10 @@ export const DisqusWrapper = styled.div`
 `
 
 const IMAGE_WIDTHS = {
-  regular: "700px",
-  large: "980px",
+  regular: "800px",
+  large: "1100px",
   full: "100vw",
 }
-
-const ARTICLE_WIDTH = css`
-  width: 100%;
-  max-width: 700px;
-
-  ${media.lessThan("desktop")`
-    max-width: 507px;
-  `}
-
-  ${media.lessThan("tablet")`
-    max-width: 486px;
-  `};
-
-  ${media.lessThan("mobile")`
-    padding: 0 20px;
-  `};
-`
 
 const HeadingsCSS = css`
   h1,
@@ -110,7 +93,20 @@ const HeadingsCSS = css`
   h4,
   h5,
   h6 {
-    ${ARTICLE_WIDTH};
+    width: 100%;
+    max-width: 900px;
+
+    ${media.lessThan("desktop")`
+    max-width: 507px;
+  `}
+
+    ${media.lessThan("tablet")`
+    max-width: 486px;
+  `};
+
+    ${media.lessThan("mobile")`
+    padding: 0 20px;
+  `};
   }
 `
 
@@ -144,6 +140,7 @@ const ImageCSS = css`
   }
 
   div.i-f {
+    z-index: 10 !important;
     margin-bottom: ${props => props.theme.spacing.xl} !important;
   }
 
@@ -155,9 +152,8 @@ const ImageCSS = css`
     z-index: 0;
     margin: 15px auto 50px;
     border-radius: 5px;
-    width: 100%;
-    max-width: 700px;
-    left: -8px;
+    width: ${IMAGE_WIDTHS.regular};
+    max-width: 900px;
     text-align: center;
 
     ${media.greaterThan("tablet")`
@@ -165,7 +161,7 @@ const ImageCSS = css`
     `};
 
     ${media.lessThan("tablet")`
-    max-width: 507px;
+      max-width: 507px;
       max-width: 486px;
       margin: 0 auto 25px;
       left: 0px;
@@ -181,6 +177,7 @@ const ImageCSS = css`
     margin: 15px auto 50px;
     width: 100%;
     max-width: ${IMAGE_WIDTHS.large};
+    z-index: 10;
 
     ${media.greaterThan("desktop")`
       left: -34px;
@@ -194,6 +191,7 @@ const ImageCSS = css`
       border-radius: 0;
       left: 0;
       margin: 0 auto 25px;
+      z-index: 0;
 
       img {
         border-radius: 0;
@@ -206,6 +204,7 @@ const ImageCSS = css`
     width: ${IMAGE_WIDTHS.full};
     margin: 25px auto 60px;
     pointer-events: none;
+    z-index: 10;
 
     img {
       border-radius: 0;
@@ -214,6 +213,10 @@ const ImageCSS = css`
     ${media.lessThan("desktop")`
       margin: 0 0 25px 0;
       padding: 0px;
+    `};
+
+    ${media.lessThan("tablet")`
+      z-index: 0;
     `};
   }
 
@@ -230,7 +233,6 @@ const ImageCSS = css`
 
 export const MDXBody = styled.div`
   position: relative;
-  z-index: 10;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -247,6 +249,7 @@ export const Hero = styled.div`
   max-width: initial !important;
   margin: 0 !important;
   border-radius: 0 !important;
+  z-index: 10;
 
   img {
     margin: 0 !important;
@@ -304,6 +307,7 @@ export const MetaContainer = styled.div`
   border-radius: 4px;
   animation: ${fadeIn} 2s ease-in;
   width: 100%;
+  z-index: 10;
 
   & > ${Title} {
     color: ${props => props.theme.palette.white};
@@ -338,7 +342,7 @@ export const HomeLink = styled(Link)`
 export const ScrollPromptIcon = styled(MaterialIcon)`
   position: absolute;
 
-  font-size: ${props => props.theme.size.logo};
+  font-size: ${props => props.theme.size.xl};
   color: rgba(255, 255, 255, 0.7);
   bottom: 12px;
   right: ${props => props.theme.spacing.md};

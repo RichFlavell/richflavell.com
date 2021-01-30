@@ -2,6 +2,7 @@ import styled, { css } from "styled-components"
 
 interface IContainerProps {
   isSidebarOpen: boolean
+  isModalOpen: boolean
 }
 export const Container = styled.div<IContainerProps>`
   display: flex;
@@ -14,9 +15,10 @@ export const Container = styled.div<IContainerProps>`
   backface-visibility: hidden;
 
   ${props =>
-    props.isSidebarOpen
+    props.isSidebarOpen || props.isModalOpen
       ? css`
           filter: brightness(66%);
+          pointer-events: none;
         `
       : css`
           filter: none;

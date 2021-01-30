@@ -1,7 +1,7 @@
 const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
 
-function slugify(string) {
+const slugify = string => {
   const slug = string
     .toLowerCase()
     .normalize("NFD")

@@ -29,7 +29,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
   const posts = safe(data.allMdx.edges)
   return (
     <>
-      <SEO title={"Posts"} pathname={"/posts"} />
+      <SEO title="Posts" pathname="/posts" />
       <Wrapper>
         <Header />
         <PageHeading>
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt
+          excerpt(pruneLength: 160)
           timeToRead
           fields {
             slug
@@ -97,7 +97,7 @@ export const pageQuery = graphql`
                   maxWidth: 653
                   maxHeight: 280
                   cropFocus: CENTER
-                  quality: 90
+                  quality: 80
                 ) {
                   ...GatsbyImageSharpFluid
                 }
