@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
+import useDebounce from "../../hooks/useDebounce"
 
 const Holder = styled.div`
   position: fixed;
@@ -18,20 +19,23 @@ const Progress = styled.div<{ progress: number }>`
 
 const ScrollProgress: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0)
-  const updateScrollProgress = () => {
+  const debouncedsetScrollProgress = useDebounce(setScrollProgress, 5)
+
+  const updateScrollProgress = useCallback(() => {
     requestAnimationFrame(() => {
       const scrollTop = window.pageYOffset
       const winHeight = window.innerHeight
       const scrollLength = document.body.scrollHeight - winHeight
 
-      setScrollProgress((scrollTop / scrollLength) * 100)
+      debouncedsetScrollProgress((scrollTop / scrollLength) * 100)
     })
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setScrollProgress])
 
   useEffect(() => {
     document.addEventListener("scroll", updateScrollProgress)
     return () => document.removeEventListener("scroll", updateScrollProgress)
-  }, [])
+  }, [updateScrollProgress])
 
   return (
     <Holder>

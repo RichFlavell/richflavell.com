@@ -1,11 +1,8 @@
-/**
- * https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
- */
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState, useContext, useCallback } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import Default from "../config/style/theme"
 
-export const useDarkMode = () => {
+export default function useDarkMode() {
   const themeContext = useContext(ThemeContext)
   const [componentMounted, setComponentMounted] = useState(false)
 
@@ -18,12 +15,16 @@ export const useDarkMode = () => {
     themeContext.dispatch({ type: "TOGGLE_THEME" })
   }
 
-  const setTheme = (type: string) => {
-    window.localStorage.setItem("theme", type)
-    themeContext.dispatch({
-      type: type === "light" ? "SET_LIGHT_THEME" : "SET_DARK_THEME",
-    })
-  }
+  const setTheme = useCallback(
+    (type: string) => {
+      window.localStorage.setItem("theme", type)
+      themeContext.dispatch({
+        type: type === "light" ? "SET_LIGHT_THEME" : "SET_DARK_THEME",
+      })
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  )
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme")
@@ -35,9 +36,7 @@ export const useDarkMode = () => {
       ? setTheme(localTheme)
       : setTheme("light")
     setComponentMounted(true)
-  }, [])
+  }, [setTheme])
 
   return { toggleTheme, componentMounted }
 }
-
-export default useDarkMode

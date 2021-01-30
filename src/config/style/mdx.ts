@@ -40,7 +40,7 @@ export const SubTitle = styled.h2`
 
 export const SectionTitle = styled.h3`
   font-family: "Merriweather", Georgia, Serif;
-  max-width: 700px !important;
+  max-width: 900px !important;
   font-size: ${props => props.theme.size.lg};
   font-weight: 300;
   text-align: center;
@@ -64,11 +64,19 @@ export const SectionInnerTitle = styled.h4`
 export const Body = styled.p`
   font-size: ${props => props.theme.size.md};
   color: ${props => props.theme.palette.text.primary};
-  max-width: 700px;
+  max-width: 900px;
   width: 100%;
   margin: 0px auto 26px;
   line-height: 1.48;
   text-align: center;
+
+  a {
+    color: ${props => props.theme.palette.link.primary};
+
+    &:hover {
+      color: ${props => props.theme.palette.link.secondary};
+    }
+  }
 
   ${media.lessThan("mobile")`
     width: 90%;
@@ -100,7 +108,7 @@ export const Break = styled.hr`
   height: 11px;
   border-style: double;
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   margin: ${props => props.theme.spacing.md} auto;
   margin-top: ${props => props.theme.spacing.lg};
 
@@ -120,10 +128,12 @@ export const Break = styled.hr`
     border-style: double;
     box-sizing: border-box;
   }
+
   &:before {
     transform: translateZ(0) rotate(-45deg);
     left: -21px;
   }
+
   &:after {
     transform: translateZ(0) rotate(135deg);
     right: -21px;

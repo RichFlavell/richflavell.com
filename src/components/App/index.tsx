@@ -3,6 +3,7 @@ import React from "react"
 import { ThemeProvider } from "styled-components"
 import { components } from "../../config/style/mdx"
 import SidebarContextProvider from "../../context/SidebarContext"
+import ModalContextProvider from "../../context/ModalContext"
 import ThemeContextProvider, { ThemeContext } from "../../context/ThemeContext"
 
 import i18n from "../../utils/i18n"
@@ -16,7 +17,9 @@ const App: React.FC = ({ children }) => {
           {themeContext => (
             <ThemeProvider theme={themeContext.state.theme}>
               <MDXProvider components={components}>
-                <SidebarContextProvider>{children}</SidebarContextProvider>
+                <ModalContextProvider>
+                  <SidebarContextProvider>{children}</SidebarContextProvider>
+                </ModalContextProvider>
               </MDXProvider>
             </ThemeProvider>
           )}

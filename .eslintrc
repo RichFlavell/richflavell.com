@@ -1,0 +1,16 @@
+{
+  "globals": {
+    "__PATH_PREFIX__": true
+  },
+  "extends": "react-app",
+  "rules": {
+    "jsx-no-multiline-js": 0,
+    "jsx-no-lambda": 0,
+    "import-name": 0,
+    "no-boolean-literal-compare": 0,
+    "no-object-literal-type-assertion": 0,
+    "no-var-requires": 0,
+    "object-literal-sort-keys": 0,
+    "ordered-imports": 0
+  }
+}

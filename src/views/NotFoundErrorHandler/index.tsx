@@ -9,7 +9,7 @@ const NotFoundErrorHandler: React.FC = () => {
   const { t } = useTranslation("NotFound")
   return (
     <Holder>
-      <SEO title={"404: Not Found"} />
+      <SEO title="404: Not Found" />
       <Content>
         <Title>:( 404</Title>
         <SubTitle>{t("pageNotFound")}</SubTitle>
