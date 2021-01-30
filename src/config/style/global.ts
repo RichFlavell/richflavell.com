@@ -149,6 +149,18 @@ const Global = createGlobalStyle`
   ::selection {
     background: rgba(242, 181, 212, 0.4);
   }
+
+  #___modal-portal {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
 `
 
 export const media = generateMedia({

@@ -4,6 +4,8 @@ interface IContainerProps {
   borderless?: boolean
   compact?: boolean
   active?: boolean
+  maxWidth?: boolean
+  disabled?: boolean
 }
 
 export const buttonStyle = css<IContainerProps>`
@@ -17,7 +19,7 @@ export const buttonStyle = css<IContainerProps>`
   display: inline-flex;
   align-items: center;
   border: 1px solid ${props => props.theme.palette.border.primary};
-  border-radius: 32px;
+  border-radius: ${props => props.theme.spacing.sm};
 
   &:hover {
     color: ${props => props.theme.palette.link.primary};
@@ -40,6 +42,13 @@ export const buttonStyle = css<IContainerProps>`
     props.compact &&
     css`
       padding: 0px;
+    `}
+
+  ${props =>
+    props.maxWidth &&
+    css`
+      max-width: 150px;
+      margin: auto;
     `}
 `
 

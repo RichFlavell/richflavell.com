@@ -5,7 +5,7 @@ import InstagramIcon from "../../icons/instagram.svg"
 import TwitterIcon from "../../icons/twitter.svg"
 import YouTubeIcon from "../../icons/youtube.svg"
 
-const SocialIcons: React.FC = ({}) => {
+const SocialIcons: React.FC = () => {
   return (
     <Container>
       <IconContainer>

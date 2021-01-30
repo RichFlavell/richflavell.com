@@ -19,7 +19,7 @@ import { OutboundLink } from "gatsby-plugin-google-analytics"
 import GatsbyIcon from "../../icons/gatsby.svg"
 import GithubIcon from "../../icons/github.svg"
 
-const Sidebar: React.FC = ({}) => {
+const Sidebar: React.FC = () => {
   const { t } = useTranslation("Sidebar")
   const sidebarContext = useContext(SidebarContext)
   return (

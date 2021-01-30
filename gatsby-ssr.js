@@ -27,3 +27,7 @@ export const wrapPageElement = ({ element }) => {
     </>
   )
 }
+
+export const onRenderBody = ({ setPostBodyComponents }) => {
+  setPostBodyComponents([<aside key="MODAL-PORTAL" id="___modal-portal" />])
+}

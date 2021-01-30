@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import Button from "../Button"
 import {
@@ -9,9 +9,6 @@ import {
   LeftAction,
   RightAction,
   Subtitle,
-  SubscribeContainer,
-  SubscribeButton,
-  ButtonIcon,
 } from "./style"
 import useDarkMode from "../../hooks/useDarkMode"
 import { ThemeContext } from "../../context/ThemeContext"
@@ -20,32 +17,46 @@ import { Link } from "gatsby"
 
 import Logo from "../../icons/logo.svg"
 import { useTranslation } from "react-i18next"
+import Subscribe from "../Subscribe"
 
-const Header: React.FC<{ alignCenter?: boolean }> = ({ alignCenter }) => {
+const Header: React.FC<{ alignCenter?: boolean; actionsOnly?: boolean }> = ({
+  alignCenter,
+  actionsOnly,
+}) => {
+  const isSubscribeEnabled = false
   const sidebarContext = useContext(SidebarContext)
   const themeContext = useContext(ThemeContext)
   const { toggleTheme } = useDarkMode()
   const { t } = useTranslation("Header")
-  const [isSubscribeHidden, setIsSubscribeHidden] = useState(false)
-  const subscribeEnabled = false
-
-  const checkScroll = () => {
-    if (window.pageYOffset > 50 && !isSubscribeHidden) {
-      setIsSubscribeHidden(true)
-    }
-    if (window.pageYOffset <= 50 && isSubscribeHidden) {
-      setIsSubscribeHidden(false)
-    }
+  const renderSubscribe = (floating?: boolean) => {
+    return isSubscribeEnabled ? <Subscribe floating={floating} /> : null
   }
 
-  useEffect(() => {
-    document.addEventListener("scroll", checkScroll)
-    return () => document.removeEventListener("scroll", checkScroll)
-  }, [isSubscribeHidden])
-
-  return (
+  return actionsOnly ? (
+    <>
+      <LeftAction floating={actionsOnly}>
+        <Button
+          onClick={() => sidebarContext.dispatch({ type: "TOGGLE_SIDEBAR" })}
+          borderless={true}
+        >
+          <MenuIcon icon="menu" />
+        </Button>
+      </LeftAction>
+      {!window.localStorage.getItem("subscribed") &&
+        renderSubscribe(alignCenter)}
+      <RightAction floating={actionsOnly}>
+        <Button onClick={() => toggleTheme()} borderless={true}>
+          {themeContext.state.theme === Dark ? (
+            <MenuIcon icon="brightness_7" />
+          ) : (
+            <MenuIcon icon="brightness_3" />
+          )}
+        </Button>
+      </RightAction>
+    </>
+  ) : (
     <Container>
-      <LeftAction>
+      <LeftAction floating={actionsOnly}>
         <Button
           onClick={() => sidebarContext.dispatch({ type: "TOGGLE_SIDEBAR" })}
           borderless={true}
@@ -60,15 +71,9 @@ const Header: React.FC<{ alignCenter?: boolean }> = ({ alignCenter }) => {
           </Link>
           <Subtitle>{t("subtitle")}</Subtitle>
         </LogoContainer>
-        {subscribeEnabled && (
-          <SubscribeContainer floating={alignCenter} hidden={isSubscribeHidden}>
-            <SubscribeButton>
-              <ButtonIcon icon="mail" /> Subscribe
-            </SubscribeButton>
-          </SubscribeContainer>
-        )}
+        {renderSubscribe(alignCenter)}
       </Inner>
-      <RightAction>
+      <RightAction floating={actionsOnly}>
         <Button onClick={() => toggleTheme()} borderless={true}>
           {themeContext.state.theme === Dark ? (
             <MenuIcon icon="brightness_7" />

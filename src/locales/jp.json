@@ -4,7 +4,13 @@
   },
   "Header": {
     "contactButton": "メールくださいね",
-    "subtitle": "プログラマー、ハイカー、志望写真家"
+    "subtitle": "プログラマー、ハイカー、志望写真家",
+    "subscribe": ""
+  },
+  "Subscribe": {
+    "subscribe": "登録する",
+    "subscribed": "登録しました",
+    "unsubscribe": "登録を解除"
   },
   "Home": {
     "seeMore": "続きを見る"

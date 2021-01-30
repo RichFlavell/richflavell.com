@@ -45,7 +45,7 @@ Options and more information for the local dev server can be found <a href="http
     │   └── <Context>.tsx
     ├── hooks                     # Collection of custom hooks
     │   └── <hook>.ts
-    ├── i18n                      # Internationalization
+    ├── locales                   # Internationalization
     │   └── <locale>
     │       └── <Component>.json  # The namespace should match 1-1 the component name
     ├── icons                     # Bundled icons
@@ -76,4 +76,4 @@ Options and more information for the local dev server can be found <a href="http
 
 Email: <a href="mailto:me@richflavell.com">me@richflavell.com</a>
 
-Twitter: <a href="https://twitter.com/RichFlavell">@richflavell</a>
+Twitter: <a href="https://twitter.com/RichFlavell">@RichFlavell</a>
