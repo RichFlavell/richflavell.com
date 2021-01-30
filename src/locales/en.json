@@ -4,7 +4,12 @@
   },
   "Header": {
     "contactButton": "Contact",
-    "subtitle": "Software Engineer, outdoors enthusiast and aspirational photographer"
+    "subtitle": "Software Engineer by trade, outdoors enthusiast and occasional photographer"
+  },
+  "Subscribe": {
+    "subscribe": "Subscribe",
+    "subscribed": "Subscribed",
+    "unsubscribe": "Unsubscribe"
   },
   "Home": {
     "seeMore": "See more"

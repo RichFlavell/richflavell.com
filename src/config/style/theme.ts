@@ -11,7 +11,8 @@ export const Default: DefaultTheme = {
       secondary: "#73737D",
     },
     link: {
-      primary: "#F2B5D4",
+      primary: "#58aec5",
+      secondary: "#69bfd6",
     },
     border: {
       primary: "#73737D",
@@ -55,7 +56,8 @@ export const Dark: DefaultTheme = {
       secondary: "#F2F2F2",
     },
     link: {
-      primary: "#F2B5D4",
+      primary: "#58aec5",
+      secondary: "#69bfd6",
     },
     border: {
       primary: "#F2F2F2",

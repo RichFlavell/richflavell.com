@@ -3,7 +3,7 @@ module.exports = {
     title: "Rich Flavell",
     titleTemplate: "%s",
     description:
-      "Rich Flavell is a software engineer by trade, a keen outdoors enthusiast and aspirational photographer.",
+      "Rich Flavell is a software engineer by trade and a keen outdoors enthusiast who dabbles in photography from time to time.",
     url: "https://www.richflavell.com",
     siteUrl: "https://www.richflavell.com",
     image: "/me.jpg",
@@ -32,7 +32,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-tslint`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -52,7 +51,7 @@ module.exports = {
             options: {
               maxWidth: 2160,
               linkImagesToOriginal: false,
-              quality: 90,
+              quality: 80,
             },
           },
           {

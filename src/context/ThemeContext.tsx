@@ -21,7 +21,7 @@ interface IThemeContextProps {
 
 export const ThemeContext = createContext({} as IThemeContextProps)
 
-function reducer(state: IState, action: IAction) {
+const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case "TOGGLE_THEME":
       return { theme: state.theme === Default ? Dark : Default }

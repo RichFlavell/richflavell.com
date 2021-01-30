@@ -19,7 +19,7 @@ interface ISidebarContextProps {
 
 export const SidebarContext = createContext({} as ISidebarContextProps)
 
-function reducer(state: IState, action: IAction) {
+const reducer = (state: IState, action: IAction) => {
   switch (action.type) {
     case "OPEN_SIDERBAR":
       return { isOpen: true }

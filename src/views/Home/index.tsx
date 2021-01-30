@@ -10,45 +10,36 @@ import { Holder, Actions, SeeMoreLink, Video, VideoWrapper } from "./style"
 import { useTranslation } from "react-i18next"
 import Header from "../../components/Header"
 
-interface IHomeProps {
-  data?: HomeQuery
-}
-const Home: React.FC<IHomeProps> = () => {
-  const { t } = useTranslation("Home")
-  const videoId = ""
-  const [rows, setRows] = useState<Array<typeof data.allMdx.edges>>()
-
-  const data: HomeQuery = useStaticQuery(graphql`
-    query Home {
-      allMdx(
-        sort: { fields: [frontmatter___date], order: ASC }
-        limit: 6
-        filter: { frontmatter: { path: { eq: null } } }
-      ) {
-        totalCount
-        edges {
-          node {
-            id
-            excerpt
-            timeToRead
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              path
-              date
-              thumbnail: featuredImage {
-                publicURL
-                childImageSharp {
-                  fluid(
-                    maxWidth: 653
-                    maxHeight: 280
-                    cropFocus: CENTER
-                    quality: 90
-                  ) {
-                    ...GatsbyImageSharpFluid
-                  }
+const query = graphql`
+  query Home {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 6
+      filter: { frontmatter: { path: { eq: null } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 160)
+          timeToRead
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            path
+            date
+            thumbnail: featuredImage {
+              publicURL
+              childImageSharp {
+                fluid(
+                  maxWidth: 653
+                  maxHeight: 280
+                  cropFocus: CENTER
+                  quality: 80
+                ) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -56,11 +47,22 @@ const Home: React.FC<IHomeProps> = () => {
         }
       }
     }
-  `)
+  }
+`
+
+interface IHomeProps {
+  data?: HomeQuery
+}
+const Home: React.FC<IHomeProps> = () => {
+  const data: HomeQuery = useStaticQuery(query)
+  const { t } = useTranslation("Home")
+  const videoId = ""
+  const [rows, setRows] = useState<Array<typeof data.allMdx.edges>>()
 
   const postsData = safe(data.allMdx.edges)
 
   useEffect(() => {
+    console.log(postsData)
     const tmp = []
     const posts = [...postsData]
     while (posts.length > 0) {
@@ -71,7 +73,7 @@ const Home: React.FC<IHomeProps> = () => {
 
   return (
     <Holder>
-      <SEO title="Rich Flavell" templateOverride={"%s"} />
+      <SEO title="Rich Flavell" templateOverride="%s" />
       <Header />
       {videoId && (
         <VideoWrapper>
