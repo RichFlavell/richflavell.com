@@ -19,7 +19,7 @@
     "gatsby-plugin-graphql-codegen": "2.7.1",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "2.2.20",
-    "gatsby-plugin-mdx": "1.2.7",
+    "gatsby-plugin-mdx": "2.14.1",
     "gatsby-plugin-react-helmet": "3.1.10",
     "gatsby-plugin-react-svg": "2.1.2",
     "gatsby-plugin-sharp": "2.6.3",
