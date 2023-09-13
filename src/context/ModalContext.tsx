@@ -1,11 +1,11 @@
-import React, { createContext, Dispatch, useReducer } from "react"
+import React, { Dispatch, createContext, useReducer, PropsWithChildren } from "react"
 
-interface IAction {
+type IAction = {
   type: "OPEN_MODAL" | "CLOSE_MODAL" | "CLOSE_ALL_MODALS"
   index?: string
 }
 
-interface IState {
+type IState = {
   modals: Record<string, { isOpen: boolean }>
   activeModal: boolean
 }
@@ -15,7 +15,7 @@ const initialState: IState = {
   activeModal: false,
 }
 
-interface IModalContextProps {
+type IModalContextProps = {
   state: IState
   dispatch: Dispatch<IAction>
 }
@@ -54,7 +54,7 @@ const reducer = (state: IState, action: IAction) => {
   }
 }
 
-const ModalContextProvider: React.FC = ({ children }) => {
+const ModalContextProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <ModalContext.Provider value={{ state, dispatch }}>

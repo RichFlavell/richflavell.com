@@ -1,12 +1,12 @@
-import React, { createContext, Dispatch, useReducer } from "react"
+import React, { Dispatch, createContext, useReducer, PropsWithChildren } from "react"
 import { DefaultTheme } from "styled-components"
 import Default, { Dark } from "../config/style/theme"
 
-interface IAction {
+type IAction = {
   type: "TOGGLE_THEME" | "SET_LIGHT_THEME" | "SET_DARK_THEME"
 }
 
-interface IState {
+type IState = {
   theme: DefaultTheme
 }
 
@@ -14,7 +14,7 @@ const initialState: IState = {
   theme: Default,
 }
 
-interface IThemeContextProps {
+type IThemeContextProps = {
   state: IState
   dispatch: Dispatch<IAction>
 }
@@ -32,7 +32,7 @@ const reducer = (state: IState, action: IAction) => {
   }
 }
 
-const ThemeContextProvider: React.FC = ({ children }) => {
+const ThemeContextProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <ThemeContext.Provider value={{ state, dispatch }}>

@@ -1,7 +1,7 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 import { Container, Holder } from "./style"
 
-const Footer: React.FC = ({ children }) => {
+const Footer = ({ children }: PropsWithChildren) => {
   return (
     <Holder>
       <Container>{children}</Container>
@@ -9,4 +9,4 @@ const Footer: React.FC = ({ children }) => {
   )
 }
 
-export default Footer
+export default Footer;

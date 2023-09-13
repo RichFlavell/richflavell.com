@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components"
 
 import MaterialIcon from "@material/react-material-icon"
 import Reset from "./reset"
-import { generateMedia } from "styled-media-query"
 
 const Global = createGlobalStyle`
   ${Reset}
@@ -162,11 +161,5 @@ const Global = createGlobalStyle`
     pointer-events: none;
   }
 `
-
-export const media = generateMedia({
-  desktop: "78em",
-  tablet: "60em",
-  mobile: "46em",
-})
 
 export default Global

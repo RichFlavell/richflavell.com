@@ -1,7 +1,7 @@
 import React from "react"
 import { Container } from "./style"
 
-interface IButtonProps {
+type IButtonProps = {
   to: string
   children: React.ReactNode
   borderless?: boolean
@@ -22,7 +22,6 @@ const Button: React.FC<IButtonProps> = ({
       to={to}
       onClick={onClick}
       borderless={borderless}
-      // @ts-ignore (Needed due to Gatsby `Link` missing className prop)
       className={className}
     >
       {children}

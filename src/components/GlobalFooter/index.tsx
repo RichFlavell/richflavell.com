@@ -1,7 +1,7 @@
 import React from "react"
 import Footer from "../Footer"
 import { Link } from "gatsby"
-import { Right, Left } from "../../config/style/mdx"
+import { Left, Right } from "../../config/style/mdx"
 import i18n from "../../utils/i18n"
 import Button from "../Button"
 import { useTranslation } from "react-i18next"

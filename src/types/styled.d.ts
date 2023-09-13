@@ -15,7 +15,7 @@ type ThemeSpatialOption = {
 }
 
 declare module "styled-components" {
-  export interface DefaultTheme {
+  export type DefaultTheme = {
     palette: {
       background: ThemeColourOption
       text: ThemeColourOption

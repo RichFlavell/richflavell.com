@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import { MenuIcon } from "../Header/style"
-import { useTranslation, Trans } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 
 import Footer from "../Footer"
 import {
@@ -51,14 +51,6 @@ const Sidebar: React.FC = () => {
             to="/posts/"
           >
             {t("posts")}
-          </MenuLink>
-        </Item>
-        <Item>
-          <MenuLink
-            onClick={() => sidebarContext.dispatch({ type: "CLOSE_SIDEBAR" })}
-            to="/about/"
-          >
-            {t("about")}
           </MenuLink>
         </Item>
       </Items>

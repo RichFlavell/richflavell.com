@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components"
-import { media } from "../../config/style/global"
 
 export default styled.div<{ even?: boolean; cascade?: boolean }>`
   width: 95%;
@@ -11,10 +10,10 @@ export default styled.div<{ even?: boolean; cascade?: boolean }>`
   grid-gap: ${props => props.theme.spacing.lg};
   grid-row-gap: 90px;
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     margin-top: 0px;
     grid-row-gap: 24px;
-  `}
+  }
 
   ${props =>
     !props.cascade
@@ -23,11 +22,11 @@ export default styled.div<{ even?: boolean; cascade?: boolean }>`
           grid-row-gap: 25px;
         `
       : css`
-          ${media.lessThan("tablet")`
+          @media (max-width: 60em) {
             grid-template-columns: 1fr 1fr;
-          `}
-          ${media.lessThan("mobile")`
+          }
+          @media(max-width: 46em) {
             grid-template-columns: 1fr;
-          `}
+          }
         `}
 `

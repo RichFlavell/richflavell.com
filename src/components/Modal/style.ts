@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
-import { media } from "../../config/style/global"
 
-interface IWrapperProps {
+type IWrapperProps = {
   isOpen: boolean
 }
 export const Wrapper = styled.section<IWrapperProps>`
@@ -34,7 +33,7 @@ export const Container = styled.div`
   display: flex;
   overflow: hidden;
 
-  ${media.lessThan("desktop")`
+  @media (max-width: 78em) {
     max-width: 90%;
-  `}
+  }
 `

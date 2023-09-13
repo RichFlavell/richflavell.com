@@ -1,4 +1,4 @@
-export default <T extends (...args: any[]) => any>(fn: T, waitFor: number) => {
+export default <T extends (...args: Parameters<T>) => ReturnType<T>>(fn: T, waitFor: number) => {
   let timeout: ReturnType<typeof setTimeout> | null = null
 
   const debounced = (...args: Parameters<T>) => {

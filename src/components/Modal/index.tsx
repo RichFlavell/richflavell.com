@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Wrapper, Container } from "./style"
+import { Container, Wrapper } from "./style"
 import { ModalContext } from "../../context/ModalContext"
 import ReactDOM from "react-dom"
 

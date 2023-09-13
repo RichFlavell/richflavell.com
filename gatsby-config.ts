@@ -1,9 +1,12 @@
-module.exports = {
+export default {
+  graphqlTypegen: {
+    typesOutputPath: `./src/types/gatsby-types.d.ts`,
+  },
   siteMetadata: {
     title: "Rich Flavell",
     titleTemplate: "%s",
     description:
-      "Rich Flavell is a software engineer by trade and a keen outdoors enthusiast who dabbles in photography from time to time.",
+      "Rich Flavell is a software engineer by trade, cyclist and outdoors enthusiast.",
     url: "https://www.richflavell.com",
     siteUrl: "https://www.richflavell.com",
     image: "/me.jpg",
@@ -32,19 +35,11 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
-      },
-    },
     `gatsby-remark-images`,
     {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".md", ".mdx"],
-        plugins: [`gatsby-remark-images-medium-zoom`, `gatsby-remark-images`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -52,6 +47,7 @@ module.exports = {
               maxWidth: 2160,
               linkImagesToOriginal: false,
               quality: 80,
+              backgroundColor: "transparent"
             },
           },
           {
@@ -67,6 +63,14 @@ module.exports = {
           },
           { resolve: `gatsby-remark-smartypants` },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        // eslint-disable-next-line no-undef
+        path: `${__dirname}/src/posts`,
       },
     },
     `gatsby-transformer-sharp`,

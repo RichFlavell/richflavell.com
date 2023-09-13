@@ -1,5 +1,8 @@
-const { createFilePath } = require("gatsby-source-filesystem")
-const path = require("path")
+import { createFilePath } from "gatsby-source-filesystem"
+import readingTime from "reading-time"
+import path from "path"
+
+const postComponent = path.resolve(`./src/views/Post/index.tsx`)
 
 const slugify = string => {
   const slug = string
@@ -13,56 +16,61 @@ const slugify = string => {
   return `${slug}`.replace(/\/\/+/g, "/")
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   if (node.internal.type === "Mdx") {
-    const value = slugify(createFilePath({ node, getNode }))
     createNodeField({
       node,
       name: "slug",
-      value: `/${value}`,
+      value: `/${slugify(createFilePath({ node, getNode }))}`,
+    })
+    createNodeField({
+      node,
+      name: `timeToRead`,
+      value: readingTime(node.body)
     })
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
+export const createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   // CREATE ARTICLE PAGES
   const postPages = graphql(`
-    query {
+    query PostPages {
       allMdx {
-        edges {
-          node {
-            id
-            frontmatter {
-              path
-            }
-            fields {
-              slug
-            }
+        nodes {
+          id
+          internal {
+            contentFilePath
+          }
+          frontmatter {
+            path
+          }
+          fields {
+            slug
           }
         }
       }
     }
   `).then((results, errors) => {
     if (errors) return Promise.reject(errors)
-    const posts = results.data.allMdx.edges
+    const posts = results.data.allMdx.nodes
     posts.forEach(post => {
       createPage({
-        path: `${post.node.frontmatter.path || post.node.fields.slug}/`,
-        component: path.resolve("./src/views/Post/index.tsx"),
-        context: { id: post.node.id },
+        path: `${post.frontmatter.path || post.fields.slug}/`,
+        component: `${postComponent}?__contentFilePath=${post.internal.contentFilePath}`,
+        context: { id: post.id },
       })
     })
   })
 
   // CREATE ARTICLE LISTING PAGES
   const postListings = graphql(`
-    query {
+    query PostListings {
       allMdx(
-        sort: { fields: [frontmatter___date], order: ASC }
-        filter: { frontmatter: { path: { eq: null } } }
+        sort: {frontmatter: {date: ASC}}
+        filter: {frontmatter: {path: {eq: null}}}
       ) {
         edges {
           node {

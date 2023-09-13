@@ -1,6 +1,6 @@
 import React from "react"
 import ButtonLink from "../../components/ButtonLink"
-import { Content, SubTitle, Title, Break } from "../../config/style/mdx"
+import { Break, Content, SubTitle, Title } from "../../config/style/mdx"
 import SEO from "../../utils/SEO"
 import { Buttonicon, Holder } from "./style"
 import { useTranslation } from "react-i18next"

@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from "styled-components"
-import { media } from "../../config/style/global"
-import { Title } from "../../config/style/mdx"
+import { Body, Title } from "../../config/style/mdx"
 import { Link } from "gatsby"
 import MaterialIcon from "@material/react-material-icon"
 
@@ -49,10 +48,10 @@ export const DisqusWrapper = styled.div`
   margin: auto;
   width: 75%;
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     width: 95%;
     padding: 0px ${props => props.theme.spacing.md}
-  `}
+  }
 `
 
 const IMAGE_WIDTHS = {
@@ -76,10 +75,9 @@ const HeadingsCSS = css`
   h2,
   h2 * {
     margin: 25px auto 18px;
-
-    ${media.lessThan("tablet")`
+    @media (max-width: 60em) {
       margin: 30px auto 18px;
-    `};
+    }
   }
 
   h3,
@@ -96,17 +94,17 @@ const HeadingsCSS = css`
     width: 100%;
     max-width: 900px;
 
-    ${media.lessThan("desktop")`
-    max-width: 507px;
-  `}
+    @media (max-width: 78em) {
+      max-width: 507px;
+    }
 
-    ${media.lessThan("tablet")`
-    max-width: 486px;
-  `};
+    @media (max-width: 60em) {
+      max-width: 486px;
+    }
 
-    ${media.lessThan("mobile")`
-    padding: 0 20px;
-  `};
+    @media(max-width: 46em) {
+      padding: 0 20px;
+    }
   }
 `
 
@@ -120,27 +118,27 @@ const ImageCSS = css`
     margin: 15px auto 50px;
     border-radius: 5px;
 
-    ${media.lessThan("desktop")`
+    @media(max-width: 78em) {
       margin: 10px auto 45px;
-    `};
+    }
   }
 
   div.i-r {
     border-radius: 50% !important;
     overflow: hidden;
     margin-bottom: ${props => props.theme.spacing.md} !important;
-    max-width: 320px !important;
-    padding: 0px !important;
+    max-width: 320px!important;
+    padding: 0px!important;
     pointer-events: none;
     user-select: none;
 
     img {
-      margin: 0px !important;
+      margin: 0px!important;
     }
   }
 
   div.i-f {
-    z-index: 10 !important;
+    z-index: 10!important;
     margin-bottom: ${props => props.theme.spacing.xl} !important;
   }
 
@@ -156,21 +154,21 @@ const ImageCSS = css`
     max-width: 900px;
     text-align: center;
 
-    ${media.greaterThan("tablet")`
+    @media (min-width: 60em) {
       margin: 10px auto 45px;
-    `};
+    }
 
-    ${media.lessThan("tablet")`
+    @media(max-width: 60em) {
       max-width: 507px;
       max-width: 486px;
       margin: 0 auto 25px;
       left: 0px;
-    `};
+    }
 
-    ${media.lessThan("mobile")`
+    @media (max-width: 46em) {
       max-width: 100%;
       padding: 0 24px;
-    `};
+    }
   }
 
   div.i-m {
@@ -180,15 +178,15 @@ const ImageCSS = css`
     max-width: ${IMAGE_WIDTHS.large};
     z-index: 10;
 
-    ${media.greaterThan("desktop")`
+    @media (min-width: 78em) {
       left: -34px;
-    `};
+    }
 
-    ${media.greaterThan("tablet")`
+    @media (min-width: 60em) {
       left: 0px;
-    `};
+    }
 
-    ${media.lessThan("tablet")`
+    @media(max-width: 60em) {
       border-radius: 0;
       left: 0;
       margin: 0 auto 25px;
@@ -197,7 +195,7 @@ const ImageCSS = css`
       img {
         border-radius: 0;
       }
-    `};
+    }
   }
 
   div.i-l {
@@ -211,14 +209,18 @@ const ImageCSS = css`
       border-radius: 0;
     }
 
-    ${media.lessThan("desktop")`
+    @media(max-width: 78em) {
       margin: 0 0 25px 0;
       padding: 0px;
-    `};
+    }
 
-    ${media.lessThan("tablet")`
+    @media (max-width: 60em) {
       z-index: 0;
-    `};
+    }
+
+    ${Body} {
+      max-width: ${IMAGE_WIDTHS.full}
+    }
   }
 
   span.caption {
@@ -233,28 +235,30 @@ const ImageCSS = css`
 `
 
 export const MDXBody = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  overflow: hidden;
+  && {
+    position: relative;
+    display: flex;
+    justify- content: center;
+    flex-direction: column;
+    overflow: hidden;
 
-  ${HeadingsCSS}
-  ${ImageCSS}
+    ${HeadingsCSS}
+    ${ImageCSS}
+  }
 `
 
 export const Hero = styled.div`
   min-height: 720px;
   width: 100vw;
   height: 100vh;
-  max-width: initial !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
+  max-width: initial!important;
+  margin: 0!important;
+  border-radius: 0!important;
   z-index: 10;
 
   img {
-    margin: 0 !important;
-    border-radius: 0 !important;
+    margin: 0!important;
+    border-radius: 0!important;
   }
 `
 
@@ -281,7 +285,7 @@ export const TimeHolder = styled.h2`
   font-style: italic;
   font-size: ${props => props.theme.size.md};
   bottom: ${props => props.theme.spacing.md};
-  animation: ${fadeIn} 3s ease-in;
+  animation: ${fadeIn} 3s ease -in;
 
   span {
     margin: auto ${props => props.theme.spacing.xs} !important;
@@ -293,7 +297,7 @@ export const TimeHolder = styled.h2`
     text-align: right;
   }
 
-  span:last-of-type {
+  span: last-of-type {
     flex: 1;
     text-align: left;
   }
@@ -306,7 +310,7 @@ export const MetaContainer = styled.div`
   max-width: 50%;
   padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
   border-radius: 4px;
-  animation: ${fadeIn} 2s ease-in;
+  animation: ${fadeIn} 2s ease -in;
   width: 100%;
   z-index: 10;
 
@@ -314,13 +318,13 @@ export const MetaContainer = styled.div`
     color: ${props => props.theme.palette.white};
   }
 
-  ${media.lessThan("tablet")`
-      max-width: 75%;
-  `};
+  @media(max-width: 60em) {
+    max-width: 75%;
+  }
 
-  ${media.lessThan("mobile")`
-      max-width: 95%;
-  `};
+  @media (max-width: 46em) {
+    max-width: 95%;
+  }
 `
 
 export const HomeLink = styled(Link)`
@@ -349,7 +353,7 @@ export const ScrollPromptIcon = styled(MaterialIcon)`
   right: ${props => props.theme.spacing.md};
   transition: color 0.2s linear;
 
-  animation: ${fadeIn} 6s ease-in;
+  animation: ${fadeIn} 6s ease -in;
 
   &:hover {
     cursor: pointer;

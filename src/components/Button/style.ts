@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 
-interface IContainerProps {
+type IContainerProps = {
   borderless?: boolean
   compact?: boolean
   active?: boolean

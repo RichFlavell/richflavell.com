@@ -4,9 +4,9 @@ import Button from "../Button"
 import {
   Container,
   Inner,
+  LeftAction,
   LogoContainer,
   MenuIcon,
-  LeftAction,
   RightAction,
   Subtitle,
 } from "./style"

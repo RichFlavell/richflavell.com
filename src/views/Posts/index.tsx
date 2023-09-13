@@ -2,8 +2,6 @@ import { graphql } from "gatsby"
 import React from "react"
 import Card from "../../components/Card"
 import { Left, Right } from "../../config/style/mdx"
-import { PostsQuery } from "../../types/graphql"
-import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
 import { SeeMoreLink } from "../Home/style"
 import {
@@ -17,8 +15,8 @@ import {
 import { useTranslation } from "react-i18next"
 import Header from "../../components/Header"
 
-interface IPostsProps {
-  data: PostsQuery
+type IPostsProps = {
+  data: Queries.PostPagesQuery
   pageContext: {
     currentPage: number
     numPages: number
@@ -26,7 +24,7 @@ interface IPostsProps {
 }
 const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
   const { t } = useTranslation("Posts")
-  const posts = safe(data.allMdx.edges)
+  const posts = data.allMdx.edges
   return (
     <>
       <SEO title="Posts" pathname="/posts" />
@@ -40,7 +38,7 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
         </PageHeading>
         <PostsGridList>
           {posts.map(post => (
-            <Card cascade={false} key={post.node.id} data={post} />
+            <Card cascade={false} key={post.id} data={post} />
           ))}
         </PostsGridList>
         <Actions>
@@ -73,19 +71,24 @@ const Posts: React.FC<IPostsProps> = ({ data, pageContext }) => {
 export const pageQuery = graphql`
   query Posts($skip: Int!, $limit: Int!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {frontmatter: {date: DESC}}
       limit: $limit
       skip: $skip
-      filter: { frontmatter: { path: { eq: null } } }
+      filter: {frontmatter: {path: {eq: null}}}
     ) {
       totalCount
       edges {
         node {
           id
           excerpt(pruneLength: 160)
-          timeToRead
           fields {
             slug
+            timeToRead {
+              minutes
+              text
+              time
+              words
+            }
           }
           frontmatter {
             title
@@ -93,14 +96,17 @@ export const pageQuery = graphql`
             thumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(
-                  maxWidth: 653
-                  maxHeight: 280
-                  cropFocus: CENTER
-                  quality: 80
-                ) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  layout: CONSTRAINED, 
+                  width: 653, 
+                  height: 280,
+                  quality: 80,
+                  placeholder: DOMINANT_COLOR,
+                  transformOptions: {
+                    fit: COVER,
+                    cropFocus: CENTER
+                  },
+                )
               }
             }
             date

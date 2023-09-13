@@ -1,6 +1,5 @@
 import MaterialIcon from "@material/react-material-icon"
 import styled, { css } from "styled-components"
-import { media } from "../../config/style/global"
 
 export const Container = styled.header<{ hidden?: boolean }>`
   display: flex;
@@ -51,22 +50,22 @@ export const LogoContainer = styled.div<{ alignCenter?: boolean }>`
       text-align: center;
       margin: auto;
     `}
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     margin: auto;
-  `}
+  }
 `
 
 export const StyledIcon = styled(MaterialIcon)`
-  margin-right: ${props => props.theme.spacing.sm};
-  font-size: ${props => props.theme.size.md};
+margin-right: ${props => props.theme.spacing.sm};
+font-size: ${props => props.theme.size.md};
 `
 
 export const MenuIcon = styled(MaterialIcon)`
-  font-size: ${props => props.theme.size.md};
+font-size: ${props => props.theme.size.md};
 `
 
 export const RightAction = styled.div<{ floating?: boolean }>`
-  margin: auto;
+margin: auto;
 
   ${props =>
     props.floating &&
@@ -79,7 +78,7 @@ export const RightAction = styled.div<{ floating?: boolean }>`
 `
 
 export const LeftAction = styled.div<{ floating?: boolean }>`
-  margin: auto;
+margin: auto;
 
   ${props =>
     props.floating &&
@@ -92,8 +91,8 @@ export const LeftAction = styled.div<{ floating?: boolean }>`
 `
 
 export const Subtitle = styled.span`
-  opacity: 0.5;
-  ${media.lessThan("mobile")`
-    display: none;
-  `}
+opacity: 0.5;
+@media(max-width: 46em) {
+  display: none;
+}
 `

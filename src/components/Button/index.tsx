@@ -1,7 +1,7 @@
 import React from "react"
 import { Container } from "./style"
 
-interface IButtonProps {
+type IButtonProps = {
   children: React.ReactNode
   type?: "submit"
   borderless?: boolean

@@ -1,22 +1,22 @@
 import React, {
-  useState,
-  useEffect,
-  useContext,
   FormEvent,
   useCallback,
+  useContext,
+  useEffect,
+  useState,
 } from "react"
 import {
-  SubscribeContainer,
-  SubscribeButton,
   ButtonIcon,
+  CloseIcon,
+  Disclaimer,
   LeftContent,
   RightContent,
   SendIcon,
+  StyledForm,
   StyledInput,
   StyledTitle,
-  CloseIcon,
-  StyledForm,
-  Disclaimer,
+  SubscribeButton,
+  SubscribeContainer,
 } from "./style"
 import { useTranslation } from "react-i18next"
 import Modal from "../Modal"

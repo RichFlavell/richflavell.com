@@ -1,9 +1,8 @@
 import styled, { css } from "styled-components"
 import { Title } from "../../config/style/mdx"
 import { Link } from "gatsby"
-import { media } from "../../config/style/global"
 
-interface IContainerProps {
+type IContainerProps = {
   cascade?: boolean
 }
 export const Container = styled.article<IContainerProps>`
@@ -25,7 +24,7 @@ export const Container = styled.article<IContainerProps>`
         `}
 `
 
-export const CardTitle = styled(Title)<IContainerProps>`
+export const CardTitle = styled(Title) <IContainerProps>`
   text-align: left;
   font-size: ${props => props.theme.size.md};
   transition: color 0.2s linear;
@@ -74,18 +73,18 @@ export const CardImage = styled.div<{ cascade?: boolean }>`
       margin-right: ${props.theme.spacing.lg};
     `}
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     height: 100%;
     margin-right: 0px;
     width: 100%;
-  `};
+  }
 `
 
-export const LinkWrapper = styled(Link)<{ cascade?: number }>`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: ${props => (props.cascade ? "column" : "row")};
+export const LinkWrapper = styled(Link) <{ cascade?: number }>`
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: ${props => (props.cascade ? "column" : "row")};
 
   ${props =>
     !props.cascade &&
@@ -93,9 +92,9 @@ export const LinkWrapper = styled(Link)<{ cascade?: number }>`
       align-items: center;
     `};
 
-  ${media.lessThan("mobile")`
-    flex-direction: column;
-  `};
+@media(max-width: 46em) {
+  flex-direction: column;
+}
 
   &:hover {
     color: ${props => props.theme.palette.text.primary} !important;

@@ -1,16 +1,26 @@
 {
-  "globals": {
-    "__PATH_PREFIX__": true
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
   },
-  "extends": "react-app",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
   "rules": {
-    "jsx-no-multiline-js": 0,
-    "jsx-no-lambda": 0,
-    "import-name": 0,
-    "no-boolean-literal-compare": 0,
-    "no-object-literal-type-assertion": 0,
-    "no-var-requires": 0,
-    "object-literal-sort-keys": 0,
-    "ordered-imports": 0
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/consistent-type-definitions": [
+      "error",
+      "type"
+    ]
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
   }
 }

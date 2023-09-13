@@ -1,46 +1,45 @@
 import React, { useLayoutEffect } from "react"
 import { globalHistory, navigate } from "@reach/router"
 import { DiscussionEmbed } from "disqus-react"
+import ReactPlayer from "react-player"
 import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import { MDXProvider } from "@mdx-js/react"
+import { components } from "../../config/style/mdx"
 import { format } from "timeago.js"
-import { PostQuery } from "../../types/graphql"
-import safe from "../../utils/safe"
 import { Title } from "../../config/style/mdx"
 import {
   Container,
-  Meta,
-  TimeHolder,
-  MDXBody,
-  Hero,
   DisqusWrapper,
-  Subtitle,
-  MetaContainer,
+  Hero,
   HomeLink,
-  ScrollPromptIcon,
+  MDXBody,
   MDXContainer,
+  Meta,
+  MetaContainer,
+  ScrollPromptIcon,
+  Subtitle,
+  TimeHolder,
 } from "./style"
 import SEO from "../../utils/SEO"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import ScrollProgress from "../../components/ScrollProgress"
+import Embed from "../../components/Embed"
 import { useTranslation } from "react-i18next"
 import Header from "../../components/Header"
 
-interface IPostProps {
-  data: PostQuery
-}
-const Post: React.FC<IPostProps> = ({ data }) => {
+// @ts-expect-error: Types omit due to Acorn compiler limitation in the MDX parser
+const Post = ({ data: { mdx }, children }) => {
   const { t } = useTranslation("Sidebar")
-  const { frontmatter, body, timeToRead, excerpt, id, fields } = data.mdx!
+  const { frontmatter, excerpt, id, fields } = mdx
   const {
     customHeading,
     title,
     featuredImage,
     date,
     description,
-  } = frontmatter!
+  } = frontmatter
 
-  const { slug } = fields!
+  const { slug, timeToRead } = fields
 
   const disqusConfig = {
     shortname: "richflavell",
@@ -54,7 +53,7 @@ const Post: React.FC<IPostProps> = ({ data }) => {
       const img = wrapper.querySelector("img")
       const placeholder = wrapper.querySelector("span")
 
-      img!.addEventListener("load", () => (placeholder!.style.opacity = "0"))
+      placeholder && img?.addEventListener("load", () => (placeholder.style.opacity = "0"))
     })
   }, [])
 
@@ -64,8 +63,8 @@ const Post: React.FC<IPostProps> = ({ data }) => {
         title={title}
         article={true}
         description={description || excerpt}
-        image={safe(featuredImage).publicURL!}
-        pathname={`${slug!}/`}
+        image={featuredImage?.publicURL}
+        pathname={`${slug}/`}
       />
 
       <Header actionsOnly={!customHeading} alignCenter={true} />
@@ -84,23 +83,20 @@ const Post: React.FC<IPostProps> = ({ data }) => {
                     <Subtitle>{description || excerpt}</Subtitle>
                   </MetaContainer>
                   <TimeHolder>
-                    <time dateTime={date || undefined}>{format(date!)}</time>{" "}
+                    <time dateTime={date || undefined}>{format(date)}</time>{" "}
                     <span>{"•"} </span>
-                    <span>{timeToRead} min read</span>
+                    <span>{timeToRead.text}</span>
                   </TimeHolder>
                   <ScrollPromptIcon
                     onClick={() => navigate(`${slug}#POST`)}
                     icon="arrow_drop_down_circle"
                   />
                 </Meta>
-                {
-                  // @ts-ignore
-                  <Img fluid={featuredImage.childImageSharp.fluid} />
-                }
+                <GatsbyImage alt={`Featured image for ${title}`} image={featuredImage.childImageSharp.gatsbyImageData} />
               </Hero>
             )}
             <MDXContainer id="POST">
-              <MDXRenderer>{body}</MDXRenderer>
+              <MDXProvider components={{ ...components, Embed, ReactPlayer }}>{children}</MDXProvider>
             </MDXContainer>
           </MDXBody>
           {!customHeading && (
@@ -118,11 +114,15 @@ export const pageQuery = graphql`
   query Post($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
-      timeToRead
       excerpt
       fields {
         slug
+        timeToRead {
+          minutes
+          text
+          time
+          words
+        }
       }
       frontmatter {
         title
@@ -132,9 +132,16 @@ export const pageQuery = graphql`
         featuredImage {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 3300, quality: 80, cropFocus: CENTER) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              layout: CONSTRAINED, 
+              width: 3300, 
+              quality: 80,
+              placeholder: DOMINANT_COLOR,
+              transformOptions: {
+                fit: COVER,
+                cropFocus: CENTER
+              },
+            )
           }
         }
       }

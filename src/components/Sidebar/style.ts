@@ -2,9 +2,8 @@ import styled, { css } from "styled-components"
 
 import { Link } from "gatsby"
 import Button from "../Button"
-import { media } from "../../config/style/global"
 
-interface IContainerProps {
+type IContainerProps = {
   isOpen: boolean
 }
 export const Container = styled.section<IContainerProps>`
@@ -79,20 +78,20 @@ export const FooterContainer = styled.div`
   white-space: pre;
   fill: ${props => props.theme.palette.text.primary};
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
   margin: inherit;
     margin-right: auto !important;
-  `}
+  }
 
   a {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
     &:hover {
-      cursor: pointer;
+    cursor: pointer;
       svg {
-        fill: ${props => props.theme.palette.link.primary};
-      }
+      fill: ${props => props.theme.palette.link.primary};
     }
   }
+}
 `

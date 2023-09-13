@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useCallback } from "react"
+import { useCallback, useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import Default from "../config/style/theme"
 
@@ -22,19 +22,18 @@ export default function useDarkMode() {
         type: type === "light" ? "SET_LIGHT_THEME" : "SET_DARK_THEME",
       })
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   )
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme")
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches &&
-    !localTheme
+      window.matchMedia("(prefers-color-scheme: dark)").matches &&
+      !localTheme
       ? setTheme("dark")
       : localTheme
-      ? setTheme(localTheme)
-      : setTheme("light")
+        ? setTheme(localTheme)
+        : setTheme("light")
     setComponentMounted(true)
   }, [setTheme])
 

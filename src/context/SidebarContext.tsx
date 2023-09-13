@@ -1,10 +1,10 @@
-import React, { createContext, Dispatch, useReducer } from "react"
+import React, { Dispatch, createContext, useReducer, PropsWithChildren } from "react"
 
-interface IAction {
+type IAction = {
   type: "OPEN_SIDERBAR" | "CLOSE_SIDEBAR" | "TOGGLE_SIDEBAR"
 }
 
-interface IState {
+type IState = {
   isOpen: boolean
 }
 
@@ -12,7 +12,7 @@ const initialState: IState = {
   isOpen: false,
 }
 
-interface ISidebarContextProps {
+type ISidebarContextProps = {
   state: IState
   dispatch: Dispatch<IAction>
 }
@@ -30,7 +30,7 @@ const reducer = (state: IState, action: IAction) => {
   }
 }
 
-const SidebarContextProvider: React.FC = ({ children }) => {
+const SidebarContextProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <SidebarContext.Provider value={{ state, dispatch }}>

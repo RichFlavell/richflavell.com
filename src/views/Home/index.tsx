@@ -3,28 +3,41 @@ import React, { useEffect, useState } from "react"
 import Card from "../../components/Card"
 import GridList from "../../components/GridList"
 import { Content, Right } from "../../config/style/mdx"
-import { HomeQuery } from "../../types/graphql"
-import safe from "../../utils/safe"
 import SEO from "../../utils/SEO"
-import { Holder, Actions, SeeMoreLink, Video, VideoWrapper } from "./style"
+import { Actions, Holder, SeeMoreLink, Video, VideoWrapper } from "./style"
 import { useTranslation } from "react-i18next"
 import Header from "../../components/Header"
 
 const query = graphql`
   query Home {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: {
+        frontmatter: {
+          date: DESC
+        }
+      }
       limit: 6
-      filter: { frontmatter: { path: { eq: null } } }
+      filter: {
+        frontmatter: {
+          path: {
+            eq: null
+          }
+        }
+      }
     ) {
       totalCount
       edges {
         node {
           id
           excerpt(pruneLength: 160)
-          timeToRead
           fields {
             slug
+            timeToRead {
+              minutes
+              text
+              time
+              words
+            }
           }
           frontmatter {
             title
@@ -33,14 +46,17 @@ const query = graphql`
             thumbnail: featuredImage {
               publicURL
               childImageSharp {
-                fluid(
-                  maxWidth: 653
-                  maxHeight: 280
-                  cropFocus: CENTER
-                  quality: 80
-                ) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  layout: CONSTRAINED, 
+                  width: 653, 
+                  height: 280,
+                  quality: 80,
+                  placeholder: DOMINANT_COLOR,
+                  transformOptions: {
+                    fit: COVER,
+                    cropFocus: CENTER
+                  },
+                )
               }
             }
           }
@@ -49,20 +65,15 @@ const query = graphql`
     }
   }
 `
-
-interface IHomeProps {
-  data?: HomeQuery
-}
-const Home: React.FC<IHomeProps> = () => {
-  const data: HomeQuery = useStaticQuery(query)
+const Home = () => {
+  const data = useStaticQuery<Queries.HomeQuery>(query)
   const { t } = useTranslation("Home")
   const videoId = ""
   const [rows, setRows] = useState<Array<typeof data.allMdx.edges>>()
 
-  const postsData = safe(data.allMdx.edges)
+  const postsData = data.allMdx.edges
 
   useEffect(() => {
-    console.log(postsData)
     const tmp = []
     const posts = [...postsData]
     while (posts.length > 0) {

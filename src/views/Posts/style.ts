@@ -1,7 +1,6 @@
 import styled from "styled-components"
-import { Heading, Title, Content } from "../../config/style/mdx"
+import { Content, Heading, Title } from "../../config/style/mdx"
 import GridList from "../../components/GridList"
-import { media } from "../../config/style/global"
 
 export const Wrapper = styled(Content)`
   padding: 0 ${props => props.theme.spacing.md};
@@ -13,24 +12,24 @@ export const Actions = styled.div`
   width: 95%;
   max-width: 90em;
 
-  ${media.lessThan("tablet")`
+  @media (max-width: 60em) {
     padding: 0px ${props => props.theme.spacing.md};
-  `}
+  }
 `
 
 export const PageHeading = styled(Heading)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-bottom: ${props => props.theme.spacing.md};
-  max-width: 90em;
-  width: 95%;
-  margin: auto;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding-bottom: ${props => props.theme.spacing.md};
+max-width: 90em;
+width: 95%;
+margin: auto;
 
-  ${media.lessThan("tablet")`
-    margin: 0px ${props => props.theme.spacing.md};
-    width: auto;
-  `}
+@media(max-width: 60em) {
+  margin: 0px ${props => props.theme.spacing.md};
+  width: auto;
+}
 `
 
 export const PageTitle = styled(Title)`
@@ -49,7 +48,7 @@ export const PageCount = styled.div`
 export const PostsGridList = styled(GridList)`
   max-width: 90em;
 
-  ${media.lessThan("tablet")`
+  @media (max-width: 60em) {
     padding: 0px ${props => props.theme.spacing.md}
-  `}
+  }
 `

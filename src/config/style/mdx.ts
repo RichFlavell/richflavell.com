@@ -1,6 +1,4 @@
-import { Components } from "@mdx-js/react"
 import styled from "styled-components"
-import { media } from "./global"
 
 export const Content = styled.main`
   display: flex;
@@ -33,9 +31,9 @@ export const SubTitle = styled.h2`
   margin: auto;
   text-align: center;
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     padding: 0px ${props => props.theme.spacing.md} !important;
-  `}
+  }
 `
 
 export const SectionTitle = styled.h3`
@@ -45,9 +43,9 @@ export const SectionTitle = styled.h3`
   font-weight: 300;
   text-align: center;
 
-  ${media.lessThan("mobile")`
+  @media(max-width: 46em) {
     padding: 0px ${props => props.theme.spacing.md} !important;
-  `}
+  }
 `
 
 export const SectionInnerTitle = styled.h4`
@@ -56,9 +54,9 @@ export const SectionInnerTitle = styled.h4`
   text-align: center;
   font-weight: 300;
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     padding: 0px ${props => props.theme.spacing.md} !important;
-  `}
+  }
 `
 
 export const Body = styled.p`
@@ -78,10 +76,10 @@ export const Body = styled.p`
     }
   }
 
-  ${media.lessThan("mobile")`
+  @media(max-width: 46em) {
     width: 90%;
     text-align: inherit;
-  `}
+  }
 `
 
 export const Center = styled.div`
@@ -112,11 +110,11 @@ export const Break = styled.hr`
   margin: ${props => props.theme.spacing.md} auto;
   margin-top: ${props => props.theme.spacing.lg};
 
-  ${media.lessThan("mobile")`
+  @media (max-width: 46em) {
     width: 85%;
-  `}
+  }
 
-  &:before,
+  &: before,
   &:after {
     position: absolute;
     bottom: -3.536px;
@@ -148,4 +146,4 @@ export const components = {
   p: Body,
   em: Emphasis,
   hr: Break,
-} as Components
+}

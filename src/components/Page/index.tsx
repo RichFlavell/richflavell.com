@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, PropsWithChildren } from "react"
 import { SidebarContext } from "../../context/SidebarContext"
 import { Container } from "./style"
 import { ModalContext } from "../../context/ModalContext"
 
-const Page: React.FC = ({ children }) => {
+const Page = ({ children }: PropsWithChildren) => {
   const sidebarContext = useContext(SidebarContext)
   const modalContext = useContext(ModalContext)
 
